@@ -1,0 +1,3259 @@
+Useless nonterminals:
+
+   Statement
+   StatementTerminator
+   IfStatement
+   WhileStatement
+   DoWhileStatement
+   ForStatement
+   ForLoopParts
+   SwitchStatement
+   SwitchCaseList
+   SwitchCase
+   DefaultCaseOpt
+   StatementList
+   VarStmt
+   BreakStatement
+   ContinueStatement
+   ReturnStatement
+   SimpleExpressionOpt
+   ModifierList
+   Modifier
+   TopLevelList
+   TopLevelDeclaration
+   ClassDeclaration
+   ClassMemberList
+   ClassMember
+   FunctionDeclaration
+   ParameterListOpt
+   ParameterList
+   Parameter
+   Type
+   BlockStatement
+
+
+Terminals which are not used:
+
+   ABSTRACT
+   ANY
+   AS
+   BOOLEAN
+   BREAK
+   CASE
+   CATCH
+   CLASS
+   CONST
+   CONSTRUCTOR
+   CONTINUE
+   DEBUGGER
+   DEFAULT
+   DELETE
+   DO
+   DYNAMIC
+   ELSE
+   ENUM
+   EXPORT
+   EXTENDS
+   EXTENSION
+   EXTERNAL
+   FACTORY
+   _FALSE
+   FINALLY
+   FOR
+   FROM
+   FUNCTION
+   GET
+   IF
+   IMPLEMENTS
+   IMPORT
+   IN
+   INSTANCEOF
+   IS
+   LATE
+   LET
+   MODULE
+   MIXIN
+   NEVER
+   NEW
+   _NULL
+   NUMBER
+   OBJECT
+   OF
+   PACKAGE
+   PRIVATE
+   PROTECTED
+   PUBLIC
+   FINAL
+   READONLY
+   REQUIRE
+   RETURN
+   SET
+   STATIC
+   STRING
+   SUPER
+   SWITCH
+   SYMBOL
+   THIS
+   THROW
+   _TRUE
+   TRY
+   TYPEOF
+   TYPEDEF
+   UNKNOWN
+   VAR
+   WHILE
+   INT
+   DOUBLE
+   NUM
+   VOID
+   DOG
+   ASSIGNMENT
+   BIT_XOR
+   BIT_AND
+   BIT_OR
+   LEFT_FIGURE_BRACKET
+   RIGHT_FIGURE_BRACKET
+   NULL_COALESCE
+   CASCADE
+   INT_DIV
+   CAST
+   SEMICOLON
+   QUESTION
+   ENTER
+
+
+Useless rules:
+
+#44    Statement :	 StatementTerminator;
+#45    Statement :	 SimpleExpression StatementTerminator;
+#46    Statement :	 VarStmt StatementTerminator;
+#47    Statement :	 IfStatement;
+#48    Statement :	 WhileStatement;
+#49    Statement :	 DoWhileStatement;
+#50    Statement :	 ForStatement;
+#51    Statement :	 SwitchStatement;
+#52    Statement :	 BreakStatement;
+#53    Statement :	 ContinueStatement;
+#54    Statement :	 ReturnStatement;
+#55    Statement :	 BlockStatement;
+#56    StatementTerminator :	 SEMICOLON;
+#57    IfStatement :	 IF LEFT_ROUND_BRACKET SimpleExpression RIGHT_ROUND_BRACKET Statement;
+#58    IfStatement :	 IF LEFT_ROUND_BRACKET SimpleExpression RIGHT_ROUND_BRACKET Statement ELSE Statement;
+#59    WhileStatement :	 WHILE LEFT_ROUND_BRACKET SimpleExpression RIGHT_ROUND_BRACKET Statement;
+#60    DoWhileStatement :	 DO Statement WHILE LEFT_ROUND_BRACKET SimpleExpression RIGHT_ROUND_BRACKET StatementTerminator;
+#61    ForStatement :	 FOR LEFT_ROUND_BRACKET ForLoopParts RIGHT_ROUND_BRACKET Statement;
+#62    ForLoopParts :	;
+#63    ForLoopParts :	 SimpleExpression StatementTerminator SimpleExpression;
+#64    ForLoopParts :	 VAR ID ASSIGNMENT SimpleExpression StatementTerminator SimpleExpression;
+#65    SwitchStatement :	 SWITCH LEFT_ROUND_BRACKET SimpleExpression RIGHT_ROUND_BRACKET LEFT_FIGURE_BRACKET SwitchCaseList DefaultCaseOpt RIGHT_FIGURE_BRACKET;
+#66    SwitchCaseList :	;
+#67    SwitchCaseList :	 SwitchCaseList SwitchCase;
+#68    SwitchCase :	 CASE SimpleExpression COLON StatementList;
+#69    DefaultCaseOpt :	;
+#70    DefaultCaseOpt :	 DEFAULT COLON StatementList;
+#71    StatementList :	 Statement;
+#72    StatementList :	 StatementList Statement;
+#73    VarStmt :	 VAR ID;
+#74    VarStmt :	 VAR ID ASSIGNMENT SimpleExpression;
+#75    BreakStatement :	 BREAK StatementTerminator;
+#76    ContinueStatement :	 CONTINUE StatementTerminator;
+#77    ReturnStatement :	 RETURN SimpleExpressionOpt StatementTerminator;
+#78    SimpleExpressionOpt :	;
+#79    SimpleExpressionOpt :	 SimpleExpression;
+#80    ModifierList :	;
+#81    ModifierList :	 ModifierList Modifier;
+#82    Modifier :	 PUBLIC;
+#83    Modifier :	 PRIVATE;
+#84    Modifier :	 PROTECTED;
+#85    Modifier :	 STATIC;
+#86    Modifier :	 FINAL;
+#87    Modifier :	 CONST;
+#88    TopLevelList :	 TopLevelDeclaration;
+#89    TopLevelList :	 TopLevelList TopLevelDeclaration;
+#90    TopLevelDeclaration :	 ClassDeclaration;
+#91    TopLevelDeclaration :	 FunctionDeclaration;
+#92    ClassDeclaration :	 ModifierList CLASS ID LEFT_FIGURE_BRACKET ClassMemberList RIGHT_FIGURE_BRACKET;
+#93    ClassMemberList :	;
+#94    ClassMemberList :	 ClassMemberList ClassMember;
+#95    ClassMember :	 ModifierList FunctionDeclaration;
+#96    ClassMember :	 ModifierList VarStmt StatementTerminator;
+#97    FunctionDeclaration :	 ModifierList VOID ID LEFT_ROUND_BRACKET ParameterListOpt RIGHT_ROUND_BRACKET BlockStatement;
+#98    FunctionDeclaration :	 ModifierList Type ID LEFT_ROUND_BRACKET ParameterListOpt RIGHT_ROUND_BRACKET BlockStatement;
+#99    ParameterListOpt :	;
+#100   ParameterListOpt :	 ParameterList;
+#101   ParameterList :	 Parameter;
+#102   ParameterList :	 ParameterList ASSIGNMENT Parameter;
+#103   Parameter :	 Type ID;
+#104   Parameter :	 VAR ID;
+#105   Type :	 ID;
+#106   BlockStatement :	 LEFT_FIGURE_BRACKET StatementList RIGHT_FIGURE_BRACKET;
+
+
+Conflict in state 16 between rule 38 and token OPT_PARAM resolved as shift.
+Conflict in state 16 between rule 38 and token MOD resolved as reduce.
+Conflict in state 16 between rule 38 and token MOD_ASSIGNMENT resolved as reduce.
+Conflict in state 16 between rule 38 and token PLUS resolved as reduce.
+Conflict in state 16 between rule 38 and token PLUS_ASSIGNMENT resolved as reduce.
+Conflict in state 16 between rule 38 and token INCREMENT resolved as shift.
+Conflict in state 16 between rule 38 and token MINUS resolved as reduce.
+Conflict in state 16 between rule 38 and token MINUS_ASSIGNMENT resolved as reduce.
+Conflict in state 16 between rule 38 and token DECREMENT resolved as shift.
+Conflict in state 16 between rule 38 and token MUL resolved as reduce.
+Conflict in state 16 between rule 38 and token MUL_ASSIGNMENT resolved as reduce.
+Conflict in state 16 between rule 38 and token EQUAL resolved as reduce.
+Conflict in state 16 between rule 38 and token NOT_EQUAL resolved as reduce.
+Conflict in state 16 between rule 38 and token MORE resolved as reduce.
+Conflict in state 16 between rule 38 and token MORE_OR_EQUAL resolved as reduce.
+Conflict in state 16 between rule 38 and token LESS resolved as reduce.
+Conflict in state 16 between rule 38 and token LESS_OR_EQUAL resolved as reduce.
+Conflict in state 16 between rule 38 and token DIV resolved as reduce.
+Conflict in state 16 between rule 38 and token DIV_ASSIGNMENT resolved as reduce.
+Conflict in state 16 between rule 38 and token AND resolved as reduce.
+Conflict in state 16 between rule 38 and token OR resolved as reduce.
+Conflict in state 16 between rule 38 and token LEFT_SQUARE_BRACKET resolved as shift.
+Conflict in state 16 between rule 38 and token SAFE_NAVIGATE resolved as shift.
+Conflict in state 16 between rule 38 and token DOT resolved as shift.
+Conflict in state 17 between rule 40 and token OPT_PARAM resolved as shift.
+Conflict in state 17 between rule 40 and token MOD resolved as reduce.
+Conflict in state 17 between rule 40 and token MOD_ASSIGNMENT resolved as reduce.
+Conflict in state 17 between rule 40 and token PLUS resolved as reduce.
+Conflict in state 17 between rule 40 and token PLUS_ASSIGNMENT resolved as reduce.
+Conflict in state 17 between rule 40 and token INCREMENT resolved as reduce.
+Conflict in state 17 between rule 40 and token MINUS resolved as reduce.
+Conflict in state 17 between rule 40 and token MINUS_ASSIGNMENT resolved as reduce.
+Conflict in state 17 between rule 40 and token DECREMENT resolved as reduce.
+Conflict in state 17 between rule 40 and token MUL resolved as reduce.
+Conflict in state 17 between rule 40 and token MUL_ASSIGNMENT resolved as reduce.
+Conflict in state 17 between rule 40 and token EQUAL resolved as reduce.
+Conflict in state 17 between rule 40 and token NOT_EQUAL resolved as reduce.
+Conflict in state 17 between rule 40 and token MORE resolved as reduce.
+Conflict in state 17 between rule 40 and token MORE_OR_EQUAL resolved as reduce.
+Conflict in state 17 between rule 40 and token LESS resolved as reduce.
+Conflict in state 17 between rule 40 and token LESS_OR_EQUAL resolved as reduce.
+Conflict in state 17 between rule 40 and token DIV resolved as reduce.
+Conflict in state 17 between rule 40 and token DIV_ASSIGNMENT resolved as reduce.
+Conflict in state 17 between rule 40 and token AND resolved as reduce.
+Conflict in state 17 between rule 40 and token OR resolved as reduce.
+Conflict in state 17 between rule 40 and token LEFT_SQUARE_BRACKET resolved as shift.
+Conflict in state 17 between rule 40 and token SAFE_NAVIGATE resolved as reduce.
+Conflict in state 17 between rule 40 and token DOT resolved as reduce.
+Conflict in state 18 between rule 37 and token OPT_PARAM resolved as shift.
+Conflict in state 18 between rule 37 and token MOD resolved as reduce.
+Conflict in state 18 between rule 37 and token MOD_ASSIGNMENT resolved as reduce.
+Conflict in state 18 between rule 37 and token PLUS resolved as reduce.
+Conflict in state 18 between rule 37 and token PLUS_ASSIGNMENT resolved as reduce.
+Conflict in state 18 between rule 37 and token INCREMENT resolved as shift.
+Conflict in state 18 between rule 37 and token MINUS resolved as reduce.
+Conflict in state 18 between rule 37 and token MINUS_ASSIGNMENT resolved as reduce.
+Conflict in state 18 between rule 37 and token DECREMENT resolved as shift.
+Conflict in state 18 between rule 37 and token MUL resolved as reduce.
+Conflict in state 18 between rule 37 and token MUL_ASSIGNMENT resolved as reduce.
+Conflict in state 18 between rule 37 and token EQUAL resolved as reduce.
+Conflict in state 18 between rule 37 and token NOT_EQUAL resolved as reduce.
+Conflict in state 18 between rule 37 and token MORE resolved as reduce.
+Conflict in state 18 between rule 37 and token MORE_OR_EQUAL resolved as reduce.
+Conflict in state 18 between rule 37 and token LESS resolved as reduce.
+Conflict in state 18 between rule 37 and token LESS_OR_EQUAL resolved as reduce.
+Conflict in state 18 between rule 37 and token DIV resolved as reduce.
+Conflict in state 18 between rule 37 and token DIV_ASSIGNMENT resolved as reduce.
+Conflict in state 18 between rule 37 and token AND resolved as reduce.
+Conflict in state 18 between rule 37 and token OR resolved as reduce.
+Conflict in state 18 between rule 37 and token LEFT_SQUARE_BRACKET resolved as shift.
+Conflict in state 18 between rule 37 and token SAFE_NAVIGATE resolved as shift.
+Conflict in state 18 between rule 37 and token DOT resolved as shift.
+Conflict in state 19 between rule 41 and token OPT_PARAM resolved as shift.
+Conflict in state 19 between rule 41 and token MOD resolved as reduce.
+Conflict in state 19 between rule 41 and token MOD_ASSIGNMENT resolved as reduce.
+Conflict in state 19 between rule 41 and token PLUS resolved as reduce.
+Conflict in state 19 between rule 41 and token PLUS_ASSIGNMENT resolved as reduce.
+Conflict in state 19 between rule 41 and token INCREMENT resolved as reduce.
+Conflict in state 19 between rule 41 and token MINUS resolved as reduce.
+Conflict in state 19 between rule 41 and token MINUS_ASSIGNMENT resolved as reduce.
+Conflict in state 19 between rule 41 and token DECREMENT resolved as reduce.
+Conflict in state 19 between rule 41 and token MUL resolved as reduce.
+Conflict in state 19 between rule 41 and token MUL_ASSIGNMENT resolved as reduce.
+Conflict in state 19 between rule 41 and token EQUAL resolved as reduce.
+Conflict in state 19 between rule 41 and token NOT_EQUAL resolved as reduce.
+Conflict in state 19 between rule 41 and token MORE resolved as reduce.
+Conflict in state 19 between rule 41 and token MORE_OR_EQUAL resolved as reduce.
+Conflict in state 19 between rule 41 and token LESS resolved as reduce.
+Conflict in state 19 between rule 41 and token LESS_OR_EQUAL resolved as reduce.
+Conflict in state 19 between rule 41 and token DIV resolved as reduce.
+Conflict in state 19 between rule 41 and token DIV_ASSIGNMENT resolved as reduce.
+Conflict in state 19 between rule 41 and token AND resolved as reduce.
+Conflict in state 19 between rule 41 and token OR resolved as reduce.
+Conflict in state 19 between rule 41 and token LEFT_SQUARE_BRACKET resolved as shift.
+Conflict in state 19 between rule 41 and token SAFE_NAVIGATE resolved as reduce.
+Conflict in state 19 between rule 41 and token DOT resolved as reduce.
+Conflict in state 20 between rule 39 and token OPT_PARAM resolved as shift.
+Conflict in state 20 between rule 39 and token MOD resolved as reduce.
+Conflict in state 20 between rule 39 and token MOD_ASSIGNMENT resolved as reduce.
+Conflict in state 20 between rule 39 and token PLUS resolved as reduce.
+Conflict in state 20 between rule 39 and token PLUS_ASSIGNMENT resolved as reduce.
+Conflict in state 20 between rule 39 and token INCREMENT resolved as shift.
+Conflict in state 20 between rule 39 and token MINUS resolved as reduce.
+Conflict in state 20 between rule 39 and token MINUS_ASSIGNMENT resolved as reduce.
+Conflict in state 20 between rule 39 and token DECREMENT resolved as shift.
+Conflict in state 20 between rule 39 and token MUL resolved as reduce.
+Conflict in state 20 between rule 39 and token MUL_ASSIGNMENT resolved as reduce.
+Conflict in state 20 between rule 39 and token EQUAL resolved as reduce.
+Conflict in state 20 between rule 39 and token NOT_EQUAL resolved as reduce.
+Conflict in state 20 between rule 39 and token MORE resolved as reduce.
+Conflict in state 20 between rule 39 and token MORE_OR_EQUAL resolved as reduce.
+Conflict in state 20 between rule 39 and token LESS resolved as reduce.
+Conflict in state 20 between rule 39 and token LESS_OR_EQUAL resolved as reduce.
+Conflict in state 20 between rule 39 and token DIV resolved as reduce.
+Conflict in state 20 between rule 39 and token DIV_ASSIGNMENT resolved as reduce.
+Conflict in state 20 between rule 39 and token AND resolved as reduce.
+Conflict in state 20 between rule 39 and token OR resolved as reduce.
+Conflict in state 20 between rule 39 and token LEFT_SQUARE_BRACKET resolved as shift.
+Conflict in state 20 between rule 39 and token SAFE_NAVIGATE resolved as shift.
+Conflict in state 20 between rule 39 and token DOT resolved as shift.
+Conflict in state 51 between rule 22 and token OPT_PARAM resolved as shift.
+Conflict in state 51 between rule 22 and token MOD resolved as reduce.
+Conflict in state 51 between rule 22 and token MOD_ASSIGNMENT resolved as reduce.
+Conflict in state 51 between rule 22 and token PLUS resolved as reduce.
+Conflict in state 51 between rule 22 and token PLUS_ASSIGNMENT resolved as reduce.
+Conflict in state 51 between rule 22 and token INCREMENT resolved as shift.
+Conflict in state 51 between rule 22 and token MINUS resolved as reduce.
+Conflict in state 51 between rule 22 and token MINUS_ASSIGNMENT resolved as reduce.
+Conflict in state 51 between rule 22 and token DECREMENT resolved as shift.
+Conflict in state 51 between rule 22 and token MUL resolved as reduce.
+Conflict in state 51 between rule 22 and token MUL_ASSIGNMENT resolved as reduce.
+Conflict in state 51 between rule 22 and token EQUAL resolved as reduce.
+Conflict in state 51 between rule 22 and token NOT_EQUAL resolved as reduce.
+Conflict in state 51 between rule 22 and token MORE resolved as reduce.
+Conflict in state 51 between rule 22 and token MORE_OR_EQUAL resolved as reduce.
+Conflict in state 51 between rule 22 and token LESS resolved as reduce.
+Conflict in state 51 between rule 22 and token LESS_OR_EQUAL resolved as reduce.
+Conflict in state 51 between rule 22 and token DIV resolved as reduce.
+Conflict in state 51 between rule 22 and token DIV_ASSIGNMENT resolved as reduce.
+Conflict in state 51 between rule 22 and token AND resolved as reduce.
+Conflict in state 51 between rule 22 and token OR resolved as reduce.
+Conflict in state 51 between rule 22 and token LEFT_SQUARE_BRACKET resolved as shift.
+Conflict in state 51 between rule 22 and token SAFE_NAVIGATE resolved as shift.
+Conflict in state 51 between rule 22 and token DOT resolved as shift.
+Conflict in state 52 between rule 35 and token OPT_PARAM resolved as shift.
+Conflict in state 52 between rule 35 and token MOD resolved as shift.
+Conflict in state 52 between rule 35 and token MOD_ASSIGNMENT resolved as shift.
+Conflict in state 52 between rule 35 and token PLUS resolved as shift.
+Conflict in state 52 between rule 35 and token PLUS_ASSIGNMENT resolved as shift.
+Conflict in state 52 between rule 35 and token INCREMENT resolved as shift.
+Conflict in state 52 between rule 35 and token MINUS resolved as shift.
+Conflict in state 52 between rule 35 and token MINUS_ASSIGNMENT resolved as shift.
+Conflict in state 52 between rule 35 and token DECREMENT resolved as shift.
+Conflict in state 52 between rule 35 and token MUL resolved as shift.
+Conflict in state 52 between rule 35 and token MUL_ASSIGNMENT resolved as shift.
+Conflict in state 52 between rule 35 and token EQUAL resolved as shift.
+Conflict in state 52 between rule 35 and token NOT_EQUAL resolved as shift.
+Conflict in state 52 between rule 35 and token MORE resolved as shift.
+Conflict in state 52 between rule 35 and token MORE_OR_EQUAL resolved as shift.
+Conflict in state 52 between rule 35 and token LESS resolved as shift.
+Conflict in state 52 between rule 35 and token LESS_OR_EQUAL resolved as shift.
+Conflict in state 52 between rule 35 and token DIV resolved as shift.
+Conflict in state 52 between rule 35 and token DIV_ASSIGNMENT resolved as shift.
+Conflict in state 52 between rule 35 and token AND resolved as shift.
+Conflict in state 52 between rule 35 and token OR resolved as shift.
+Conflict in state 52 between rule 35 and token LEFT_SQUARE_BRACKET resolved as shift.
+Conflict in state 52 between rule 35 and token SAFE_NAVIGATE resolved as shift.
+Conflict in state 52 between rule 35 and token DOT resolved as shift.
+Conflict in state 53 between rule 18 and token OPT_PARAM resolved as shift.
+Conflict in state 53 between rule 18 and token MOD resolved as shift.
+Conflict in state 53 between rule 18 and token MOD_ASSIGNMENT resolved as reduce.
+Conflict in state 53 between rule 18 and token PLUS resolved as reduce.
+Conflict in state 53 between rule 18 and token PLUS_ASSIGNMENT resolved as reduce.
+Conflict in state 53 between rule 18 and token INCREMENT resolved as shift.
+Conflict in state 53 between rule 18 and token MINUS resolved as reduce.
+Conflict in state 53 between rule 18 and token MINUS_ASSIGNMENT resolved as reduce.
+Conflict in state 53 between rule 18 and token DECREMENT resolved as shift.
+Conflict in state 53 between rule 18 and token MUL resolved as shift.
+Conflict in state 53 between rule 18 and token MUL_ASSIGNMENT resolved as reduce.
+Conflict in state 53 between rule 18 and token EQUAL resolved as reduce.
+Conflict in state 53 between rule 18 and token NOT_EQUAL resolved as reduce.
+Conflict in state 53 between rule 18 and token MORE resolved as reduce.
+Conflict in state 53 between rule 18 and token MORE_OR_EQUAL resolved as reduce.
+Conflict in state 53 between rule 18 and token LESS resolved as reduce.
+Conflict in state 53 between rule 18 and token LESS_OR_EQUAL resolved as reduce.
+Conflict in state 53 between rule 18 and token DIV resolved as shift.
+Conflict in state 53 between rule 18 and token DIV_ASSIGNMENT resolved as reduce.
+Conflict in state 53 between rule 18 and token AND resolved as reduce.
+Conflict in state 53 between rule 18 and token OR resolved as reduce.
+Conflict in state 53 between rule 18 and token LEFT_SQUARE_BRACKET resolved as shift.
+Conflict in state 53 between rule 18 and token SAFE_NAVIGATE resolved as shift.
+Conflict in state 53 between rule 18 and token DOT resolved as shift.
+Conflict in state 54 between rule 31 and token OPT_PARAM resolved as shift.
+Conflict in state 54 between rule 31 and token MOD resolved as shift.
+Conflict in state 54 between rule 31 and token MOD_ASSIGNMENT resolved as shift.
+Conflict in state 54 between rule 31 and token PLUS resolved as shift.
+Conflict in state 54 between rule 31 and token PLUS_ASSIGNMENT resolved as shift.
+Conflict in state 54 between rule 31 and token INCREMENT resolved as shift.
+Conflict in state 54 between rule 31 and token MINUS resolved as shift.
+Conflict in state 54 between rule 31 and token MINUS_ASSIGNMENT resolved as shift.
+Conflict in state 54 between rule 31 and token DECREMENT resolved as shift.
+Conflict in state 54 between rule 31 and token MUL resolved as shift.
+Conflict in state 54 between rule 31 and token MUL_ASSIGNMENT resolved as shift.
+Conflict in state 54 between rule 31 and token EQUAL resolved as shift.
+Conflict in state 54 between rule 31 and token NOT_EQUAL resolved as shift.
+Conflict in state 54 between rule 31 and token MORE resolved as shift.
+Conflict in state 54 between rule 31 and token MORE_OR_EQUAL resolved as shift.
+Conflict in state 54 between rule 31 and token LESS resolved as shift.
+Conflict in state 54 between rule 31 and token LESS_OR_EQUAL resolved as shift.
+Conflict in state 54 between rule 31 and token DIV resolved as shift.
+Conflict in state 54 between rule 31 and token DIV_ASSIGNMENT resolved as shift.
+Conflict in state 54 between rule 31 and token AND resolved as shift.
+Conflict in state 54 between rule 31 and token OR resolved as shift.
+Conflict in state 54 between rule 31 and token LEFT_SQUARE_BRACKET resolved as shift.
+Conflict in state 54 between rule 31 and token SAFE_NAVIGATE resolved as shift.
+Conflict in state 54 between rule 31 and token DOT resolved as shift.
+Conflict in state 55 between rule 19 and token OPT_PARAM resolved as shift.
+Conflict in state 55 between rule 19 and token MOD resolved as shift.
+Conflict in state 55 between rule 19 and token MOD_ASSIGNMENT resolved as reduce.
+Conflict in state 55 between rule 19 and token PLUS resolved as reduce.
+Conflict in state 55 between rule 19 and token PLUS_ASSIGNMENT resolved as reduce.
+Conflict in state 55 between rule 19 and token INCREMENT resolved as shift.
+Conflict in state 55 between rule 19 and token MINUS resolved as reduce.
+Conflict in state 55 between rule 19 and token MINUS_ASSIGNMENT resolved as reduce.
+Conflict in state 55 between rule 19 and token DECREMENT resolved as shift.
+Conflict in state 55 between rule 19 and token MUL resolved as shift.
+Conflict in state 55 between rule 19 and token MUL_ASSIGNMENT resolved as reduce.
+Conflict in state 55 between rule 19 and token EQUAL resolved as reduce.
+Conflict in state 55 between rule 19 and token NOT_EQUAL resolved as reduce.
+Conflict in state 55 between rule 19 and token MORE resolved as reduce.
+Conflict in state 55 between rule 19 and token MORE_OR_EQUAL resolved as reduce.
+Conflict in state 55 between rule 19 and token LESS resolved as reduce.
+Conflict in state 55 between rule 19 and token LESS_OR_EQUAL resolved as reduce.
+Conflict in state 55 between rule 19 and token DIV resolved as shift.
+Conflict in state 55 between rule 19 and token DIV_ASSIGNMENT resolved as reduce.
+Conflict in state 55 between rule 19 and token AND resolved as reduce.
+Conflict in state 55 between rule 19 and token OR resolved as reduce.
+Conflict in state 55 between rule 19 and token LEFT_SQUARE_BRACKET resolved as shift.
+Conflict in state 55 between rule 19 and token SAFE_NAVIGATE resolved as shift.
+Conflict in state 55 between rule 19 and token DOT resolved as shift.
+Conflict in state 56 between rule 32 and token OPT_PARAM resolved as shift.
+Conflict in state 56 between rule 32 and token MOD resolved as shift.
+Conflict in state 56 between rule 32 and token MOD_ASSIGNMENT resolved as shift.
+Conflict in state 56 between rule 32 and token PLUS resolved as shift.
+Conflict in state 56 between rule 32 and token PLUS_ASSIGNMENT resolved as shift.
+Conflict in state 56 between rule 32 and token INCREMENT resolved as shift.
+Conflict in state 56 between rule 32 and token MINUS resolved as shift.
+Conflict in state 56 between rule 32 and token MINUS_ASSIGNMENT resolved as shift.
+Conflict in state 56 between rule 32 and token DECREMENT resolved as shift.
+Conflict in state 56 between rule 32 and token MUL resolved as shift.
+Conflict in state 56 between rule 32 and token MUL_ASSIGNMENT resolved as shift.
+Conflict in state 56 between rule 32 and token EQUAL resolved as shift.
+Conflict in state 56 between rule 32 and token NOT_EQUAL resolved as shift.
+Conflict in state 56 between rule 32 and token MORE resolved as shift.
+Conflict in state 56 between rule 32 and token MORE_OR_EQUAL resolved as shift.
+Conflict in state 56 between rule 32 and token LESS resolved as shift.
+Conflict in state 56 between rule 32 and token LESS_OR_EQUAL resolved as shift.
+Conflict in state 56 between rule 32 and token DIV resolved as shift.
+Conflict in state 56 between rule 32 and token DIV_ASSIGNMENT resolved as shift.
+Conflict in state 56 between rule 32 and token AND resolved as shift.
+Conflict in state 56 between rule 32 and token OR resolved as shift.
+Conflict in state 56 between rule 32 and token LEFT_SQUARE_BRACKET resolved as shift.
+Conflict in state 56 between rule 32 and token SAFE_NAVIGATE resolved as shift.
+Conflict in state 56 between rule 32 and token DOT resolved as shift.
+Conflict in state 57 between rule 20 and token OPT_PARAM resolved as shift.
+Conflict in state 57 between rule 20 and token MOD resolved as reduce.
+Conflict in state 57 between rule 20 and token MOD_ASSIGNMENT resolved as reduce.
+Conflict in state 57 between rule 20 and token PLUS resolved as reduce.
+Conflict in state 57 between rule 20 and token PLUS_ASSIGNMENT resolved as reduce.
+Conflict in state 57 between rule 20 and token INCREMENT resolved as shift.
+Conflict in state 57 between rule 20 and token MINUS resolved as reduce.
+Conflict in state 57 between rule 20 and token MINUS_ASSIGNMENT resolved as reduce.
+Conflict in state 57 between rule 20 and token DECREMENT resolved as shift.
+Conflict in state 57 between rule 20 and token MUL resolved as reduce.
+Conflict in state 57 between rule 20 and token MUL_ASSIGNMENT resolved as reduce.
+Conflict in state 57 between rule 20 and token EQUAL resolved as reduce.
+Conflict in state 57 between rule 20 and token NOT_EQUAL resolved as reduce.
+Conflict in state 57 between rule 20 and token MORE resolved as reduce.
+Conflict in state 57 between rule 20 and token MORE_OR_EQUAL resolved as reduce.
+Conflict in state 57 between rule 20 and token LESS resolved as reduce.
+Conflict in state 57 between rule 20 and token LESS_OR_EQUAL resolved as reduce.
+Conflict in state 57 between rule 20 and token DIV resolved as reduce.
+Conflict in state 57 between rule 20 and token DIV_ASSIGNMENT resolved as reduce.
+Conflict in state 57 between rule 20 and token AND resolved as reduce.
+Conflict in state 57 between rule 20 and token OR resolved as reduce.
+Conflict in state 57 between rule 20 and token LEFT_SQUARE_BRACKET resolved as shift.
+Conflict in state 57 between rule 20 and token SAFE_NAVIGATE resolved as shift.
+Conflict in state 57 between rule 20 and token DOT resolved as shift.
+Conflict in state 58 between rule 33 and token OPT_PARAM resolved as shift.
+Conflict in state 58 between rule 33 and token MOD resolved as shift.
+Conflict in state 58 between rule 33 and token MOD_ASSIGNMENT resolved as shift.
+Conflict in state 58 between rule 33 and token PLUS resolved as shift.
+Conflict in state 58 between rule 33 and token PLUS_ASSIGNMENT resolved as shift.
+Conflict in state 58 between rule 33 and token INCREMENT resolved as shift.
+Conflict in state 58 between rule 33 and token MINUS resolved as shift.
+Conflict in state 58 between rule 33 and token MINUS_ASSIGNMENT resolved as shift.
+Conflict in state 58 between rule 33 and token DECREMENT resolved as shift.
+Conflict in state 58 between rule 33 and token MUL resolved as shift.
+Conflict in state 58 between rule 33 and token MUL_ASSIGNMENT resolved as shift.
+Conflict in state 58 between rule 33 and token EQUAL resolved as shift.
+Conflict in state 58 between rule 33 and token NOT_EQUAL resolved as shift.
+Conflict in state 58 between rule 33 and token MORE resolved as shift.
+Conflict in state 58 between rule 33 and token MORE_OR_EQUAL resolved as shift.
+Conflict in state 58 between rule 33 and token LESS resolved as shift.
+Conflict in state 58 between rule 33 and token LESS_OR_EQUAL resolved as shift.
+Conflict in state 58 between rule 33 and token DIV resolved as shift.
+Conflict in state 58 between rule 33 and token DIV_ASSIGNMENT resolved as shift.
+Conflict in state 58 between rule 33 and token AND resolved as shift.
+Conflict in state 58 between rule 33 and token OR resolved as shift.
+Conflict in state 58 between rule 33 and token LEFT_SQUARE_BRACKET resolved as shift.
+Conflict in state 58 between rule 33 and token SAFE_NAVIGATE resolved as shift.
+Conflict in state 58 between rule 33 and token DOT resolved as shift.
+Conflict in state 59 between rule 27 and token OPT_PARAM resolved as shift.
+Conflict in state 59 between rule 27 and token MOD resolved as shift.
+Conflict in state 59 between rule 27 and token MOD_ASSIGNMENT resolved as reduce.
+Conflict in state 59 between rule 27 and token PLUS resolved as shift.
+Conflict in state 59 between rule 27 and token PLUS_ASSIGNMENT resolved as reduce.
+Conflict in state 59 between rule 27 and token INCREMENT resolved as shift.
+Conflict in state 59 between rule 27 and token MINUS resolved as shift.
+Conflict in state 59 between rule 27 and token MINUS_ASSIGNMENT resolved as reduce.
+Conflict in state 59 between rule 27 and token DECREMENT resolved as shift.
+Conflict in state 59 between rule 27 and token MUL resolved as shift.
+Conflict in state 59 between rule 27 and token MUL_ASSIGNMENT resolved as reduce.
+Conflict in state 59 between rule 27 and token EQUAL resolved as reduce.
+Conflict in state 59 between rule 27 and token NOT_EQUAL resolved as reduce.
+Conflict in state 59 between rule 27 and token MORE resolved as shift.
+Conflict in state 59 between rule 27 and token MORE_OR_EQUAL resolved as shift.
+Conflict in state 59 between rule 27 and token LESS resolved as shift.
+Conflict in state 59 between rule 27 and token LESS_OR_EQUAL resolved as shift.
+Conflict in state 59 between rule 27 and token DIV resolved as shift.
+Conflict in state 59 between rule 27 and token DIV_ASSIGNMENT resolved as reduce.
+Conflict in state 59 between rule 27 and token AND resolved as shift.
+Conflict in state 59 between rule 27 and token OR resolved as shift.
+Conflict in state 59 between rule 27 and token LEFT_SQUARE_BRACKET resolved as shift.
+Conflict in state 59 between rule 27 and token SAFE_NAVIGATE resolved as shift.
+Conflict in state 59 between rule 27 and token DOT resolved as shift.
+Conflict in state 60 between rule 28 and token OPT_PARAM resolved as shift.
+Conflict in state 60 between rule 28 and token MOD resolved as shift.
+Conflict in state 60 between rule 28 and token MOD_ASSIGNMENT resolved as reduce.
+Conflict in state 60 between rule 28 and token PLUS resolved as shift.
+Conflict in state 60 between rule 28 and token PLUS_ASSIGNMENT resolved as reduce.
+Conflict in state 60 between rule 28 and token INCREMENT resolved as shift.
+Conflict in state 60 between rule 28 and token MINUS resolved as shift.
+Conflict in state 60 between rule 28 and token MINUS_ASSIGNMENT resolved as reduce.
+Conflict in state 60 between rule 28 and token DECREMENT resolved as shift.
+Conflict in state 60 between rule 28 and token MUL resolved as shift.
+Conflict in state 60 between rule 28 and token MUL_ASSIGNMENT resolved as reduce.
+Conflict in state 60 between rule 28 and token EQUAL resolved as reduce.
+Conflict in state 60 between rule 28 and token NOT_EQUAL resolved as reduce.
+Conflict in state 60 between rule 28 and token MORE resolved as shift.
+Conflict in state 60 between rule 28 and token MORE_OR_EQUAL resolved as shift.
+Conflict in state 60 between rule 28 and token LESS resolved as shift.
+Conflict in state 60 between rule 28 and token LESS_OR_EQUAL resolved as shift.
+Conflict in state 60 between rule 28 and token DIV resolved as shift.
+Conflict in state 60 between rule 28 and token DIV_ASSIGNMENT resolved as reduce.
+Conflict in state 60 between rule 28 and token AND resolved as shift.
+Conflict in state 60 between rule 28 and token OR resolved as shift.
+Conflict in state 60 between rule 28 and token LEFT_SQUARE_BRACKET resolved as shift.
+Conflict in state 60 between rule 28 and token SAFE_NAVIGATE resolved as shift.
+Conflict in state 60 between rule 28 and token DOT resolved as shift.
+Conflict in state 61 between rule 23 and token OPT_PARAM resolved as shift.
+Conflict in state 61 between rule 23 and token MOD resolved as shift.
+Conflict in state 61 between rule 23 and token MOD_ASSIGNMENT resolved as reduce.
+Conflict in state 61 between rule 23 and token PLUS resolved as shift.
+Conflict in state 61 between rule 23 and token PLUS_ASSIGNMENT resolved as reduce.
+Conflict in state 61 between rule 23 and token INCREMENT resolved as shift.
+Conflict in state 61 between rule 23 and token MINUS resolved as shift.
+Conflict in state 61 between rule 23 and token MINUS_ASSIGNMENT resolved as reduce.
+Conflict in state 61 between rule 23 and token DECREMENT resolved as shift.
+Conflict in state 61 between rule 23 and token MUL resolved as shift.
+Conflict in state 61 between rule 23 and token MUL_ASSIGNMENT resolved as reduce.
+Conflict in state 61 between rule 23 and token EQUAL resolved as reduce.
+Conflict in state 61 between rule 23 and token NOT_EQUAL resolved as reduce.
+Conflict in state 61 between rule 23 and token MORE resolved as reduce.
+Conflict in state 61 between rule 23 and token MORE_OR_EQUAL resolved as reduce.
+Conflict in state 61 between rule 23 and token LESS resolved as reduce.
+Conflict in state 61 between rule 23 and token LESS_OR_EQUAL resolved as reduce.
+Conflict in state 61 between rule 23 and token DIV resolved as shift.
+Conflict in state 61 between rule 23 and token DIV_ASSIGNMENT resolved as reduce.
+Conflict in state 61 between rule 23 and token AND resolved as shift.
+Conflict in state 61 between rule 23 and token OR resolved as shift.
+Conflict in state 61 between rule 23 and token LEFT_SQUARE_BRACKET resolved as shift.
+Conflict in state 61 between rule 23 and token SAFE_NAVIGATE resolved as shift.
+Conflict in state 61 between rule 23 and token DOT resolved as shift.
+Conflict in state 62 between rule 25 and token OPT_PARAM resolved as shift.
+Conflict in state 62 between rule 25 and token MOD resolved as shift.
+Conflict in state 62 between rule 25 and token MOD_ASSIGNMENT resolved as reduce.
+Conflict in state 62 between rule 25 and token PLUS resolved as shift.
+Conflict in state 62 between rule 25 and token PLUS_ASSIGNMENT resolved as reduce.
+Conflict in state 62 between rule 25 and token INCREMENT resolved as shift.
+Conflict in state 62 between rule 25 and token MINUS resolved as shift.
+Conflict in state 62 between rule 25 and token MINUS_ASSIGNMENT resolved as reduce.
+Conflict in state 62 between rule 25 and token DECREMENT resolved as shift.
+Conflict in state 62 between rule 25 and token MUL resolved as shift.
+Conflict in state 62 between rule 25 and token MUL_ASSIGNMENT resolved as reduce.
+Conflict in state 62 between rule 25 and token EQUAL resolved as reduce.
+Conflict in state 62 between rule 25 and token NOT_EQUAL resolved as reduce.
+Conflict in state 62 between rule 25 and token MORE resolved as reduce.
+Conflict in state 62 between rule 25 and token MORE_OR_EQUAL resolved as reduce.
+Conflict in state 62 between rule 25 and token LESS resolved as reduce.
+Conflict in state 62 between rule 25 and token LESS_OR_EQUAL resolved as reduce.
+Conflict in state 62 between rule 25 and token DIV resolved as shift.
+Conflict in state 62 between rule 25 and token DIV_ASSIGNMENT resolved as reduce.
+Conflict in state 62 between rule 25 and token AND resolved as shift.
+Conflict in state 62 between rule 25 and token OR resolved as shift.
+Conflict in state 62 between rule 25 and token LEFT_SQUARE_BRACKET resolved as shift.
+Conflict in state 62 between rule 25 and token SAFE_NAVIGATE resolved as shift.
+Conflict in state 62 between rule 25 and token DOT resolved as shift.
+Conflict in state 63 between rule 24 and token OPT_PARAM resolved as shift.
+Conflict in state 63 between rule 24 and token MOD resolved as shift.
+Conflict in state 63 between rule 24 and token MOD_ASSIGNMENT resolved as reduce.
+Conflict in state 63 between rule 24 and token PLUS resolved as shift.
+Conflict in state 63 between rule 24 and token PLUS_ASSIGNMENT resolved as reduce.
+Conflict in state 63 between rule 24 and token INCREMENT resolved as shift.
+Conflict in state 63 between rule 24 and token MINUS resolved as shift.
+Conflict in state 63 between rule 24 and token MINUS_ASSIGNMENT resolved as reduce.
+Conflict in state 63 between rule 24 and token DECREMENT resolved as shift.
+Conflict in state 63 between rule 24 and token MUL resolved as shift.
+Conflict in state 63 between rule 24 and token MUL_ASSIGNMENT resolved as reduce.
+Conflict in state 63 between rule 24 and token EQUAL resolved as reduce.
+Conflict in state 63 between rule 24 and token NOT_EQUAL resolved as reduce.
+Conflict in state 63 between rule 24 and token MORE resolved as reduce.
+Conflict in state 63 between rule 24 and token MORE_OR_EQUAL resolved as reduce.
+Conflict in state 63 between rule 24 and token LESS resolved as reduce.
+Conflict in state 63 between rule 24 and token LESS_OR_EQUAL resolved as reduce.
+Conflict in state 63 between rule 24 and token DIV resolved as shift.
+Conflict in state 63 between rule 24 and token DIV_ASSIGNMENT resolved as reduce.
+Conflict in state 63 between rule 24 and token AND resolved as shift.
+Conflict in state 63 between rule 24 and token OR resolved as shift.
+Conflict in state 63 between rule 24 and token LEFT_SQUARE_BRACKET resolved as shift.
+Conflict in state 63 between rule 24 and token SAFE_NAVIGATE resolved as shift.
+Conflict in state 63 between rule 24 and token DOT resolved as shift.
+Conflict in state 64 between rule 26 and token OPT_PARAM resolved as shift.
+Conflict in state 64 between rule 26 and token MOD resolved as shift.
+Conflict in state 64 between rule 26 and token MOD_ASSIGNMENT resolved as reduce.
+Conflict in state 64 between rule 26 and token PLUS resolved as shift.
+Conflict in state 64 between rule 26 and token PLUS_ASSIGNMENT resolved as reduce.
+Conflict in state 64 between rule 26 and token INCREMENT resolved as shift.
+Conflict in state 64 between rule 26 and token MINUS resolved as shift.
+Conflict in state 64 between rule 26 and token MINUS_ASSIGNMENT resolved as reduce.
+Conflict in state 64 between rule 26 and token DECREMENT resolved as shift.
+Conflict in state 64 between rule 26 and token MUL resolved as shift.
+Conflict in state 64 between rule 26 and token MUL_ASSIGNMENT resolved as reduce.
+Conflict in state 64 between rule 26 and token EQUAL resolved as reduce.
+Conflict in state 64 between rule 26 and token NOT_EQUAL resolved as reduce.
+Conflict in state 64 between rule 26 and token MORE resolved as reduce.
+Conflict in state 64 between rule 26 and token MORE_OR_EQUAL resolved as reduce.
+Conflict in state 64 between rule 26 and token LESS resolved as reduce.
+Conflict in state 64 between rule 26 and token LESS_OR_EQUAL resolved as reduce.
+Conflict in state 64 between rule 26 and token DIV resolved as shift.
+Conflict in state 64 between rule 26 and token DIV_ASSIGNMENT resolved as reduce.
+Conflict in state 64 between rule 26 and token AND resolved as shift.
+Conflict in state 64 between rule 26 and token OR resolved as shift.
+Conflict in state 64 between rule 26 and token LEFT_SQUARE_BRACKET resolved as shift.
+Conflict in state 64 between rule 26 and token SAFE_NAVIGATE resolved as shift.
+Conflict in state 64 between rule 26 and token DOT resolved as shift.
+Conflict in state 65 between rule 21 and token OPT_PARAM resolved as shift.
+Conflict in state 65 between rule 21 and token MOD resolved as reduce.
+Conflict in state 65 between rule 21 and token MOD_ASSIGNMENT resolved as reduce.
+Conflict in state 65 between rule 21 and token PLUS resolved as reduce.
+Conflict in state 65 between rule 21 and token PLUS_ASSIGNMENT resolved as reduce.
+Conflict in state 65 between rule 21 and token INCREMENT resolved as shift.
+Conflict in state 65 between rule 21 and token MINUS resolved as reduce.
+Conflict in state 65 between rule 21 and token MINUS_ASSIGNMENT resolved as reduce.
+Conflict in state 65 between rule 21 and token DECREMENT resolved as shift.
+Conflict in state 65 between rule 21 and token MUL resolved as reduce.
+Conflict in state 65 between rule 21 and token MUL_ASSIGNMENT resolved as reduce.
+Conflict in state 65 between rule 21 and token EQUAL resolved as reduce.
+Conflict in state 65 between rule 21 and token NOT_EQUAL resolved as reduce.
+Conflict in state 65 between rule 21 and token MORE resolved as reduce.
+Conflict in state 65 between rule 21 and token MORE_OR_EQUAL resolved as reduce.
+Conflict in state 65 between rule 21 and token LESS resolved as reduce.
+Conflict in state 65 between rule 21 and token LESS_OR_EQUAL resolved as reduce.
+Conflict in state 65 between rule 21 and token DIV resolved as reduce.
+Conflict in state 65 between rule 21 and token DIV_ASSIGNMENT resolved as reduce.
+Conflict in state 65 between rule 21 and token AND resolved as reduce.
+Conflict in state 65 between rule 21 and token OR resolved as reduce.
+Conflict in state 65 between rule 21 and token LEFT_SQUARE_BRACKET resolved as shift.
+Conflict in state 65 between rule 21 and token SAFE_NAVIGATE resolved as shift.
+Conflict in state 65 between rule 21 and token DOT resolved as shift.
+Conflict in state 66 between rule 34 and token OPT_PARAM resolved as shift.
+Conflict in state 66 between rule 34 and token MOD resolved as shift.
+Conflict in state 66 between rule 34 and token MOD_ASSIGNMENT resolved as shift.
+Conflict in state 66 between rule 34 and token PLUS resolved as shift.
+Conflict in state 66 between rule 34 and token PLUS_ASSIGNMENT resolved as shift.
+Conflict in state 66 between rule 34 and token INCREMENT resolved as shift.
+Conflict in state 66 between rule 34 and token MINUS resolved as shift.
+Conflict in state 66 between rule 34 and token MINUS_ASSIGNMENT resolved as shift.
+Conflict in state 66 between rule 34 and token DECREMENT resolved as shift.
+Conflict in state 66 between rule 34 and token MUL resolved as shift.
+Conflict in state 66 between rule 34 and token MUL_ASSIGNMENT resolved as shift.
+Conflict in state 66 between rule 34 and token EQUAL resolved as shift.
+Conflict in state 66 between rule 34 and token NOT_EQUAL resolved as shift.
+Conflict in state 66 between rule 34 and token MORE resolved as shift.
+Conflict in state 66 between rule 34 and token MORE_OR_EQUAL resolved as shift.
+Conflict in state 66 between rule 34 and token LESS resolved as shift.
+Conflict in state 66 between rule 34 and token LESS_OR_EQUAL resolved as shift.
+Conflict in state 66 between rule 34 and token DIV resolved as shift.
+Conflict in state 66 between rule 34 and token DIV_ASSIGNMENT resolved as shift.
+Conflict in state 66 between rule 34 and token AND resolved as shift.
+Conflict in state 66 between rule 34 and token OR resolved as shift.
+Conflict in state 66 between rule 34 and token LEFT_SQUARE_BRACKET resolved as shift.
+Conflict in state 66 between rule 34 and token SAFE_NAVIGATE resolved as shift.
+Conflict in state 66 between rule 34 and token DOT resolved as shift.
+Conflict in state 67 between rule 29 and token OPT_PARAM resolved as shift.
+Conflict in state 67 between rule 29 and token MOD resolved as shift.
+Conflict in state 67 between rule 29 and token MOD_ASSIGNMENT resolved as reduce.
+Conflict in state 67 between rule 29 and token PLUS resolved as shift.
+Conflict in state 67 between rule 29 and token PLUS_ASSIGNMENT resolved as reduce.
+Conflict in state 67 between rule 29 and token INCREMENT resolved as shift.
+Conflict in state 67 between rule 29 and token MINUS resolved as shift.
+Conflict in state 67 between rule 29 and token MINUS_ASSIGNMENT resolved as reduce.
+Conflict in state 67 between rule 29 and token DECREMENT resolved as shift.
+Conflict in state 67 between rule 29 and token MUL resolved as shift.
+Conflict in state 67 between rule 29 and token MUL_ASSIGNMENT resolved as reduce.
+Conflict in state 67 between rule 29 and token EQUAL resolved as reduce.
+Conflict in state 67 between rule 29 and token NOT_EQUAL resolved as reduce.
+Conflict in state 67 between rule 29 and token MORE resolved as reduce.
+Conflict in state 67 between rule 29 and token MORE_OR_EQUAL resolved as reduce.
+Conflict in state 67 between rule 29 and token LESS resolved as reduce.
+Conflict in state 67 between rule 29 and token LESS_OR_EQUAL resolved as reduce.
+Conflict in state 67 between rule 29 and token DIV resolved as shift.
+Conflict in state 67 between rule 29 and token DIV_ASSIGNMENT resolved as reduce.
+Conflict in state 67 between rule 29 and token AND resolved as reduce.
+Conflict in state 67 between rule 29 and token OR resolved as reduce.
+Conflict in state 67 between rule 29 and token LEFT_SQUARE_BRACKET resolved as shift.
+Conflict in state 67 between rule 29 and token SAFE_NAVIGATE resolved as shift.
+Conflict in state 67 between rule 29 and token DOT resolved as shift.
+Conflict in state 68 between rule 30 and token OPT_PARAM resolved as shift.
+Conflict in state 68 between rule 30 and token MOD resolved as shift.
+Conflict in state 68 between rule 30 and token MOD_ASSIGNMENT resolved as reduce.
+Conflict in state 68 between rule 30 and token PLUS resolved as shift.
+Conflict in state 68 between rule 30 and token PLUS_ASSIGNMENT resolved as reduce.
+Conflict in state 68 between rule 30 and token INCREMENT resolved as shift.
+Conflict in state 68 between rule 30 and token MINUS resolved as shift.
+Conflict in state 68 between rule 30 and token MINUS_ASSIGNMENT resolved as reduce.
+Conflict in state 68 between rule 30 and token DECREMENT resolved as shift.
+Conflict in state 68 between rule 30 and token MUL resolved as shift.
+Conflict in state 68 between rule 30 and token MUL_ASSIGNMENT resolved as reduce.
+Conflict in state 68 between rule 30 and token EQUAL resolved as reduce.
+Conflict in state 68 between rule 30 and token NOT_EQUAL resolved as reduce.
+Conflict in state 68 between rule 30 and token MORE resolved as reduce.
+Conflict in state 68 between rule 30 and token MORE_OR_EQUAL resolved as reduce.
+Conflict in state 68 between rule 30 and token LESS resolved as reduce.
+Conflict in state 68 between rule 30 and token LESS_OR_EQUAL resolved as reduce.
+Conflict in state 68 between rule 30 and token DIV resolved as shift.
+Conflict in state 68 between rule 30 and token DIV_ASSIGNMENT resolved as reduce.
+Conflict in state 68 between rule 30 and token AND resolved as reduce.
+Conflict in state 68 between rule 30 and token OR resolved as reduce.
+Conflict in state 68 between rule 30 and token LEFT_SQUARE_BRACKET resolved as shift.
+Conflict in state 68 between rule 30 and token SAFE_NAVIGATE resolved as shift.
+Conflict in state 68 between rule 30 and token DOT resolved as shift.
+Conflict in state 77 between rule 36 and token OPT_PARAM resolved as an error.
+Conflict in state 77 between rule 36 and token MOD resolved as reduce.
+Conflict in state 77 between rule 36 and token MOD_ASSIGNMENT resolved as reduce.
+Conflict in state 77 between rule 36 and token PLUS resolved as reduce.
+Conflict in state 77 between rule 36 and token PLUS_ASSIGNMENT resolved as reduce.
+Conflict in state 77 between rule 36 and token INCREMENT resolved as reduce.
+Conflict in state 77 between rule 36 and token MINUS resolved as reduce.
+Conflict in state 77 between rule 36 and token MINUS_ASSIGNMENT resolved as reduce.
+Conflict in state 77 between rule 36 and token DECREMENT resolved as reduce.
+Conflict in state 77 between rule 36 and token MUL resolved as reduce.
+Conflict in state 77 between rule 36 and token MUL_ASSIGNMENT resolved as reduce.
+Conflict in state 77 between rule 36 and token EQUAL resolved as reduce.
+Conflict in state 77 between rule 36 and token NOT_EQUAL resolved as reduce.
+Conflict in state 77 between rule 36 and token MORE resolved as reduce.
+Conflict in state 77 between rule 36 and token MORE_OR_EQUAL resolved as reduce.
+Conflict in state 77 between rule 36 and token LESS resolved as reduce.
+Conflict in state 77 between rule 36 and token LESS_OR_EQUAL resolved as reduce.
+Conflict in state 77 between rule 36 and token DIV resolved as reduce.
+Conflict in state 77 between rule 36 and token DIV_ASSIGNMENT resolved as reduce.
+Conflict in state 77 between rule 36 and token AND resolved as reduce.
+Conflict in state 77 between rule 36 and token OR resolved as reduce.
+Conflict in state 77 between rule 36 and token LEFT_SQUARE_BRACKET resolved as reduce.
+Conflict in state 77 between rule 36 and token SAFE_NAVIGATE resolved as reduce.
+Conflict in state 77 between rule 36 and token DOT resolved as reduce.
+
+Grammar
+rule 1    ExpressionList_e ->		/* empty */
+rule 2    ExpressionList_e -> ExpressionList
+rule 3    ExpressionList -> SimpleExpression
+rule 4    ExpressionList -> ExpressionList COMMA SimpleExpression
+rule 5    SimpleExpression -> INT_LITERAL
+rule 6    SimpleExpression -> DOUBLE_LITERAL
+rule 7    SimpleExpression -> STRING_LITERAL
+rule 8    SimpleExpression -> BOOL_LITERAL
+rule 9    SimpleExpression -> NULL_LITERAL
+rule 10   SimpleExpression -> ID
+rule 11   SimpleExpression -> ID LEFT_ROUND_BRACKET ExpressionList_e RIGHT_ROUND_BRACKET
+rule 12   SimpleExpression -> LEFT_ROUND_BRACKET SimpleExpression RIGHT_ROUND_BRACKET
+rule 13   SimpleExpression -> SimpleExpression DOT ID
+rule 14   SimpleExpression -> SimpleExpression SAFE_NAVIGATE ID
+rule 15   SimpleExpression -> SimpleExpression DOT ID LEFT_ROUND_BRACKET ExpressionList_e RIGHT_ROUND_BRACKET
+rule 16   SimpleExpression -> SimpleExpression SAFE_NAVIGATE ID LEFT_ROUND_BRACKET ExpressionList_e RIGHT_ROUND_BRACKET
+rule 17   SimpleExpression -> SimpleExpression LEFT_SQUARE_BRACKET SimpleExpression RIGHT_SQUARE_BRACKET
+rule 18   SimpleExpression -> SimpleExpression PLUS SimpleExpression
+rule 19   SimpleExpression -> SimpleExpression MINUS SimpleExpression
+rule 20   SimpleExpression -> SimpleExpression MUL SimpleExpression
+rule 21   SimpleExpression -> SimpleExpression DIV SimpleExpression
+rule 22   SimpleExpression -> SimpleExpression MOD SimpleExpression
+rule 23   SimpleExpression -> SimpleExpression MORE SimpleExpression
+rule 24   SimpleExpression -> SimpleExpression LESS SimpleExpression
+rule 25   SimpleExpression -> SimpleExpression MORE_OR_EQUAL SimpleExpression
+rule 26   SimpleExpression -> SimpleExpression LESS_OR_EQUAL SimpleExpression
+rule 27   SimpleExpression -> SimpleExpression EQUAL SimpleExpression
+rule 28   SimpleExpression -> SimpleExpression NOT_EQUAL SimpleExpression
+rule 29   SimpleExpression -> SimpleExpression AND SimpleExpression
+rule 30   SimpleExpression -> SimpleExpression OR SimpleExpression
+rule 31   SimpleExpression -> SimpleExpression PLUS_ASSIGNMENT SimpleExpression
+rule 32   SimpleExpression -> SimpleExpression MINUS_ASSIGNMENT SimpleExpression
+rule 33   SimpleExpression -> SimpleExpression MUL_ASSIGNMENT SimpleExpression
+rule 34   SimpleExpression -> SimpleExpression DIV_ASSIGNMENT SimpleExpression
+rule 35   SimpleExpression -> SimpleExpression MOD_ASSIGNMENT SimpleExpression
+rule 36   SimpleExpression -> SimpleExpression OPT_PARAM SimpleExpression COLON SimpleExpression
+rule 37   SimpleExpression -> MINUS SimpleExpression
+rule 38   SimpleExpression -> PLUS SimpleExpression
+rule 39   SimpleExpression -> BIT_NOT SimpleExpression
+rule 40   SimpleExpression -> INCREMENT SimpleExpression
+rule 41   SimpleExpression -> DECREMENT SimpleExpression
+rule 42   SimpleExpression -> SimpleExpression INCREMENT
+rule 43   SimpleExpression -> SimpleExpression DECREMENT
+
+Terminals, with rules where they appear
+
+$ (-1)
+error (256)
+INT_LITERAL (258) 5
+DOUBLE_LITERAL (259) 6
+STRING_LITERAL (260) 7
+BOOL_LITERAL (261) 8
+NULL_LITERAL (262) 9
+ID (263) 10 11 13 14 15 16 64 73 74 104 105
+ABSTRACT (264)
+ANY (265)
+AS (266)
+BOOLEAN (267)
+BREAK (268) 75
+CASE (269) 68
+CATCH (270)
+CLASS (271)
+CONST (272) 87
+CONSTRUCTOR (273)
+CONTINUE (274) 76
+DEBUGGER (275)
+DEFAULT (276) 70
+DELETE (277)
+DO (278) 60
+DYNAMIC (279)
+ELSE (280)
+ENUM (281)
+EXPORT (282)
+EXTENDS (283)
+EXTENSION (284)
+EXTERNAL (285)
+FACTORY (286)
+_FALSE (287)
+FINALLY (288)
+FOR (289) 61
+FROM (290)
+FUNCTION (291)
+GET (292)
+IF (293) 57 58
+IMPLEMENTS (294)
+IMPORT (295)
+IN (296)
+INSTANCEOF (297)
+IS (298)
+LATE (299)
+LET (300)
+MODULE (301)
+MIXIN (302)
+NEVER (303)
+NEW (304)
+_NULL (305)
+NUMBER (306)
+OBJECT (307)
+OF (308)
+PACKAGE (309)
+PRIVATE (310) 83
+PROTECTED (311) 84
+PUBLIC (312) 82
+FINAL (313) 86
+READONLY (314)
+REQUIRE (315)
+RETURN (316) 77
+SET (317)
+STATIC (318) 85
+STRING (319)
+SUPER (320)
+SWITCH (321) 65
+SYMBOL (322)
+THIS (323)
+THROW (324)
+_TRUE (325)
+TRY (326)
+TYPEOF (327)
+TYPEDEF (328)
+UNKNOWN (329)
+VAR (330) 64 73 74 104
+WHILE (331) 59
+INT (332)
+DOUBLE (333)
+NUM (334)
+VOID (335)
+DOG (336)
+COLON (337) 36 68 70
+OPT_PARAM (338) 36
+MOD (339) 22
+MOD_ASSIGNMENT (340) 35
+PLUS (341) 18 38
+PLUS_ASSIGNMENT (342) 31
+INCREMENT (343) 40 42
+MINUS (344) 19 37
+MINUS_ASSIGNMENT (345) 32
+DECREMENT (346) 41 43
+MUL (347) 20
+MUL_ASSIGNMENT (348) 33
+ASSIGNMENT (349) 64 74
+EQUAL (350) 27
+BIT_NOT (351) 39
+NOT_EQUAL (352) 28
+MORE (353) 23
+MORE_OR_EQUAL (354) 25
+LESS (355) 24
+LESS_OR_EQUAL (356) 26
+DIV (357) 21
+DIV_ASSIGNMENT (358) 34
+BIT_XOR (359)
+BIT_AND (360)
+AND (361) 29
+BIT_OR (362)
+OR (363) 30
+LEFT_SQUARE_BRACKET (364) 17
+RIGHT_SQUARE_BRACKET (365) 17
+LEFT_ROUND_BRACKET (366) 11 12 15 16 57 58 59 61 65
+RIGHT_ROUND_BRACKET (367) 11 12 15 16 57 58 59 65
+LEFT_FIGURE_BRACKET (368) 65 106
+RIGHT_FIGURE_BRACKET (369)
+NULL_COALESCE (370)
+SAFE_NAVIGATE (371) 14 16
+CASCADE (372)
+INT_DIV (373)
+CAST (374)
+SEMICOLON (375) 56
+COMMA (376) 4
+DOT (377) 13 15
+QUESTION (378)
+ENTER (379)
+UNARY_MINUS (380)
+UNARY_PLUS (381)
+
+Nonterminals, with rules where they appear
+
+ExpressionList_e (127)
+    on left: 1 2, on right: 11 15 16
+ExpressionList (128)
+    on left: 3 4, on right: 2 4
+SimpleExpression (129)
+    on left: 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24
+    25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43,
+    on right: 3 4 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28
+    29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 45 57 58 59 63 64
+    65 68 74 79
+
+
+state 0
+
+    INT_LITERAL	shift, and go to state 1
+    DOUBLE_LITERAL	shift, and go to state 2
+    STRING_LITERAL	shift, and go to state 3
+    BOOL_LITERAL	shift, and go to state 4
+    NULL_LITERAL	shift, and go to state 5
+    ID  	shift, and go to state 6
+    PLUS	shift, and go to state 7
+    INCREMENT	shift, and go to state 8
+    MINUS	shift, and go to state 9
+    DECREMENT	shift, and go to state 10
+    BIT_NOT	shift, and go to state 11
+    LEFT_ROUND_BRACKET	shift, and go to state 12
+
+    $default	reduce using rule 1 (ExpressionList_e)
+
+    ExpressionList_e	go to state 82
+    ExpressionList	go to state 13
+    SimpleExpression	go to state 14
+
+
+
+state 1
+
+    SimpleExpression  ->  INT_LITERAL .   (rule 5)
+
+    $default	reduce using rule 5 (SimpleExpression)
+
+
+
+state 2
+
+    SimpleExpression  ->  DOUBLE_LITERAL .   (rule 6)
+
+    $default	reduce using rule 6 (SimpleExpression)
+
+
+
+state 3
+
+    SimpleExpression  ->  STRING_LITERAL .   (rule 7)
+
+    $default	reduce using rule 7 (SimpleExpression)
+
+
+
+state 4
+
+    SimpleExpression  ->  BOOL_LITERAL .   (rule 8)
+
+    $default	reduce using rule 8 (SimpleExpression)
+
+
+
+state 5
+
+    SimpleExpression  ->  NULL_LITERAL .   (rule 9)
+
+    $default	reduce using rule 9 (SimpleExpression)
+
+
+
+state 6
+
+    SimpleExpression  ->  ID .   (rule 10)
+    SimpleExpression  ->  ID . LEFT_ROUND_BRACKET ExpressionList_e RIGHT_ROUND_BRACKET   (rule 11)
+
+    LEFT_ROUND_BRACKET	shift, and go to state 15
+
+    $default	reduce using rule 10 (SimpleExpression)
+
+
+
+state 7
+
+    SimpleExpression  ->  PLUS . SimpleExpression   (rule 38)
+
+    INT_LITERAL	shift, and go to state 1
+    DOUBLE_LITERAL	shift, and go to state 2
+    STRING_LITERAL	shift, and go to state 3
+    BOOL_LITERAL	shift, and go to state 4
+    NULL_LITERAL	shift, and go to state 5
+    ID  	shift, and go to state 6
+    PLUS	shift, and go to state 7
+    INCREMENT	shift, and go to state 8
+    MINUS	shift, and go to state 9
+    DECREMENT	shift, and go to state 10
+    BIT_NOT	shift, and go to state 11
+    LEFT_ROUND_BRACKET	shift, and go to state 12
+
+    SimpleExpression	go to state 16
+
+
+
+state 8
+
+    SimpleExpression  ->  INCREMENT . SimpleExpression   (rule 40)
+
+    INT_LITERAL	shift, and go to state 1
+    DOUBLE_LITERAL	shift, and go to state 2
+    STRING_LITERAL	shift, and go to state 3
+    BOOL_LITERAL	shift, and go to state 4
+    NULL_LITERAL	shift, and go to state 5
+    ID  	shift, and go to state 6
+    PLUS	shift, and go to state 7
+    INCREMENT	shift, and go to state 8
+    MINUS	shift, and go to state 9
+    DECREMENT	shift, and go to state 10
+    BIT_NOT	shift, and go to state 11
+    LEFT_ROUND_BRACKET	shift, and go to state 12
+
+    SimpleExpression	go to state 17
+
+
+
+state 9
+
+    SimpleExpression  ->  MINUS . SimpleExpression   (rule 37)
+
+    INT_LITERAL	shift, and go to state 1
+    DOUBLE_LITERAL	shift, and go to state 2
+    STRING_LITERAL	shift, and go to state 3
+    BOOL_LITERAL	shift, and go to state 4
+    NULL_LITERAL	shift, and go to state 5
+    ID  	shift, and go to state 6
+    PLUS	shift, and go to state 7
+    INCREMENT	shift, and go to state 8
+    MINUS	shift, and go to state 9
+    DECREMENT	shift, and go to state 10
+    BIT_NOT	shift, and go to state 11
+    LEFT_ROUND_BRACKET	shift, and go to state 12
+
+    SimpleExpression	go to state 18
+
+
+
+state 10
+
+    SimpleExpression  ->  DECREMENT . SimpleExpression   (rule 41)
+
+    INT_LITERAL	shift, and go to state 1
+    DOUBLE_LITERAL	shift, and go to state 2
+    STRING_LITERAL	shift, and go to state 3
+    BOOL_LITERAL	shift, and go to state 4
+    NULL_LITERAL	shift, and go to state 5
+    ID  	shift, and go to state 6
+    PLUS	shift, and go to state 7
+    INCREMENT	shift, and go to state 8
+    MINUS	shift, and go to state 9
+    DECREMENT	shift, and go to state 10
+    BIT_NOT	shift, and go to state 11
+    LEFT_ROUND_BRACKET	shift, and go to state 12
+
+    SimpleExpression	go to state 19
+
+
+
+state 11
+
+    SimpleExpression  ->  BIT_NOT . SimpleExpression   (rule 39)
+
+    INT_LITERAL	shift, and go to state 1
+    DOUBLE_LITERAL	shift, and go to state 2
+    STRING_LITERAL	shift, and go to state 3
+    BOOL_LITERAL	shift, and go to state 4
+    NULL_LITERAL	shift, and go to state 5
+    ID  	shift, and go to state 6
+    PLUS	shift, and go to state 7
+    INCREMENT	shift, and go to state 8
+    MINUS	shift, and go to state 9
+    DECREMENT	shift, and go to state 10
+    BIT_NOT	shift, and go to state 11
+    LEFT_ROUND_BRACKET	shift, and go to state 12
+
+    SimpleExpression	go to state 20
+
+
+
+state 12
+
+    SimpleExpression  ->  LEFT_ROUND_BRACKET . SimpleExpression RIGHT_ROUND_BRACKET   (rule 12)
+
+    INT_LITERAL	shift, and go to state 1
+    DOUBLE_LITERAL	shift, and go to state 2
+    STRING_LITERAL	shift, and go to state 3
+    BOOL_LITERAL	shift, and go to state 4
+    NULL_LITERAL	shift, and go to state 5
+    ID  	shift, and go to state 6
+    PLUS	shift, and go to state 7
+    INCREMENT	shift, and go to state 8
+    MINUS	shift, and go to state 9
+    DECREMENT	shift, and go to state 10
+    BIT_NOT	shift, and go to state 11
+    LEFT_ROUND_BRACKET	shift, and go to state 12
+
+    SimpleExpression	go to state 21
+
+
+
+state 13
+
+    ExpressionList_e  ->  ExpressionList .   (rule 2)
+    ExpressionList  ->  ExpressionList . COMMA SimpleExpression   (rule 4)
+
+    COMMA	shift, and go to state 22
+
+    $default	reduce using rule 2 (ExpressionList_e)
+
+
+
+state 14
+
+    ExpressionList  ->  SimpleExpression .   (rule 3)
+    SimpleExpression  ->  SimpleExpression . DOT ID   (rule 13)
+    SimpleExpression  ->  SimpleExpression . SAFE_NAVIGATE ID   (rule 14)
+    SimpleExpression  ->  SimpleExpression . DOT ID LEFT_ROUND_BRACKET ExpressionList_e RIGHT_ROUND_BRACKET   (rule 15)
+    SimpleExpression  ->  SimpleExpression . SAFE_NAVIGATE ID LEFT_ROUND_BRACKET ExpressionList_e RIGHT_ROUND_BRACKET   (rule 16)
+    SimpleExpression  ->  SimpleExpression . LEFT_SQUARE_BRACKET SimpleExpression RIGHT_SQUARE_BRACKET   (rule 17)
+    SimpleExpression  ->  SimpleExpression . PLUS SimpleExpression   (rule 18)
+    SimpleExpression  ->  SimpleExpression . MINUS SimpleExpression   (rule 19)
+    SimpleExpression  ->  SimpleExpression . MUL SimpleExpression   (rule 20)
+    SimpleExpression  ->  SimpleExpression . DIV SimpleExpression   (rule 21)
+    SimpleExpression  ->  SimpleExpression . MOD SimpleExpression   (rule 22)
+    SimpleExpression  ->  SimpleExpression . MORE SimpleExpression   (rule 23)
+    SimpleExpression  ->  SimpleExpression . LESS SimpleExpression   (rule 24)
+    SimpleExpression  ->  SimpleExpression . MORE_OR_EQUAL SimpleExpression   (rule 25)
+    SimpleExpression  ->  SimpleExpression . LESS_OR_EQUAL SimpleExpression   (rule 26)
+    SimpleExpression  ->  SimpleExpression . EQUAL SimpleExpression   (rule 27)
+    SimpleExpression  ->  SimpleExpression . NOT_EQUAL SimpleExpression   (rule 28)
+    SimpleExpression  ->  SimpleExpression . AND SimpleExpression   (rule 29)
+    SimpleExpression  ->  SimpleExpression . OR SimpleExpression   (rule 30)
+    SimpleExpression  ->  SimpleExpression . PLUS_ASSIGNMENT SimpleExpression   (rule 31)
+    SimpleExpression  ->  SimpleExpression . MINUS_ASSIGNMENT SimpleExpression   (rule 32)
+    SimpleExpression  ->  SimpleExpression . MUL_ASSIGNMENT SimpleExpression   (rule 33)
+    SimpleExpression  ->  SimpleExpression . DIV_ASSIGNMENT SimpleExpression   (rule 34)
+    SimpleExpression  ->  SimpleExpression . MOD_ASSIGNMENT SimpleExpression   (rule 35)
+    SimpleExpression  ->  SimpleExpression . OPT_PARAM SimpleExpression COLON SimpleExpression   (rule 36)
+    SimpleExpression  ->  SimpleExpression . INCREMENT   (rule 42)
+    SimpleExpression  ->  SimpleExpression . DECREMENT   (rule 43)
+
+    OPT_PARAM	shift, and go to state 23
+    MOD 	shift, and go to state 24
+    MOD_ASSIGNMENT	shift, and go to state 25
+    PLUS	shift, and go to state 26
+    PLUS_ASSIGNMENT	shift, and go to state 27
+    INCREMENT	shift, and go to state 28
+    MINUS	shift, and go to state 29
+    MINUS_ASSIGNMENT	shift, and go to state 30
+    DECREMENT	shift, and go to state 31
+    MUL 	shift, and go to state 32
+    MUL_ASSIGNMENT	shift, and go to state 33
+    EQUAL	shift, and go to state 34
+    NOT_EQUAL	shift, and go to state 35
+    MORE	shift, and go to state 36
+    MORE_OR_EQUAL	shift, and go to state 37
+    LESS	shift, and go to state 38
+    LESS_OR_EQUAL	shift, and go to state 39
+    DIV 	shift, and go to state 40
+    DIV_ASSIGNMENT	shift, and go to state 41
+    AND 	shift, and go to state 42
+    OR  	shift, and go to state 43
+    LEFT_SQUARE_BRACKET	shift, and go to state 44
+    SAFE_NAVIGATE	shift, and go to state 45
+    DOT 	shift, and go to state 46
+
+    $default	reduce using rule 3 (ExpressionList)
+
+
+
+state 15
+
+    SimpleExpression  ->  ID LEFT_ROUND_BRACKET . ExpressionList_e RIGHT_ROUND_BRACKET   (rule 11)
+
+    INT_LITERAL	shift, and go to state 1
+    DOUBLE_LITERAL	shift, and go to state 2
+    STRING_LITERAL	shift, and go to state 3
+    BOOL_LITERAL	shift, and go to state 4
+    NULL_LITERAL	shift, and go to state 5
+    ID  	shift, and go to state 6
+    PLUS	shift, and go to state 7
+    INCREMENT	shift, and go to state 8
+    MINUS	shift, and go to state 9
+    DECREMENT	shift, and go to state 10
+    BIT_NOT	shift, and go to state 11
+    LEFT_ROUND_BRACKET	shift, and go to state 12
+
+    $default	reduce using rule 1 (ExpressionList_e)
+
+    ExpressionList_e	go to state 47
+    ExpressionList	go to state 13
+    SimpleExpression	go to state 14
+
+
+
+state 16
+
+    SimpleExpression  ->  SimpleExpression . DOT ID   (rule 13)
+    SimpleExpression  ->  SimpleExpression . SAFE_NAVIGATE ID   (rule 14)
+    SimpleExpression  ->  SimpleExpression . DOT ID LEFT_ROUND_BRACKET ExpressionList_e RIGHT_ROUND_BRACKET   (rule 15)
+    SimpleExpression  ->  SimpleExpression . SAFE_NAVIGATE ID LEFT_ROUND_BRACKET ExpressionList_e RIGHT_ROUND_BRACKET   (rule 16)
+    SimpleExpression  ->  SimpleExpression . LEFT_SQUARE_BRACKET SimpleExpression RIGHT_SQUARE_BRACKET   (rule 17)
+    SimpleExpression  ->  SimpleExpression . PLUS SimpleExpression   (rule 18)
+    SimpleExpression  ->  SimpleExpression . MINUS SimpleExpression   (rule 19)
+    SimpleExpression  ->  SimpleExpression . MUL SimpleExpression   (rule 20)
+    SimpleExpression  ->  SimpleExpression . DIV SimpleExpression   (rule 21)
+    SimpleExpression  ->  SimpleExpression . MOD SimpleExpression   (rule 22)
+    SimpleExpression  ->  SimpleExpression . MORE SimpleExpression   (rule 23)
+    SimpleExpression  ->  SimpleExpression . LESS SimpleExpression   (rule 24)
+    SimpleExpression  ->  SimpleExpression . MORE_OR_EQUAL SimpleExpression   (rule 25)
+    SimpleExpression  ->  SimpleExpression . LESS_OR_EQUAL SimpleExpression   (rule 26)
+    SimpleExpression  ->  SimpleExpression . EQUAL SimpleExpression   (rule 27)
+    SimpleExpression  ->  SimpleExpression . NOT_EQUAL SimpleExpression   (rule 28)
+    SimpleExpression  ->  SimpleExpression . AND SimpleExpression   (rule 29)
+    SimpleExpression  ->  SimpleExpression . OR SimpleExpression   (rule 30)
+    SimpleExpression  ->  SimpleExpression . PLUS_ASSIGNMENT SimpleExpression   (rule 31)
+    SimpleExpression  ->  SimpleExpression . MINUS_ASSIGNMENT SimpleExpression   (rule 32)
+    SimpleExpression  ->  SimpleExpression . MUL_ASSIGNMENT SimpleExpression   (rule 33)
+    SimpleExpression  ->  SimpleExpression . DIV_ASSIGNMENT SimpleExpression   (rule 34)
+    SimpleExpression  ->  SimpleExpression . MOD_ASSIGNMENT SimpleExpression   (rule 35)
+    SimpleExpression  ->  SimpleExpression . OPT_PARAM SimpleExpression COLON SimpleExpression   (rule 36)
+    SimpleExpression  ->  PLUS SimpleExpression .   (rule 38)
+    SimpleExpression  ->  SimpleExpression . INCREMENT   (rule 42)
+    SimpleExpression  ->  SimpleExpression . DECREMENT   (rule 43)
+
+    OPT_PARAM	shift, and go to state 23
+    INCREMENT	shift, and go to state 28
+    DECREMENT	shift, and go to state 31
+    LEFT_SQUARE_BRACKET	shift, and go to state 44
+    SAFE_NAVIGATE	shift, and go to state 45
+    DOT 	shift, and go to state 46
+
+    $default	reduce using rule 38 (SimpleExpression)
+
+
+
+state 17
+
+    SimpleExpression  ->  SimpleExpression . DOT ID   (rule 13)
+    SimpleExpression  ->  SimpleExpression . SAFE_NAVIGATE ID   (rule 14)
+    SimpleExpression  ->  SimpleExpression . DOT ID LEFT_ROUND_BRACKET ExpressionList_e RIGHT_ROUND_BRACKET   (rule 15)
+    SimpleExpression  ->  SimpleExpression . SAFE_NAVIGATE ID LEFT_ROUND_BRACKET ExpressionList_e RIGHT_ROUND_BRACKET   (rule 16)
+    SimpleExpression  ->  SimpleExpression . LEFT_SQUARE_BRACKET SimpleExpression RIGHT_SQUARE_BRACKET   (rule 17)
+    SimpleExpression  ->  SimpleExpression . PLUS SimpleExpression   (rule 18)
+    SimpleExpression  ->  SimpleExpression . MINUS SimpleExpression   (rule 19)
+    SimpleExpression  ->  SimpleExpression . MUL SimpleExpression   (rule 20)
+    SimpleExpression  ->  SimpleExpression . DIV SimpleExpression   (rule 21)
+    SimpleExpression  ->  SimpleExpression . MOD SimpleExpression   (rule 22)
+    SimpleExpression  ->  SimpleExpression . MORE SimpleExpression   (rule 23)
+    SimpleExpression  ->  SimpleExpression . LESS SimpleExpression   (rule 24)
+    SimpleExpression  ->  SimpleExpression . MORE_OR_EQUAL SimpleExpression   (rule 25)
+    SimpleExpression  ->  SimpleExpression . LESS_OR_EQUAL SimpleExpression   (rule 26)
+    SimpleExpression  ->  SimpleExpression . EQUAL SimpleExpression   (rule 27)
+    SimpleExpression  ->  SimpleExpression . NOT_EQUAL SimpleExpression   (rule 28)
+    SimpleExpression  ->  SimpleExpression . AND SimpleExpression   (rule 29)
+    SimpleExpression  ->  SimpleExpression . OR SimpleExpression   (rule 30)
+    SimpleExpression  ->  SimpleExpression . PLUS_ASSIGNMENT SimpleExpression   (rule 31)
+    SimpleExpression  ->  SimpleExpression . MINUS_ASSIGNMENT SimpleExpression   (rule 32)
+    SimpleExpression  ->  SimpleExpression . MUL_ASSIGNMENT SimpleExpression   (rule 33)
+    SimpleExpression  ->  SimpleExpression . DIV_ASSIGNMENT SimpleExpression   (rule 34)
+    SimpleExpression  ->  SimpleExpression . MOD_ASSIGNMENT SimpleExpression   (rule 35)
+    SimpleExpression  ->  SimpleExpression . OPT_PARAM SimpleExpression COLON SimpleExpression   (rule 36)
+    SimpleExpression  ->  INCREMENT SimpleExpression .   (rule 40)
+    SimpleExpression  ->  SimpleExpression . INCREMENT   (rule 42)
+    SimpleExpression  ->  SimpleExpression . DECREMENT   (rule 43)
+
+    OPT_PARAM	shift, and go to state 23
+    LEFT_SQUARE_BRACKET	shift, and go to state 44
+
+    $default	reduce using rule 40 (SimpleExpression)
+
+
+
+state 18
+
+    SimpleExpression  ->  SimpleExpression . DOT ID   (rule 13)
+    SimpleExpression  ->  SimpleExpression . SAFE_NAVIGATE ID   (rule 14)
+    SimpleExpression  ->  SimpleExpression . DOT ID LEFT_ROUND_BRACKET ExpressionList_e RIGHT_ROUND_BRACKET   (rule 15)
+    SimpleExpression  ->  SimpleExpression . SAFE_NAVIGATE ID LEFT_ROUND_BRACKET ExpressionList_e RIGHT_ROUND_BRACKET   (rule 16)
+    SimpleExpression  ->  SimpleExpression . LEFT_SQUARE_BRACKET SimpleExpression RIGHT_SQUARE_BRACKET   (rule 17)
+    SimpleExpression  ->  SimpleExpression . PLUS SimpleExpression   (rule 18)
+    SimpleExpression  ->  SimpleExpression . MINUS SimpleExpression   (rule 19)
+    SimpleExpression  ->  SimpleExpression . MUL SimpleExpression   (rule 20)
+    SimpleExpression  ->  SimpleExpression . DIV SimpleExpression   (rule 21)
+    SimpleExpression  ->  SimpleExpression . MOD SimpleExpression   (rule 22)
+    SimpleExpression  ->  SimpleExpression . MORE SimpleExpression   (rule 23)
+    SimpleExpression  ->  SimpleExpression . LESS SimpleExpression   (rule 24)
+    SimpleExpression  ->  SimpleExpression . MORE_OR_EQUAL SimpleExpression   (rule 25)
+    SimpleExpression  ->  SimpleExpression . LESS_OR_EQUAL SimpleExpression   (rule 26)
+    SimpleExpression  ->  SimpleExpression . EQUAL SimpleExpression   (rule 27)
+    SimpleExpression  ->  SimpleExpression . NOT_EQUAL SimpleExpression   (rule 28)
+    SimpleExpression  ->  SimpleExpression . AND SimpleExpression   (rule 29)
+    SimpleExpression  ->  SimpleExpression . OR SimpleExpression   (rule 30)
+    SimpleExpression  ->  SimpleExpression . PLUS_ASSIGNMENT SimpleExpression   (rule 31)
+    SimpleExpression  ->  SimpleExpression . MINUS_ASSIGNMENT SimpleExpression   (rule 32)
+    SimpleExpression  ->  SimpleExpression . MUL_ASSIGNMENT SimpleExpression   (rule 33)
+    SimpleExpression  ->  SimpleExpression . DIV_ASSIGNMENT SimpleExpression   (rule 34)
+    SimpleExpression  ->  SimpleExpression . MOD_ASSIGNMENT SimpleExpression   (rule 35)
+    SimpleExpression  ->  SimpleExpression . OPT_PARAM SimpleExpression COLON SimpleExpression   (rule 36)
+    SimpleExpression  ->  MINUS SimpleExpression .   (rule 37)
+    SimpleExpression  ->  SimpleExpression . INCREMENT   (rule 42)
+    SimpleExpression  ->  SimpleExpression . DECREMENT   (rule 43)
+
+    OPT_PARAM	shift, and go to state 23
+    INCREMENT	shift, and go to state 28
+    DECREMENT	shift, and go to state 31
+    LEFT_SQUARE_BRACKET	shift, and go to state 44
+    SAFE_NAVIGATE	shift, and go to state 45
+    DOT 	shift, and go to state 46
+
+    $default	reduce using rule 37 (SimpleExpression)
+
+
+
+state 19
+
+    SimpleExpression  ->  SimpleExpression . DOT ID   (rule 13)
+    SimpleExpression  ->  SimpleExpression . SAFE_NAVIGATE ID   (rule 14)
+    SimpleExpression  ->  SimpleExpression . DOT ID LEFT_ROUND_BRACKET ExpressionList_e RIGHT_ROUND_BRACKET   (rule 15)
+    SimpleExpression  ->  SimpleExpression . SAFE_NAVIGATE ID LEFT_ROUND_BRACKET ExpressionList_e RIGHT_ROUND_BRACKET   (rule 16)
+    SimpleExpression  ->  SimpleExpression . LEFT_SQUARE_BRACKET SimpleExpression RIGHT_SQUARE_BRACKET   (rule 17)
+    SimpleExpression  ->  SimpleExpression . PLUS SimpleExpression   (rule 18)
+    SimpleExpression  ->  SimpleExpression . MINUS SimpleExpression   (rule 19)
+    SimpleExpression  ->  SimpleExpression . MUL SimpleExpression   (rule 20)
+    SimpleExpression  ->  SimpleExpression . DIV SimpleExpression   (rule 21)
+    SimpleExpression  ->  SimpleExpression . MOD SimpleExpression   (rule 22)
+    SimpleExpression  ->  SimpleExpression . MORE SimpleExpression   (rule 23)
+    SimpleExpression  ->  SimpleExpression . LESS SimpleExpression   (rule 24)
+    SimpleExpression  ->  SimpleExpression . MORE_OR_EQUAL SimpleExpression   (rule 25)
+    SimpleExpression  ->  SimpleExpression . LESS_OR_EQUAL SimpleExpression   (rule 26)
+    SimpleExpression  ->  SimpleExpression . EQUAL SimpleExpression   (rule 27)
+    SimpleExpression  ->  SimpleExpression . NOT_EQUAL SimpleExpression   (rule 28)
+    SimpleExpression  ->  SimpleExpression . AND SimpleExpression   (rule 29)
+    SimpleExpression  ->  SimpleExpression . OR SimpleExpression   (rule 30)
+    SimpleExpression  ->  SimpleExpression . PLUS_ASSIGNMENT SimpleExpression   (rule 31)
+    SimpleExpression  ->  SimpleExpression . MINUS_ASSIGNMENT SimpleExpression   (rule 32)
+    SimpleExpression  ->  SimpleExpression . MUL_ASSIGNMENT SimpleExpression   (rule 33)
+    SimpleExpression  ->  SimpleExpression . DIV_ASSIGNMENT SimpleExpression   (rule 34)
+    SimpleExpression  ->  SimpleExpression . MOD_ASSIGNMENT SimpleExpression   (rule 35)
+    SimpleExpression  ->  SimpleExpression . OPT_PARAM SimpleExpression COLON SimpleExpression   (rule 36)
+    SimpleExpression  ->  DECREMENT SimpleExpression .   (rule 41)
+    SimpleExpression  ->  SimpleExpression . INCREMENT   (rule 42)
+    SimpleExpression  ->  SimpleExpression . DECREMENT   (rule 43)
+
+    OPT_PARAM	shift, and go to state 23
+    LEFT_SQUARE_BRACKET	shift, and go to state 44
+
+    $default	reduce using rule 41 (SimpleExpression)
+
+
+
+state 20
+
+    SimpleExpression  ->  SimpleExpression . DOT ID   (rule 13)
+    SimpleExpression  ->  SimpleExpression . SAFE_NAVIGATE ID   (rule 14)
+    SimpleExpression  ->  SimpleExpression . DOT ID LEFT_ROUND_BRACKET ExpressionList_e RIGHT_ROUND_BRACKET   (rule 15)
+    SimpleExpression  ->  SimpleExpression . SAFE_NAVIGATE ID LEFT_ROUND_BRACKET ExpressionList_e RIGHT_ROUND_BRACKET   (rule 16)
+    SimpleExpression  ->  SimpleExpression . LEFT_SQUARE_BRACKET SimpleExpression RIGHT_SQUARE_BRACKET   (rule 17)
+    SimpleExpression  ->  SimpleExpression . PLUS SimpleExpression   (rule 18)
+    SimpleExpression  ->  SimpleExpression . MINUS SimpleExpression   (rule 19)
+    SimpleExpression  ->  SimpleExpression . MUL SimpleExpression   (rule 20)
+    SimpleExpression  ->  SimpleExpression . DIV SimpleExpression   (rule 21)
+    SimpleExpression  ->  SimpleExpression . MOD SimpleExpression   (rule 22)
+    SimpleExpression  ->  SimpleExpression . MORE SimpleExpression   (rule 23)
+    SimpleExpression  ->  SimpleExpression . LESS SimpleExpression   (rule 24)
+    SimpleExpression  ->  SimpleExpression . MORE_OR_EQUAL SimpleExpression   (rule 25)
+    SimpleExpression  ->  SimpleExpression . LESS_OR_EQUAL SimpleExpression   (rule 26)
+    SimpleExpression  ->  SimpleExpression . EQUAL SimpleExpression   (rule 27)
+    SimpleExpression  ->  SimpleExpression . NOT_EQUAL SimpleExpression   (rule 28)
+    SimpleExpression  ->  SimpleExpression . AND SimpleExpression   (rule 29)
+    SimpleExpression  ->  SimpleExpression . OR SimpleExpression   (rule 30)
+    SimpleExpression  ->  SimpleExpression . PLUS_ASSIGNMENT SimpleExpression   (rule 31)
+    SimpleExpression  ->  SimpleExpression . MINUS_ASSIGNMENT SimpleExpression   (rule 32)
+    SimpleExpression  ->  SimpleExpression . MUL_ASSIGNMENT SimpleExpression   (rule 33)
+    SimpleExpression  ->  SimpleExpression . DIV_ASSIGNMENT SimpleExpression   (rule 34)
+    SimpleExpression  ->  SimpleExpression . MOD_ASSIGNMENT SimpleExpression   (rule 35)
+    SimpleExpression  ->  SimpleExpression . OPT_PARAM SimpleExpression COLON SimpleExpression   (rule 36)
+    SimpleExpression  ->  BIT_NOT SimpleExpression .   (rule 39)
+    SimpleExpression  ->  SimpleExpression . INCREMENT   (rule 42)
+    SimpleExpression  ->  SimpleExpression . DECREMENT   (rule 43)
+
+    OPT_PARAM	shift, and go to state 23
+    INCREMENT	shift, and go to state 28
+    DECREMENT	shift, and go to state 31
+    LEFT_SQUARE_BRACKET	shift, and go to state 44
+    SAFE_NAVIGATE	shift, and go to state 45
+    DOT 	shift, and go to state 46
+
+    $default	reduce using rule 39 (SimpleExpression)
+
+
+
+state 21
+
+    SimpleExpression  ->  LEFT_ROUND_BRACKET SimpleExpression . RIGHT_ROUND_BRACKET   (rule 12)
+    SimpleExpression  ->  SimpleExpression . DOT ID   (rule 13)
+    SimpleExpression  ->  SimpleExpression . SAFE_NAVIGATE ID   (rule 14)
+    SimpleExpression  ->  SimpleExpression . DOT ID LEFT_ROUND_BRACKET ExpressionList_e RIGHT_ROUND_BRACKET   (rule 15)
+    SimpleExpression  ->  SimpleExpression . SAFE_NAVIGATE ID LEFT_ROUND_BRACKET ExpressionList_e RIGHT_ROUND_BRACKET   (rule 16)
+    SimpleExpression  ->  SimpleExpression . LEFT_SQUARE_BRACKET SimpleExpression RIGHT_SQUARE_BRACKET   (rule 17)
+    SimpleExpression  ->  SimpleExpression . PLUS SimpleExpression   (rule 18)
+    SimpleExpression  ->  SimpleExpression . MINUS SimpleExpression   (rule 19)
+    SimpleExpression  ->  SimpleExpression . MUL SimpleExpression   (rule 20)
+    SimpleExpression  ->  SimpleExpression . DIV SimpleExpression   (rule 21)
+    SimpleExpression  ->  SimpleExpression . MOD SimpleExpression   (rule 22)
+    SimpleExpression  ->  SimpleExpression . MORE SimpleExpression   (rule 23)
+    SimpleExpression  ->  SimpleExpression . LESS SimpleExpression   (rule 24)
+    SimpleExpression  ->  SimpleExpression . MORE_OR_EQUAL SimpleExpression   (rule 25)
+    SimpleExpression  ->  SimpleExpression . LESS_OR_EQUAL SimpleExpression   (rule 26)
+    SimpleExpression  ->  SimpleExpression . EQUAL SimpleExpression   (rule 27)
+    SimpleExpression  ->  SimpleExpression . NOT_EQUAL SimpleExpression   (rule 28)
+    SimpleExpression  ->  SimpleExpression . AND SimpleExpression   (rule 29)
+    SimpleExpression  ->  SimpleExpression . OR SimpleExpression   (rule 30)
+    SimpleExpression  ->  SimpleExpression . PLUS_ASSIGNMENT SimpleExpression   (rule 31)
+    SimpleExpression  ->  SimpleExpression . MINUS_ASSIGNMENT SimpleExpression   (rule 32)
+    SimpleExpression  ->  SimpleExpression . MUL_ASSIGNMENT SimpleExpression   (rule 33)
+    SimpleExpression  ->  SimpleExpression . DIV_ASSIGNMENT SimpleExpression   (rule 34)
+    SimpleExpression  ->  SimpleExpression . MOD_ASSIGNMENT SimpleExpression   (rule 35)
+    SimpleExpression  ->  SimpleExpression . OPT_PARAM SimpleExpression COLON SimpleExpression   (rule 36)
+    SimpleExpression  ->  SimpleExpression . INCREMENT   (rule 42)
+    SimpleExpression  ->  SimpleExpression . DECREMENT   (rule 43)
+
+    OPT_PARAM	shift, and go to state 23
+    MOD 	shift, and go to state 24
+    MOD_ASSIGNMENT	shift, and go to state 25
+    PLUS	shift, and go to state 26
+    PLUS_ASSIGNMENT	shift, and go to state 27
+    INCREMENT	shift, and go to state 28
+    MINUS	shift, and go to state 29
+    MINUS_ASSIGNMENT	shift, and go to state 30
+    DECREMENT	shift, and go to state 31
+    MUL 	shift, and go to state 32
+    MUL_ASSIGNMENT	shift, and go to state 33
+    EQUAL	shift, and go to state 34
+    NOT_EQUAL	shift, and go to state 35
+    MORE	shift, and go to state 36
+    MORE_OR_EQUAL	shift, and go to state 37
+    LESS	shift, and go to state 38
+    LESS_OR_EQUAL	shift, and go to state 39
+    DIV 	shift, and go to state 40
+    DIV_ASSIGNMENT	shift, and go to state 41
+    AND 	shift, and go to state 42
+    OR  	shift, and go to state 43
+    LEFT_SQUARE_BRACKET	shift, and go to state 44
+    RIGHT_ROUND_BRACKET	shift, and go to state 48
+    SAFE_NAVIGATE	shift, and go to state 45
+    DOT 	shift, and go to state 46
+
+
+
+state 22
+
+    ExpressionList  ->  ExpressionList COMMA . SimpleExpression   (rule 4)
+
+    INT_LITERAL	shift, and go to state 1
+    DOUBLE_LITERAL	shift, and go to state 2
+    STRING_LITERAL	shift, and go to state 3
+    BOOL_LITERAL	shift, and go to state 4
+    NULL_LITERAL	shift, and go to state 5
+    ID  	shift, and go to state 6
+    PLUS	shift, and go to state 7
+    INCREMENT	shift, and go to state 8
+    MINUS	shift, and go to state 9
+    DECREMENT	shift, and go to state 10
+    BIT_NOT	shift, and go to state 11
+    LEFT_ROUND_BRACKET	shift, and go to state 12
+
+    SimpleExpression	go to state 49
+
+
+
+state 23
+
+    SimpleExpression  ->  SimpleExpression OPT_PARAM . SimpleExpression COLON SimpleExpression   (rule 36)
+
+    INT_LITERAL	shift, and go to state 1
+    DOUBLE_LITERAL	shift, and go to state 2
+    STRING_LITERAL	shift, and go to state 3
+    BOOL_LITERAL	shift, and go to state 4
+    NULL_LITERAL	shift, and go to state 5
+    ID  	shift, and go to state 6
+    PLUS	shift, and go to state 7
+    INCREMENT	shift, and go to state 8
+    MINUS	shift, and go to state 9
+    DECREMENT	shift, and go to state 10
+    BIT_NOT	shift, and go to state 11
+    LEFT_ROUND_BRACKET	shift, and go to state 12
+
+    SimpleExpression	go to state 50
+
+
+
+state 24
+
+    SimpleExpression  ->  SimpleExpression MOD . SimpleExpression   (rule 22)
+
+    INT_LITERAL	shift, and go to state 1
+    DOUBLE_LITERAL	shift, and go to state 2
+    STRING_LITERAL	shift, and go to state 3
+    BOOL_LITERAL	shift, and go to state 4
+    NULL_LITERAL	shift, and go to state 5
+    ID  	shift, and go to state 6
+    PLUS	shift, and go to state 7
+    INCREMENT	shift, and go to state 8
+    MINUS	shift, and go to state 9
+    DECREMENT	shift, and go to state 10
+    BIT_NOT	shift, and go to state 11
+    LEFT_ROUND_BRACKET	shift, and go to state 12
+
+    SimpleExpression	go to state 51
+
+
+
+state 25
+
+    SimpleExpression  ->  SimpleExpression MOD_ASSIGNMENT . SimpleExpression   (rule 35)
+
+    INT_LITERAL	shift, and go to state 1
+    DOUBLE_LITERAL	shift, and go to state 2
+    STRING_LITERAL	shift, and go to state 3
+    BOOL_LITERAL	shift, and go to state 4
+    NULL_LITERAL	shift, and go to state 5
+    ID  	shift, and go to state 6
+    PLUS	shift, and go to state 7
+    INCREMENT	shift, and go to state 8
+    MINUS	shift, and go to state 9
+    DECREMENT	shift, and go to state 10
+    BIT_NOT	shift, and go to state 11
+    LEFT_ROUND_BRACKET	shift, and go to state 12
+
+    SimpleExpression	go to state 52
+
+
+
+state 26
+
+    SimpleExpression  ->  SimpleExpression PLUS . SimpleExpression   (rule 18)
+
+    INT_LITERAL	shift, and go to state 1
+    DOUBLE_LITERAL	shift, and go to state 2
+    STRING_LITERAL	shift, and go to state 3
+    BOOL_LITERAL	shift, and go to state 4
+    NULL_LITERAL	shift, and go to state 5
+    ID  	shift, and go to state 6
+    PLUS	shift, and go to state 7
+    INCREMENT	shift, and go to state 8
+    MINUS	shift, and go to state 9
+    DECREMENT	shift, and go to state 10
+    BIT_NOT	shift, and go to state 11
+    LEFT_ROUND_BRACKET	shift, and go to state 12
+
+    SimpleExpression	go to state 53
+
+
+
+state 27
+
+    SimpleExpression  ->  SimpleExpression PLUS_ASSIGNMENT . SimpleExpression   (rule 31)
+
+    INT_LITERAL	shift, and go to state 1
+    DOUBLE_LITERAL	shift, and go to state 2
+    STRING_LITERAL	shift, and go to state 3
+    BOOL_LITERAL	shift, and go to state 4
+    NULL_LITERAL	shift, and go to state 5
+    ID  	shift, and go to state 6
+    PLUS	shift, and go to state 7
+    INCREMENT	shift, and go to state 8
+    MINUS	shift, and go to state 9
+    DECREMENT	shift, and go to state 10
+    BIT_NOT	shift, and go to state 11
+    LEFT_ROUND_BRACKET	shift, and go to state 12
+
+    SimpleExpression	go to state 54
+
+
+
+state 28
+
+    SimpleExpression  ->  SimpleExpression INCREMENT .   (rule 42)
+
+    $default	reduce using rule 42 (SimpleExpression)
+
+
+
+state 29
+
+    SimpleExpression  ->  SimpleExpression MINUS . SimpleExpression   (rule 19)
+
+    INT_LITERAL	shift, and go to state 1
+    DOUBLE_LITERAL	shift, and go to state 2
+    STRING_LITERAL	shift, and go to state 3
+    BOOL_LITERAL	shift, and go to state 4
+    NULL_LITERAL	shift, and go to state 5
+    ID  	shift, and go to state 6
+    PLUS	shift, and go to state 7
+    INCREMENT	shift, and go to state 8
+    MINUS	shift, and go to state 9
+    DECREMENT	shift, and go to state 10
+    BIT_NOT	shift, and go to state 11
+    LEFT_ROUND_BRACKET	shift, and go to state 12
+
+    SimpleExpression	go to state 55
+
+
+
+state 30
+
+    SimpleExpression  ->  SimpleExpression MINUS_ASSIGNMENT . SimpleExpression   (rule 32)
+
+    INT_LITERAL	shift, and go to state 1
+    DOUBLE_LITERAL	shift, and go to state 2
+    STRING_LITERAL	shift, and go to state 3
+    BOOL_LITERAL	shift, and go to state 4
+    NULL_LITERAL	shift, and go to state 5
+    ID  	shift, and go to state 6
+    PLUS	shift, and go to state 7
+    INCREMENT	shift, and go to state 8
+    MINUS	shift, and go to state 9
+    DECREMENT	shift, and go to state 10
+    BIT_NOT	shift, and go to state 11
+    LEFT_ROUND_BRACKET	shift, and go to state 12
+
+    SimpleExpression	go to state 56
+
+
+
+state 31
+
+    SimpleExpression  ->  SimpleExpression DECREMENT .   (rule 43)
+
+    $default	reduce using rule 43 (SimpleExpression)
+
+
+
+state 32
+
+    SimpleExpression  ->  SimpleExpression MUL . SimpleExpression   (rule 20)
+
+    INT_LITERAL	shift, and go to state 1
+    DOUBLE_LITERAL	shift, and go to state 2
+    STRING_LITERAL	shift, and go to state 3
+    BOOL_LITERAL	shift, and go to state 4
+    NULL_LITERAL	shift, and go to state 5
+    ID  	shift, and go to state 6
+    PLUS	shift, and go to state 7
+    INCREMENT	shift, and go to state 8
+    MINUS	shift, and go to state 9
+    DECREMENT	shift, and go to state 10
+    BIT_NOT	shift, and go to state 11
+    LEFT_ROUND_BRACKET	shift, and go to state 12
+
+    SimpleExpression	go to state 57
+
+
+
+state 33
+
+    SimpleExpression  ->  SimpleExpression MUL_ASSIGNMENT . SimpleExpression   (rule 33)
+
+    INT_LITERAL	shift, and go to state 1
+    DOUBLE_LITERAL	shift, and go to state 2
+    STRING_LITERAL	shift, and go to state 3
+    BOOL_LITERAL	shift, and go to state 4
+    NULL_LITERAL	shift, and go to state 5
+    ID  	shift, and go to state 6
+    PLUS	shift, and go to state 7
+    INCREMENT	shift, and go to state 8
+    MINUS	shift, and go to state 9
+    DECREMENT	shift, and go to state 10
+    BIT_NOT	shift, and go to state 11
+    LEFT_ROUND_BRACKET	shift, and go to state 12
+
+    SimpleExpression	go to state 58
+
+
+
+state 34
+
+    SimpleExpression  ->  SimpleExpression EQUAL . SimpleExpression   (rule 27)
+
+    INT_LITERAL	shift, and go to state 1
+    DOUBLE_LITERAL	shift, and go to state 2
+    STRING_LITERAL	shift, and go to state 3
+    BOOL_LITERAL	shift, and go to state 4
+    NULL_LITERAL	shift, and go to state 5
+    ID  	shift, and go to state 6
+    PLUS	shift, and go to state 7
+    INCREMENT	shift, and go to state 8
+    MINUS	shift, and go to state 9
+    DECREMENT	shift, and go to state 10
+    BIT_NOT	shift, and go to state 11
+    LEFT_ROUND_BRACKET	shift, and go to state 12
+
+    SimpleExpression	go to state 59
+
+
+
+state 35
+
+    SimpleExpression  ->  SimpleExpression NOT_EQUAL . SimpleExpression   (rule 28)
+
+    INT_LITERAL	shift, and go to state 1
+    DOUBLE_LITERAL	shift, and go to state 2
+    STRING_LITERAL	shift, and go to state 3
+    BOOL_LITERAL	shift, and go to state 4
+    NULL_LITERAL	shift, and go to state 5
+    ID  	shift, and go to state 6
+    PLUS	shift, and go to state 7
+    INCREMENT	shift, and go to state 8
+    MINUS	shift, and go to state 9
+    DECREMENT	shift, and go to state 10
+    BIT_NOT	shift, and go to state 11
+    LEFT_ROUND_BRACKET	shift, and go to state 12
+
+    SimpleExpression	go to state 60
+
+
+
+state 36
+
+    SimpleExpression  ->  SimpleExpression MORE . SimpleExpression   (rule 23)
+
+    INT_LITERAL	shift, and go to state 1
+    DOUBLE_LITERAL	shift, and go to state 2
+    STRING_LITERAL	shift, and go to state 3
+    BOOL_LITERAL	shift, and go to state 4
+    NULL_LITERAL	shift, and go to state 5
+    ID  	shift, and go to state 6
+    PLUS	shift, and go to state 7
+    INCREMENT	shift, and go to state 8
+    MINUS	shift, and go to state 9
+    DECREMENT	shift, and go to state 10
+    BIT_NOT	shift, and go to state 11
+    LEFT_ROUND_BRACKET	shift, and go to state 12
+
+    SimpleExpression	go to state 61
+
+
+
+state 37
+
+    SimpleExpression  ->  SimpleExpression MORE_OR_EQUAL . SimpleExpression   (rule 25)
+
+    INT_LITERAL	shift, and go to state 1
+    DOUBLE_LITERAL	shift, and go to state 2
+    STRING_LITERAL	shift, and go to state 3
+    BOOL_LITERAL	shift, and go to state 4
+    NULL_LITERAL	shift, and go to state 5
+    ID  	shift, and go to state 6
+    PLUS	shift, and go to state 7
+    INCREMENT	shift, and go to state 8
+    MINUS	shift, and go to state 9
+    DECREMENT	shift, and go to state 10
+    BIT_NOT	shift, and go to state 11
+    LEFT_ROUND_BRACKET	shift, and go to state 12
+
+    SimpleExpression	go to state 62
+
+
+
+state 38
+
+    SimpleExpression  ->  SimpleExpression LESS . SimpleExpression   (rule 24)
+
+    INT_LITERAL	shift, and go to state 1
+    DOUBLE_LITERAL	shift, and go to state 2
+    STRING_LITERAL	shift, and go to state 3
+    BOOL_LITERAL	shift, and go to state 4
+    NULL_LITERAL	shift, and go to state 5
+    ID  	shift, and go to state 6
+    PLUS	shift, and go to state 7
+    INCREMENT	shift, and go to state 8
+    MINUS	shift, and go to state 9
+    DECREMENT	shift, and go to state 10
+    BIT_NOT	shift, and go to state 11
+    LEFT_ROUND_BRACKET	shift, and go to state 12
+
+    SimpleExpression	go to state 63
+
+
+
+state 39
+
+    SimpleExpression  ->  SimpleExpression LESS_OR_EQUAL . SimpleExpression   (rule 26)
+
+    INT_LITERAL	shift, and go to state 1
+    DOUBLE_LITERAL	shift, and go to state 2
+    STRING_LITERAL	shift, and go to state 3
+    BOOL_LITERAL	shift, and go to state 4
+    NULL_LITERAL	shift, and go to state 5
+    ID  	shift, and go to state 6
+    PLUS	shift, and go to state 7
+    INCREMENT	shift, and go to state 8
+    MINUS	shift, and go to state 9
+    DECREMENT	shift, and go to state 10
+    BIT_NOT	shift, and go to state 11
+    LEFT_ROUND_BRACKET	shift, and go to state 12
+
+    SimpleExpression	go to state 64
+
+
+
+state 40
+
+    SimpleExpression  ->  SimpleExpression DIV . SimpleExpression   (rule 21)
+
+    INT_LITERAL	shift, and go to state 1
+    DOUBLE_LITERAL	shift, and go to state 2
+    STRING_LITERAL	shift, and go to state 3
+    BOOL_LITERAL	shift, and go to state 4
+    NULL_LITERAL	shift, and go to state 5
+    ID  	shift, and go to state 6
+    PLUS	shift, and go to state 7
+    INCREMENT	shift, and go to state 8
+    MINUS	shift, and go to state 9
+    DECREMENT	shift, and go to state 10
+    BIT_NOT	shift, and go to state 11
+    LEFT_ROUND_BRACKET	shift, and go to state 12
+
+    SimpleExpression	go to state 65
+
+
+
+state 41
+
+    SimpleExpression  ->  SimpleExpression DIV_ASSIGNMENT . SimpleExpression   (rule 34)
+
+    INT_LITERAL	shift, and go to state 1
+    DOUBLE_LITERAL	shift, and go to state 2
+    STRING_LITERAL	shift, and go to state 3
+    BOOL_LITERAL	shift, and go to state 4
+    NULL_LITERAL	shift, and go to state 5
+    ID  	shift, and go to state 6
+    PLUS	shift, and go to state 7
+    INCREMENT	shift, and go to state 8
+    MINUS	shift, and go to state 9
+    DECREMENT	shift, and go to state 10
+    BIT_NOT	shift, and go to state 11
+    LEFT_ROUND_BRACKET	shift, and go to state 12
+
+    SimpleExpression	go to state 66
+
+
+
+state 42
+
+    SimpleExpression  ->  SimpleExpression AND . SimpleExpression   (rule 29)
+
+    INT_LITERAL	shift, and go to state 1
+    DOUBLE_LITERAL	shift, and go to state 2
+    STRING_LITERAL	shift, and go to state 3
+    BOOL_LITERAL	shift, and go to state 4
+    NULL_LITERAL	shift, and go to state 5
+    ID  	shift, and go to state 6
+    PLUS	shift, and go to state 7
+    INCREMENT	shift, and go to state 8
+    MINUS	shift, and go to state 9
+    DECREMENT	shift, and go to state 10
+    BIT_NOT	shift, and go to state 11
+    LEFT_ROUND_BRACKET	shift, and go to state 12
+
+    SimpleExpression	go to state 67
+
+
+
+state 43
+
+    SimpleExpression  ->  SimpleExpression OR . SimpleExpression   (rule 30)
+
+    INT_LITERAL	shift, and go to state 1
+    DOUBLE_LITERAL	shift, and go to state 2
+    STRING_LITERAL	shift, and go to state 3
+    BOOL_LITERAL	shift, and go to state 4
+    NULL_LITERAL	shift, and go to state 5
+    ID  	shift, and go to state 6
+    PLUS	shift, and go to state 7
+    INCREMENT	shift, and go to state 8
+    MINUS	shift, and go to state 9
+    DECREMENT	shift, and go to state 10
+    BIT_NOT	shift, and go to state 11
+    LEFT_ROUND_BRACKET	shift, and go to state 12
+
+    SimpleExpression	go to state 68
+
+
+
+state 44
+
+    SimpleExpression  ->  SimpleExpression LEFT_SQUARE_BRACKET . SimpleExpression RIGHT_SQUARE_BRACKET   (rule 17)
+
+    INT_LITERAL	shift, and go to state 1
+    DOUBLE_LITERAL	shift, and go to state 2
+    STRING_LITERAL	shift, and go to state 3
+    BOOL_LITERAL	shift, and go to state 4
+    NULL_LITERAL	shift, and go to state 5
+    ID  	shift, and go to state 6
+    PLUS	shift, and go to state 7
+    INCREMENT	shift, and go to state 8
+    MINUS	shift, and go to state 9
+    DECREMENT	shift, and go to state 10
+    BIT_NOT	shift, and go to state 11
+    LEFT_ROUND_BRACKET	shift, and go to state 12
+
+    SimpleExpression	go to state 69
+
+
+
+state 45
+
+    SimpleExpression  ->  SimpleExpression SAFE_NAVIGATE . ID   (rule 14)
+    SimpleExpression  ->  SimpleExpression SAFE_NAVIGATE . ID LEFT_ROUND_BRACKET ExpressionList_e RIGHT_ROUND_BRACKET   (rule 16)
+
+    ID  	shift, and go to state 70
+
+
+
+state 46
+
+    SimpleExpression  ->  SimpleExpression DOT . ID   (rule 13)
+    SimpleExpression  ->  SimpleExpression DOT . ID LEFT_ROUND_BRACKET ExpressionList_e RIGHT_ROUND_BRACKET   (rule 15)
+
+    ID  	shift, and go to state 71
+
+
+
+state 47
+
+    SimpleExpression  ->  ID LEFT_ROUND_BRACKET ExpressionList_e . RIGHT_ROUND_BRACKET   (rule 11)
+
+    RIGHT_ROUND_BRACKET	shift, and go to state 72
+
+
+
+state 48
+
+    SimpleExpression  ->  LEFT_ROUND_BRACKET SimpleExpression RIGHT_ROUND_BRACKET .   (rule 12)
+
+    $default	reduce using rule 12 (SimpleExpression)
+
+
+
+state 49
+
+    ExpressionList  ->  ExpressionList COMMA SimpleExpression .   (rule 4)
+    SimpleExpression  ->  SimpleExpression . DOT ID   (rule 13)
+    SimpleExpression  ->  SimpleExpression . SAFE_NAVIGATE ID   (rule 14)
+    SimpleExpression  ->  SimpleExpression . DOT ID LEFT_ROUND_BRACKET ExpressionList_e RIGHT_ROUND_BRACKET   (rule 15)
+    SimpleExpression  ->  SimpleExpression . SAFE_NAVIGATE ID LEFT_ROUND_BRACKET ExpressionList_e RIGHT_ROUND_BRACKET   (rule 16)
+    SimpleExpression  ->  SimpleExpression . LEFT_SQUARE_BRACKET SimpleExpression RIGHT_SQUARE_BRACKET   (rule 17)
+    SimpleExpression  ->  SimpleExpression . PLUS SimpleExpression   (rule 18)
+    SimpleExpression  ->  SimpleExpression . MINUS SimpleExpression   (rule 19)
+    SimpleExpression  ->  SimpleExpression . MUL SimpleExpression   (rule 20)
+    SimpleExpression  ->  SimpleExpression . DIV SimpleExpression   (rule 21)
+    SimpleExpression  ->  SimpleExpression . MOD SimpleExpression   (rule 22)
+    SimpleExpression  ->  SimpleExpression . MORE SimpleExpression   (rule 23)
+    SimpleExpression  ->  SimpleExpression . LESS SimpleExpression   (rule 24)
+    SimpleExpression  ->  SimpleExpression . MORE_OR_EQUAL SimpleExpression   (rule 25)
+    SimpleExpression  ->  SimpleExpression . LESS_OR_EQUAL SimpleExpression   (rule 26)
+    SimpleExpression  ->  SimpleExpression . EQUAL SimpleExpression   (rule 27)
+    SimpleExpression  ->  SimpleExpression . NOT_EQUAL SimpleExpression   (rule 28)
+    SimpleExpression  ->  SimpleExpression . AND SimpleExpression   (rule 29)
+    SimpleExpression  ->  SimpleExpression . OR SimpleExpression   (rule 30)
+    SimpleExpression  ->  SimpleExpression . PLUS_ASSIGNMENT SimpleExpression   (rule 31)
+    SimpleExpression  ->  SimpleExpression . MINUS_ASSIGNMENT SimpleExpression   (rule 32)
+    SimpleExpression  ->  SimpleExpression . MUL_ASSIGNMENT SimpleExpression   (rule 33)
+    SimpleExpression  ->  SimpleExpression . DIV_ASSIGNMENT SimpleExpression   (rule 34)
+    SimpleExpression  ->  SimpleExpression . MOD_ASSIGNMENT SimpleExpression   (rule 35)
+    SimpleExpression  ->  SimpleExpression . OPT_PARAM SimpleExpression COLON SimpleExpression   (rule 36)
+    SimpleExpression  ->  SimpleExpression . INCREMENT   (rule 42)
+    SimpleExpression  ->  SimpleExpression . DECREMENT   (rule 43)
+
+    OPT_PARAM	shift, and go to state 23
+    MOD 	shift, and go to state 24
+    MOD_ASSIGNMENT	shift, and go to state 25
+    PLUS	shift, and go to state 26
+    PLUS_ASSIGNMENT	shift, and go to state 27
+    INCREMENT	shift, and go to state 28
+    MINUS	shift, and go to state 29
+    MINUS_ASSIGNMENT	shift, and go to state 30
+    DECREMENT	shift, and go to state 31
+    MUL 	shift, and go to state 32
+    MUL_ASSIGNMENT	shift, and go to state 33
+    EQUAL	shift, and go to state 34
+    NOT_EQUAL	shift, and go to state 35
+    MORE	shift, and go to state 36
+    MORE_OR_EQUAL	shift, and go to state 37
+    LESS	shift, and go to state 38
+    LESS_OR_EQUAL	shift, and go to state 39
+    DIV 	shift, and go to state 40
+    DIV_ASSIGNMENT	shift, and go to state 41
+    AND 	shift, and go to state 42
+    OR  	shift, and go to state 43
+    LEFT_SQUARE_BRACKET	shift, and go to state 44
+    SAFE_NAVIGATE	shift, and go to state 45
+    DOT 	shift, and go to state 46
+
+    $default	reduce using rule 4 (ExpressionList)
+
+
+
+state 50
+
+    SimpleExpression  ->  SimpleExpression . DOT ID   (rule 13)
+    SimpleExpression  ->  SimpleExpression . SAFE_NAVIGATE ID   (rule 14)
+    SimpleExpression  ->  SimpleExpression . DOT ID LEFT_ROUND_BRACKET ExpressionList_e RIGHT_ROUND_BRACKET   (rule 15)
+    SimpleExpression  ->  SimpleExpression . SAFE_NAVIGATE ID LEFT_ROUND_BRACKET ExpressionList_e RIGHT_ROUND_BRACKET   (rule 16)
+    SimpleExpression  ->  SimpleExpression . LEFT_SQUARE_BRACKET SimpleExpression RIGHT_SQUARE_BRACKET   (rule 17)
+    SimpleExpression  ->  SimpleExpression . PLUS SimpleExpression   (rule 18)
+    SimpleExpression  ->  SimpleExpression . MINUS SimpleExpression   (rule 19)
+    SimpleExpression  ->  SimpleExpression . MUL SimpleExpression   (rule 20)
+    SimpleExpression  ->  SimpleExpression . DIV SimpleExpression   (rule 21)
+    SimpleExpression  ->  SimpleExpression . MOD SimpleExpression   (rule 22)
+    SimpleExpression  ->  SimpleExpression . MORE SimpleExpression   (rule 23)
+    SimpleExpression  ->  SimpleExpression . LESS SimpleExpression   (rule 24)
+    SimpleExpression  ->  SimpleExpression . MORE_OR_EQUAL SimpleExpression   (rule 25)
+    SimpleExpression  ->  SimpleExpression . LESS_OR_EQUAL SimpleExpression   (rule 26)
+    SimpleExpression  ->  SimpleExpression . EQUAL SimpleExpression   (rule 27)
+    SimpleExpression  ->  SimpleExpression . NOT_EQUAL SimpleExpression   (rule 28)
+    SimpleExpression  ->  SimpleExpression . AND SimpleExpression   (rule 29)
+    SimpleExpression  ->  SimpleExpression . OR SimpleExpression   (rule 30)
+    SimpleExpression  ->  SimpleExpression . PLUS_ASSIGNMENT SimpleExpression   (rule 31)
+    SimpleExpression  ->  SimpleExpression . MINUS_ASSIGNMENT SimpleExpression   (rule 32)
+    SimpleExpression  ->  SimpleExpression . MUL_ASSIGNMENT SimpleExpression   (rule 33)
+    SimpleExpression  ->  SimpleExpression . DIV_ASSIGNMENT SimpleExpression   (rule 34)
+    SimpleExpression  ->  SimpleExpression . MOD_ASSIGNMENT SimpleExpression   (rule 35)
+    SimpleExpression  ->  SimpleExpression . OPT_PARAM SimpleExpression COLON SimpleExpression   (rule 36)
+    SimpleExpression  ->  SimpleExpression OPT_PARAM SimpleExpression . COLON SimpleExpression   (rule 36)
+    SimpleExpression  ->  SimpleExpression . INCREMENT   (rule 42)
+    SimpleExpression  ->  SimpleExpression . DECREMENT   (rule 43)
+
+    COLON	shift, and go to state 73
+    OPT_PARAM	shift, and go to state 23
+    MOD 	shift, and go to state 24
+    MOD_ASSIGNMENT	shift, and go to state 25
+    PLUS	shift, and go to state 26
+    PLUS_ASSIGNMENT	shift, and go to state 27
+    INCREMENT	shift, and go to state 28
+    MINUS	shift, and go to state 29
+    MINUS_ASSIGNMENT	shift, and go to state 30
+    DECREMENT	shift, and go to state 31
+    MUL 	shift, and go to state 32
+    MUL_ASSIGNMENT	shift, and go to state 33
+    EQUAL	shift, and go to state 34
+    NOT_EQUAL	shift, and go to state 35
+    MORE	shift, and go to state 36
+    MORE_OR_EQUAL	shift, and go to state 37
+    LESS	shift, and go to state 38
+    LESS_OR_EQUAL	shift, and go to state 39
+    DIV 	shift, and go to state 40
+    DIV_ASSIGNMENT	shift, and go to state 41
+    AND 	shift, and go to state 42
+    OR  	shift, and go to state 43
+    LEFT_SQUARE_BRACKET	shift, and go to state 44
+    SAFE_NAVIGATE	shift, and go to state 45
+    DOT 	shift, and go to state 46
+
+
+
+state 51
+
+    SimpleExpression  ->  SimpleExpression . DOT ID   (rule 13)
+    SimpleExpression  ->  SimpleExpression . SAFE_NAVIGATE ID   (rule 14)
+    SimpleExpression  ->  SimpleExpression . DOT ID LEFT_ROUND_BRACKET ExpressionList_e RIGHT_ROUND_BRACKET   (rule 15)
+    SimpleExpression  ->  SimpleExpression . SAFE_NAVIGATE ID LEFT_ROUND_BRACKET ExpressionList_e RIGHT_ROUND_BRACKET   (rule 16)
+    SimpleExpression  ->  SimpleExpression . LEFT_SQUARE_BRACKET SimpleExpression RIGHT_SQUARE_BRACKET   (rule 17)
+    SimpleExpression  ->  SimpleExpression . PLUS SimpleExpression   (rule 18)
+    SimpleExpression  ->  SimpleExpression . MINUS SimpleExpression   (rule 19)
+    SimpleExpression  ->  SimpleExpression . MUL SimpleExpression   (rule 20)
+    SimpleExpression  ->  SimpleExpression . DIV SimpleExpression   (rule 21)
+    SimpleExpression  ->  SimpleExpression . MOD SimpleExpression   (rule 22)
+    SimpleExpression  ->  SimpleExpression MOD SimpleExpression .   (rule 22)
+    SimpleExpression  ->  SimpleExpression . MORE SimpleExpression   (rule 23)
+    SimpleExpression  ->  SimpleExpression . LESS SimpleExpression   (rule 24)
+    SimpleExpression  ->  SimpleExpression . MORE_OR_EQUAL SimpleExpression   (rule 25)
+    SimpleExpression  ->  SimpleExpression . LESS_OR_EQUAL SimpleExpression   (rule 26)
+    SimpleExpression  ->  SimpleExpression . EQUAL SimpleExpression   (rule 27)
+    SimpleExpression  ->  SimpleExpression . NOT_EQUAL SimpleExpression   (rule 28)
+    SimpleExpression  ->  SimpleExpression . AND SimpleExpression   (rule 29)
+    SimpleExpression  ->  SimpleExpression . OR SimpleExpression   (rule 30)
+    SimpleExpression  ->  SimpleExpression . PLUS_ASSIGNMENT SimpleExpression   (rule 31)
+    SimpleExpression  ->  SimpleExpression . MINUS_ASSIGNMENT SimpleExpression   (rule 32)
+    SimpleExpression  ->  SimpleExpression . MUL_ASSIGNMENT SimpleExpression   (rule 33)
+    SimpleExpression  ->  SimpleExpression . DIV_ASSIGNMENT SimpleExpression   (rule 34)
+    SimpleExpression  ->  SimpleExpression . MOD_ASSIGNMENT SimpleExpression   (rule 35)
+    SimpleExpression  ->  SimpleExpression . OPT_PARAM SimpleExpression COLON SimpleExpression   (rule 36)
+    SimpleExpression  ->  SimpleExpression . INCREMENT   (rule 42)
+    SimpleExpression  ->  SimpleExpression . DECREMENT   (rule 43)
+
+    OPT_PARAM	shift, and go to state 23
+    INCREMENT	shift, and go to state 28
+    DECREMENT	shift, and go to state 31
+    LEFT_SQUARE_BRACKET	shift, and go to state 44
+    SAFE_NAVIGATE	shift, and go to state 45
+    DOT 	shift, and go to state 46
+
+    $default	reduce using rule 22 (SimpleExpression)
+
+
+
+state 52
+
+    SimpleExpression  ->  SimpleExpression . DOT ID   (rule 13)
+    SimpleExpression  ->  SimpleExpression . SAFE_NAVIGATE ID   (rule 14)
+    SimpleExpression  ->  SimpleExpression . DOT ID LEFT_ROUND_BRACKET ExpressionList_e RIGHT_ROUND_BRACKET   (rule 15)
+    SimpleExpression  ->  SimpleExpression . SAFE_NAVIGATE ID LEFT_ROUND_BRACKET ExpressionList_e RIGHT_ROUND_BRACKET   (rule 16)
+    SimpleExpression  ->  SimpleExpression . LEFT_SQUARE_BRACKET SimpleExpression RIGHT_SQUARE_BRACKET   (rule 17)
+    SimpleExpression  ->  SimpleExpression . PLUS SimpleExpression   (rule 18)
+    SimpleExpression  ->  SimpleExpression . MINUS SimpleExpression   (rule 19)
+    SimpleExpression  ->  SimpleExpression . MUL SimpleExpression   (rule 20)
+    SimpleExpression  ->  SimpleExpression . DIV SimpleExpression   (rule 21)
+    SimpleExpression  ->  SimpleExpression . MOD SimpleExpression   (rule 22)
+    SimpleExpression  ->  SimpleExpression . MORE SimpleExpression   (rule 23)
+    SimpleExpression  ->  SimpleExpression . LESS SimpleExpression   (rule 24)
+    SimpleExpression  ->  SimpleExpression . MORE_OR_EQUAL SimpleExpression   (rule 25)
+    SimpleExpression  ->  SimpleExpression . LESS_OR_EQUAL SimpleExpression   (rule 26)
+    SimpleExpression  ->  SimpleExpression . EQUAL SimpleExpression   (rule 27)
+    SimpleExpression  ->  SimpleExpression . NOT_EQUAL SimpleExpression   (rule 28)
+    SimpleExpression  ->  SimpleExpression . AND SimpleExpression   (rule 29)
+    SimpleExpression  ->  SimpleExpression . OR SimpleExpression   (rule 30)
+    SimpleExpression  ->  SimpleExpression . PLUS_ASSIGNMENT SimpleExpression   (rule 31)
+    SimpleExpression  ->  SimpleExpression . MINUS_ASSIGNMENT SimpleExpression   (rule 32)
+    SimpleExpression  ->  SimpleExpression . MUL_ASSIGNMENT SimpleExpression   (rule 33)
+    SimpleExpression  ->  SimpleExpression . DIV_ASSIGNMENT SimpleExpression   (rule 34)
+    SimpleExpression  ->  SimpleExpression . MOD_ASSIGNMENT SimpleExpression   (rule 35)
+    SimpleExpression  ->  SimpleExpression MOD_ASSIGNMENT SimpleExpression .   (rule 35)
+    SimpleExpression  ->  SimpleExpression . OPT_PARAM SimpleExpression COLON SimpleExpression   (rule 36)
+    SimpleExpression  ->  SimpleExpression . INCREMENT   (rule 42)
+    SimpleExpression  ->  SimpleExpression . DECREMENT   (rule 43)
+
+    OPT_PARAM	shift, and go to state 23
+    MOD 	shift, and go to state 24
+    MOD_ASSIGNMENT	shift, and go to state 25
+    PLUS	shift, and go to state 26
+    PLUS_ASSIGNMENT	shift, and go to state 27
+    INCREMENT	shift, and go to state 28
+    MINUS	shift, and go to state 29
+    MINUS_ASSIGNMENT	shift, and go to state 30
+    DECREMENT	shift, and go to state 31
+    MUL 	shift, and go to state 32
+    MUL_ASSIGNMENT	shift, and go to state 33
+    EQUAL	shift, and go to state 34
+    NOT_EQUAL	shift, and go to state 35
+    MORE	shift, and go to state 36
+    MORE_OR_EQUAL	shift, and go to state 37
+    LESS	shift, and go to state 38
+    LESS_OR_EQUAL	shift, and go to state 39
+    DIV 	shift, and go to state 40
+    DIV_ASSIGNMENT	shift, and go to state 41
+    AND 	shift, and go to state 42
+    OR  	shift, and go to state 43
+    LEFT_SQUARE_BRACKET	shift, and go to state 44
+    SAFE_NAVIGATE	shift, and go to state 45
+    DOT 	shift, and go to state 46
+
+    $default	reduce using rule 35 (SimpleExpression)
+
+
+
+state 53
+
+    SimpleExpression  ->  SimpleExpression . DOT ID   (rule 13)
+    SimpleExpression  ->  SimpleExpression . SAFE_NAVIGATE ID   (rule 14)
+    SimpleExpression  ->  SimpleExpression . DOT ID LEFT_ROUND_BRACKET ExpressionList_e RIGHT_ROUND_BRACKET   (rule 15)
+    SimpleExpression  ->  SimpleExpression . SAFE_NAVIGATE ID LEFT_ROUND_BRACKET ExpressionList_e RIGHT_ROUND_BRACKET   (rule 16)
+    SimpleExpression  ->  SimpleExpression . LEFT_SQUARE_BRACKET SimpleExpression RIGHT_SQUARE_BRACKET   (rule 17)
+    SimpleExpression  ->  SimpleExpression . PLUS SimpleExpression   (rule 18)
+    SimpleExpression  ->  SimpleExpression PLUS SimpleExpression .   (rule 18)
+    SimpleExpression  ->  SimpleExpression . MINUS SimpleExpression   (rule 19)
+    SimpleExpression  ->  SimpleExpression . MUL SimpleExpression   (rule 20)
+    SimpleExpression  ->  SimpleExpression . DIV SimpleExpression   (rule 21)
+    SimpleExpression  ->  SimpleExpression . MOD SimpleExpression   (rule 22)
+    SimpleExpression  ->  SimpleExpression . MORE SimpleExpression   (rule 23)
+    SimpleExpression  ->  SimpleExpression . LESS SimpleExpression   (rule 24)
+    SimpleExpression  ->  SimpleExpression . MORE_OR_EQUAL SimpleExpression   (rule 25)
+    SimpleExpression  ->  SimpleExpression . LESS_OR_EQUAL SimpleExpression   (rule 26)
+    SimpleExpression  ->  SimpleExpression . EQUAL SimpleExpression   (rule 27)
+    SimpleExpression  ->  SimpleExpression . NOT_EQUAL SimpleExpression   (rule 28)
+    SimpleExpression  ->  SimpleExpression . AND SimpleExpression   (rule 29)
+    SimpleExpression  ->  SimpleExpression . OR SimpleExpression   (rule 30)
+    SimpleExpression  ->  SimpleExpression . PLUS_ASSIGNMENT SimpleExpression   (rule 31)
+    SimpleExpression  ->  SimpleExpression . MINUS_ASSIGNMENT SimpleExpression   (rule 32)
+    SimpleExpression  ->  SimpleExpression . MUL_ASSIGNMENT SimpleExpression   (rule 33)
+    SimpleExpression  ->  SimpleExpression . DIV_ASSIGNMENT SimpleExpression   (rule 34)
+    SimpleExpression  ->  SimpleExpression . MOD_ASSIGNMENT SimpleExpression   (rule 35)
+    SimpleExpression  ->  SimpleExpression . OPT_PARAM SimpleExpression COLON SimpleExpression   (rule 36)
+    SimpleExpression  ->  SimpleExpression . INCREMENT   (rule 42)
+    SimpleExpression  ->  SimpleExpression . DECREMENT   (rule 43)
+
+    OPT_PARAM	shift, and go to state 23
+    MOD 	shift, and go to state 24
+    INCREMENT	shift, and go to state 28
+    DECREMENT	shift, and go to state 31
+    MUL 	shift, and go to state 32
+    DIV 	shift, and go to state 40
+    LEFT_SQUARE_BRACKET	shift, and go to state 44
+    SAFE_NAVIGATE	shift, and go to state 45
+    DOT 	shift, and go to state 46
+
+    $default	reduce using rule 18 (SimpleExpression)
+
+
+
+state 54
+
+    SimpleExpression  ->  SimpleExpression . DOT ID   (rule 13)
+    SimpleExpression  ->  SimpleExpression . SAFE_NAVIGATE ID   (rule 14)
+    SimpleExpression  ->  SimpleExpression . DOT ID LEFT_ROUND_BRACKET ExpressionList_e RIGHT_ROUND_BRACKET   (rule 15)
+    SimpleExpression  ->  SimpleExpression . SAFE_NAVIGATE ID LEFT_ROUND_BRACKET ExpressionList_e RIGHT_ROUND_BRACKET   (rule 16)
+    SimpleExpression  ->  SimpleExpression . LEFT_SQUARE_BRACKET SimpleExpression RIGHT_SQUARE_BRACKET   (rule 17)
+    SimpleExpression  ->  SimpleExpression . PLUS SimpleExpression   (rule 18)
+    SimpleExpression  ->  SimpleExpression . MINUS SimpleExpression   (rule 19)
+    SimpleExpression  ->  SimpleExpression . MUL SimpleExpression   (rule 20)
+    SimpleExpression  ->  SimpleExpression . DIV SimpleExpression   (rule 21)
+    SimpleExpression  ->  SimpleExpression . MOD SimpleExpression   (rule 22)
+    SimpleExpression  ->  SimpleExpression . MORE SimpleExpression   (rule 23)
+    SimpleExpression  ->  SimpleExpression . LESS SimpleExpression   (rule 24)
+    SimpleExpression  ->  SimpleExpression . MORE_OR_EQUAL SimpleExpression   (rule 25)
+    SimpleExpression  ->  SimpleExpression . LESS_OR_EQUAL SimpleExpression   (rule 26)
+    SimpleExpression  ->  SimpleExpression . EQUAL SimpleExpression   (rule 27)
+    SimpleExpression  ->  SimpleExpression . NOT_EQUAL SimpleExpression   (rule 28)
+    SimpleExpression  ->  SimpleExpression . AND SimpleExpression   (rule 29)
+    SimpleExpression  ->  SimpleExpression . OR SimpleExpression   (rule 30)
+    SimpleExpression  ->  SimpleExpression . PLUS_ASSIGNMENT SimpleExpression   (rule 31)
+    SimpleExpression  ->  SimpleExpression PLUS_ASSIGNMENT SimpleExpression .   (rule 31)
+    SimpleExpression  ->  SimpleExpression . MINUS_ASSIGNMENT SimpleExpression   (rule 32)
+    SimpleExpression  ->  SimpleExpression . MUL_ASSIGNMENT SimpleExpression   (rule 33)
+    SimpleExpression  ->  SimpleExpression . DIV_ASSIGNMENT SimpleExpression   (rule 34)
+    SimpleExpression  ->  SimpleExpression . MOD_ASSIGNMENT SimpleExpression   (rule 35)
+    SimpleExpression  ->  SimpleExpression . OPT_PARAM SimpleExpression COLON SimpleExpression   (rule 36)
+    SimpleExpression  ->  SimpleExpression . INCREMENT   (rule 42)
+    SimpleExpression  ->  SimpleExpression . DECREMENT   (rule 43)
+
+    OPT_PARAM	shift, and go to state 23
+    MOD 	shift, and go to state 24
+    MOD_ASSIGNMENT	shift, and go to state 25
+    PLUS	shift, and go to state 26
+    PLUS_ASSIGNMENT	shift, and go to state 27
+    INCREMENT	shift, and go to state 28
+    MINUS	shift, and go to state 29
+    MINUS_ASSIGNMENT	shift, and go to state 30
+    DECREMENT	shift, and go to state 31
+    MUL 	shift, and go to state 32
+    MUL_ASSIGNMENT	shift, and go to state 33
+    EQUAL	shift, and go to state 34
+    NOT_EQUAL	shift, and go to state 35
+    MORE	shift, and go to state 36
+    MORE_OR_EQUAL	shift, and go to state 37
+    LESS	shift, and go to state 38
+    LESS_OR_EQUAL	shift, and go to state 39
+    DIV 	shift, and go to state 40
+    DIV_ASSIGNMENT	shift, and go to state 41
+    AND 	shift, and go to state 42
+    OR  	shift, and go to state 43
+    LEFT_SQUARE_BRACKET	shift, and go to state 44
+    SAFE_NAVIGATE	shift, and go to state 45
+    DOT 	shift, and go to state 46
+
+    $default	reduce using rule 31 (SimpleExpression)
+
+
+
+state 55
+
+    SimpleExpression  ->  SimpleExpression . DOT ID   (rule 13)
+    SimpleExpression  ->  SimpleExpression . SAFE_NAVIGATE ID   (rule 14)
+    SimpleExpression  ->  SimpleExpression . DOT ID LEFT_ROUND_BRACKET ExpressionList_e RIGHT_ROUND_BRACKET   (rule 15)
+    SimpleExpression  ->  SimpleExpression . SAFE_NAVIGATE ID LEFT_ROUND_BRACKET ExpressionList_e RIGHT_ROUND_BRACKET   (rule 16)
+    SimpleExpression  ->  SimpleExpression . LEFT_SQUARE_BRACKET SimpleExpression RIGHT_SQUARE_BRACKET   (rule 17)
+    SimpleExpression  ->  SimpleExpression . PLUS SimpleExpression   (rule 18)
+    SimpleExpression  ->  SimpleExpression . MINUS SimpleExpression   (rule 19)
+    SimpleExpression  ->  SimpleExpression MINUS SimpleExpression .   (rule 19)
+    SimpleExpression  ->  SimpleExpression . MUL SimpleExpression   (rule 20)
+    SimpleExpression  ->  SimpleExpression . DIV SimpleExpression   (rule 21)
+    SimpleExpression  ->  SimpleExpression . MOD SimpleExpression   (rule 22)
+    SimpleExpression  ->  SimpleExpression . MORE SimpleExpression   (rule 23)
+    SimpleExpression  ->  SimpleExpression . LESS SimpleExpression   (rule 24)
+    SimpleExpression  ->  SimpleExpression . MORE_OR_EQUAL SimpleExpression   (rule 25)
+    SimpleExpression  ->  SimpleExpression . LESS_OR_EQUAL SimpleExpression   (rule 26)
+    SimpleExpression  ->  SimpleExpression . EQUAL SimpleExpression   (rule 27)
+    SimpleExpression  ->  SimpleExpression . NOT_EQUAL SimpleExpression   (rule 28)
+    SimpleExpression  ->  SimpleExpression . AND SimpleExpression   (rule 29)
+    SimpleExpression  ->  SimpleExpression . OR SimpleExpression   (rule 30)
+    SimpleExpression  ->  SimpleExpression . PLUS_ASSIGNMENT SimpleExpression   (rule 31)
+    SimpleExpression  ->  SimpleExpression . MINUS_ASSIGNMENT SimpleExpression   (rule 32)
+    SimpleExpression  ->  SimpleExpression . MUL_ASSIGNMENT SimpleExpression   (rule 33)
+    SimpleExpression  ->  SimpleExpression . DIV_ASSIGNMENT SimpleExpression   (rule 34)
+    SimpleExpression  ->  SimpleExpression . MOD_ASSIGNMENT SimpleExpression   (rule 35)
+    SimpleExpression  ->  SimpleExpression . OPT_PARAM SimpleExpression COLON SimpleExpression   (rule 36)
+    SimpleExpression  ->  SimpleExpression . INCREMENT   (rule 42)
+    SimpleExpression  ->  SimpleExpression . DECREMENT   (rule 43)
+
+    OPT_PARAM	shift, and go to state 23
+    MOD 	shift, and go to state 24
+    INCREMENT	shift, and go to state 28
+    DECREMENT	shift, and go to state 31
+    MUL 	shift, and go to state 32
+    DIV 	shift, and go to state 40
+    LEFT_SQUARE_BRACKET	shift, and go to state 44
+    SAFE_NAVIGATE	shift, and go to state 45
+    DOT 	shift, and go to state 46
+
+    $default	reduce using rule 19 (SimpleExpression)
+
+
+
+state 56
+
+    SimpleExpression  ->  SimpleExpression . DOT ID   (rule 13)
+    SimpleExpression  ->  SimpleExpression . SAFE_NAVIGATE ID   (rule 14)
+    SimpleExpression  ->  SimpleExpression . DOT ID LEFT_ROUND_BRACKET ExpressionList_e RIGHT_ROUND_BRACKET   (rule 15)
+    SimpleExpression  ->  SimpleExpression . SAFE_NAVIGATE ID LEFT_ROUND_BRACKET ExpressionList_e RIGHT_ROUND_BRACKET   (rule 16)
+    SimpleExpression  ->  SimpleExpression . LEFT_SQUARE_BRACKET SimpleExpression RIGHT_SQUARE_BRACKET   (rule 17)
+    SimpleExpression  ->  SimpleExpression . PLUS SimpleExpression   (rule 18)
+    SimpleExpression  ->  SimpleExpression . MINUS SimpleExpression   (rule 19)
+    SimpleExpression  ->  SimpleExpression . MUL SimpleExpression   (rule 20)
+    SimpleExpression  ->  SimpleExpression . DIV SimpleExpression   (rule 21)
+    SimpleExpression  ->  SimpleExpression . MOD SimpleExpression   (rule 22)
+    SimpleExpression  ->  SimpleExpression . MORE SimpleExpression   (rule 23)
+    SimpleExpression  ->  SimpleExpression . LESS SimpleExpression   (rule 24)
+    SimpleExpression  ->  SimpleExpression . MORE_OR_EQUAL SimpleExpression   (rule 25)
+    SimpleExpression  ->  SimpleExpression . LESS_OR_EQUAL SimpleExpression   (rule 26)
+    SimpleExpression  ->  SimpleExpression . EQUAL SimpleExpression   (rule 27)
+    SimpleExpression  ->  SimpleExpression . NOT_EQUAL SimpleExpression   (rule 28)
+    SimpleExpression  ->  SimpleExpression . AND SimpleExpression   (rule 29)
+    SimpleExpression  ->  SimpleExpression . OR SimpleExpression   (rule 30)
+    SimpleExpression  ->  SimpleExpression . PLUS_ASSIGNMENT SimpleExpression   (rule 31)
+    SimpleExpression  ->  SimpleExpression . MINUS_ASSIGNMENT SimpleExpression   (rule 32)
+    SimpleExpression  ->  SimpleExpression MINUS_ASSIGNMENT SimpleExpression .   (rule 32)
+    SimpleExpression  ->  SimpleExpression . MUL_ASSIGNMENT SimpleExpression   (rule 33)
+    SimpleExpression  ->  SimpleExpression . DIV_ASSIGNMENT SimpleExpression   (rule 34)
+    SimpleExpression  ->  SimpleExpression . MOD_ASSIGNMENT SimpleExpression   (rule 35)
+    SimpleExpression  ->  SimpleExpression . OPT_PARAM SimpleExpression COLON SimpleExpression   (rule 36)
+    SimpleExpression  ->  SimpleExpression . INCREMENT   (rule 42)
+    SimpleExpression  ->  SimpleExpression . DECREMENT   (rule 43)
+
+    OPT_PARAM	shift, and go to state 23
+    MOD 	shift, and go to state 24
+    MOD_ASSIGNMENT	shift, and go to state 25
+    PLUS	shift, and go to state 26
+    PLUS_ASSIGNMENT	shift, and go to state 27
+    INCREMENT	shift, and go to state 28
+    MINUS	shift, and go to state 29
+    MINUS_ASSIGNMENT	shift, and go to state 30
+    DECREMENT	shift, and go to state 31
+    MUL 	shift, and go to state 32
+    MUL_ASSIGNMENT	shift, and go to state 33
+    EQUAL	shift, and go to state 34
+    NOT_EQUAL	shift, and go to state 35
+    MORE	shift, and go to state 36
+    MORE_OR_EQUAL	shift, and go to state 37
+    LESS	shift, and go to state 38
+    LESS_OR_EQUAL	shift, and go to state 39
+    DIV 	shift, and go to state 40
+    DIV_ASSIGNMENT	shift, and go to state 41
+    AND 	shift, and go to state 42
+    OR  	shift, and go to state 43
+    LEFT_SQUARE_BRACKET	shift, and go to state 44
+    SAFE_NAVIGATE	shift, and go to state 45
+    DOT 	shift, and go to state 46
+
+    $default	reduce using rule 32 (SimpleExpression)
+
+
+
+state 57
+
+    SimpleExpression  ->  SimpleExpression . DOT ID   (rule 13)
+    SimpleExpression  ->  SimpleExpression . SAFE_NAVIGATE ID   (rule 14)
+    SimpleExpression  ->  SimpleExpression . DOT ID LEFT_ROUND_BRACKET ExpressionList_e RIGHT_ROUND_BRACKET   (rule 15)
+    SimpleExpression  ->  SimpleExpression . SAFE_NAVIGATE ID LEFT_ROUND_BRACKET ExpressionList_e RIGHT_ROUND_BRACKET   (rule 16)
+    SimpleExpression  ->  SimpleExpression . LEFT_SQUARE_BRACKET SimpleExpression RIGHT_SQUARE_BRACKET   (rule 17)
+    SimpleExpression  ->  SimpleExpression . PLUS SimpleExpression   (rule 18)
+    SimpleExpression  ->  SimpleExpression . MINUS SimpleExpression   (rule 19)
+    SimpleExpression  ->  SimpleExpression . MUL SimpleExpression   (rule 20)
+    SimpleExpression  ->  SimpleExpression MUL SimpleExpression .   (rule 20)
+    SimpleExpression  ->  SimpleExpression . DIV SimpleExpression   (rule 21)
+    SimpleExpression  ->  SimpleExpression . MOD SimpleExpression   (rule 22)
+    SimpleExpression  ->  SimpleExpression . MORE SimpleExpression   (rule 23)
+    SimpleExpression  ->  SimpleExpression . LESS SimpleExpression   (rule 24)
+    SimpleExpression  ->  SimpleExpression . MORE_OR_EQUAL SimpleExpression   (rule 25)
+    SimpleExpression  ->  SimpleExpression . LESS_OR_EQUAL SimpleExpression   (rule 26)
+    SimpleExpression  ->  SimpleExpression . EQUAL SimpleExpression   (rule 27)
+    SimpleExpression  ->  SimpleExpression . NOT_EQUAL SimpleExpression   (rule 28)
+    SimpleExpression  ->  SimpleExpression . AND SimpleExpression   (rule 29)
+    SimpleExpression  ->  SimpleExpression . OR SimpleExpression   (rule 30)
+    SimpleExpression  ->  SimpleExpression . PLUS_ASSIGNMENT SimpleExpression   (rule 31)
+    SimpleExpression  ->  SimpleExpression . MINUS_ASSIGNMENT SimpleExpression   (rule 32)
+    SimpleExpression  ->  SimpleExpression . MUL_ASSIGNMENT SimpleExpression   (rule 33)
+    SimpleExpression  ->  SimpleExpression . DIV_ASSIGNMENT SimpleExpression   (rule 34)
+    SimpleExpression  ->  SimpleExpression . MOD_ASSIGNMENT SimpleExpression   (rule 35)
+    SimpleExpression  ->  SimpleExpression . OPT_PARAM SimpleExpression COLON SimpleExpression   (rule 36)
+    SimpleExpression  ->  SimpleExpression . INCREMENT   (rule 42)
+    SimpleExpression  ->  SimpleExpression . DECREMENT   (rule 43)
+
+    OPT_PARAM	shift, and go to state 23
+    INCREMENT	shift, and go to state 28
+    DECREMENT	shift, and go to state 31
+    LEFT_SQUARE_BRACKET	shift, and go to state 44
+    SAFE_NAVIGATE	shift, and go to state 45
+    DOT 	shift, and go to state 46
+
+    $default	reduce using rule 20 (SimpleExpression)
+
+
+
+state 58
+
+    SimpleExpression  ->  SimpleExpression . DOT ID   (rule 13)
+    SimpleExpression  ->  SimpleExpression . SAFE_NAVIGATE ID   (rule 14)
+    SimpleExpression  ->  SimpleExpression . DOT ID LEFT_ROUND_BRACKET ExpressionList_e RIGHT_ROUND_BRACKET   (rule 15)
+    SimpleExpression  ->  SimpleExpression . SAFE_NAVIGATE ID LEFT_ROUND_BRACKET ExpressionList_e RIGHT_ROUND_BRACKET   (rule 16)
+    SimpleExpression  ->  SimpleExpression . LEFT_SQUARE_BRACKET SimpleExpression RIGHT_SQUARE_BRACKET   (rule 17)
+    SimpleExpression  ->  SimpleExpression . PLUS SimpleExpression   (rule 18)
+    SimpleExpression  ->  SimpleExpression . MINUS SimpleExpression   (rule 19)
+    SimpleExpression  ->  SimpleExpression . MUL SimpleExpression   (rule 20)
+    SimpleExpression  ->  SimpleExpression . DIV SimpleExpression   (rule 21)
+    SimpleExpression  ->  SimpleExpression . MOD SimpleExpression   (rule 22)
+    SimpleExpression  ->  SimpleExpression . MORE SimpleExpression   (rule 23)
+    SimpleExpression  ->  SimpleExpression . LESS SimpleExpression   (rule 24)
+    SimpleExpression  ->  SimpleExpression . MORE_OR_EQUAL SimpleExpression   (rule 25)
+    SimpleExpression  ->  SimpleExpression . LESS_OR_EQUAL SimpleExpression   (rule 26)
+    SimpleExpression  ->  SimpleExpression . EQUAL SimpleExpression   (rule 27)
+    SimpleExpression  ->  SimpleExpression . NOT_EQUAL SimpleExpression   (rule 28)
+    SimpleExpression  ->  SimpleExpression . AND SimpleExpression   (rule 29)
+    SimpleExpression  ->  SimpleExpression . OR SimpleExpression   (rule 30)
+    SimpleExpression  ->  SimpleExpression . PLUS_ASSIGNMENT SimpleExpression   (rule 31)
+    SimpleExpression  ->  SimpleExpression . MINUS_ASSIGNMENT SimpleExpression   (rule 32)
+    SimpleExpression  ->  SimpleExpression . MUL_ASSIGNMENT SimpleExpression   (rule 33)
+    SimpleExpression  ->  SimpleExpression MUL_ASSIGNMENT SimpleExpression .   (rule 33)
+    SimpleExpression  ->  SimpleExpression . DIV_ASSIGNMENT SimpleExpression   (rule 34)
+    SimpleExpression  ->  SimpleExpression . MOD_ASSIGNMENT SimpleExpression   (rule 35)
+    SimpleExpression  ->  SimpleExpression . OPT_PARAM SimpleExpression COLON SimpleExpression   (rule 36)
+    SimpleExpression  ->  SimpleExpression . INCREMENT   (rule 42)
+    SimpleExpression  ->  SimpleExpression . DECREMENT   (rule 43)
+
+    OPT_PARAM	shift, and go to state 23
+    MOD 	shift, and go to state 24
+    MOD_ASSIGNMENT	shift, and go to state 25
+    PLUS	shift, and go to state 26
+    PLUS_ASSIGNMENT	shift, and go to state 27
+    INCREMENT	shift, and go to state 28
+    MINUS	shift, and go to state 29
+    MINUS_ASSIGNMENT	shift, and go to state 30
+    DECREMENT	shift, and go to state 31
+    MUL 	shift, and go to state 32
+    MUL_ASSIGNMENT	shift, and go to state 33
+    EQUAL	shift, and go to state 34
+    NOT_EQUAL	shift, and go to state 35
+    MORE	shift, and go to state 36
+    MORE_OR_EQUAL	shift, and go to state 37
+    LESS	shift, and go to state 38
+    LESS_OR_EQUAL	shift, and go to state 39
+    DIV 	shift, and go to state 40
+    DIV_ASSIGNMENT	shift, and go to state 41
+    AND 	shift, and go to state 42
+    OR  	shift, and go to state 43
+    LEFT_SQUARE_BRACKET	shift, and go to state 44
+    SAFE_NAVIGATE	shift, and go to state 45
+    DOT 	shift, and go to state 46
+
+    $default	reduce using rule 33 (SimpleExpression)
+
+
+
+state 59
+
+    SimpleExpression  ->  SimpleExpression . DOT ID   (rule 13)
+    SimpleExpression  ->  SimpleExpression . SAFE_NAVIGATE ID   (rule 14)
+    SimpleExpression  ->  SimpleExpression . DOT ID LEFT_ROUND_BRACKET ExpressionList_e RIGHT_ROUND_BRACKET   (rule 15)
+    SimpleExpression  ->  SimpleExpression . SAFE_NAVIGATE ID LEFT_ROUND_BRACKET ExpressionList_e RIGHT_ROUND_BRACKET   (rule 16)
+    SimpleExpression  ->  SimpleExpression . LEFT_SQUARE_BRACKET SimpleExpression RIGHT_SQUARE_BRACKET   (rule 17)
+    SimpleExpression  ->  SimpleExpression . PLUS SimpleExpression   (rule 18)
+    SimpleExpression  ->  SimpleExpression . MINUS SimpleExpression   (rule 19)
+    SimpleExpression  ->  SimpleExpression . MUL SimpleExpression   (rule 20)
+    SimpleExpression  ->  SimpleExpression . DIV SimpleExpression   (rule 21)
+    SimpleExpression  ->  SimpleExpression . MOD SimpleExpression   (rule 22)
+    SimpleExpression  ->  SimpleExpression . MORE SimpleExpression   (rule 23)
+    SimpleExpression  ->  SimpleExpression . LESS SimpleExpression   (rule 24)
+    SimpleExpression  ->  SimpleExpression . MORE_OR_EQUAL SimpleExpression   (rule 25)
+    SimpleExpression  ->  SimpleExpression . LESS_OR_EQUAL SimpleExpression   (rule 26)
+    SimpleExpression  ->  SimpleExpression . EQUAL SimpleExpression   (rule 27)
+    SimpleExpression  ->  SimpleExpression EQUAL SimpleExpression .   (rule 27)
+    SimpleExpression  ->  SimpleExpression . NOT_EQUAL SimpleExpression   (rule 28)
+    SimpleExpression  ->  SimpleExpression . AND SimpleExpression   (rule 29)
+    SimpleExpression  ->  SimpleExpression . OR SimpleExpression   (rule 30)
+    SimpleExpression  ->  SimpleExpression . PLUS_ASSIGNMENT SimpleExpression   (rule 31)
+    SimpleExpression  ->  SimpleExpression . MINUS_ASSIGNMENT SimpleExpression   (rule 32)
+    SimpleExpression  ->  SimpleExpression . MUL_ASSIGNMENT SimpleExpression   (rule 33)
+    SimpleExpression  ->  SimpleExpression . DIV_ASSIGNMENT SimpleExpression   (rule 34)
+    SimpleExpression  ->  SimpleExpression . MOD_ASSIGNMENT SimpleExpression   (rule 35)
+    SimpleExpression  ->  SimpleExpression . OPT_PARAM SimpleExpression COLON SimpleExpression   (rule 36)
+    SimpleExpression  ->  SimpleExpression . INCREMENT   (rule 42)
+    SimpleExpression  ->  SimpleExpression . DECREMENT   (rule 43)
+
+    OPT_PARAM	shift, and go to state 23
+    MOD 	shift, and go to state 24
+    PLUS	shift, and go to state 26
+    INCREMENT	shift, and go to state 28
+    MINUS	shift, and go to state 29
+    DECREMENT	shift, and go to state 31
+    MUL 	shift, and go to state 32
+    MORE	shift, and go to state 36
+    MORE_OR_EQUAL	shift, and go to state 37
+    LESS	shift, and go to state 38
+    LESS_OR_EQUAL	shift, and go to state 39
+    DIV 	shift, and go to state 40
+    AND 	shift, and go to state 42
+    OR  	shift, and go to state 43
+    LEFT_SQUARE_BRACKET	shift, and go to state 44
+    SAFE_NAVIGATE	shift, and go to state 45
+    DOT 	shift, and go to state 46
+
+    $default	reduce using rule 27 (SimpleExpression)
+
+
+
+state 60
+
+    SimpleExpression  ->  SimpleExpression . DOT ID   (rule 13)
+    SimpleExpression  ->  SimpleExpression . SAFE_NAVIGATE ID   (rule 14)
+    SimpleExpression  ->  SimpleExpression . DOT ID LEFT_ROUND_BRACKET ExpressionList_e RIGHT_ROUND_BRACKET   (rule 15)
+    SimpleExpression  ->  SimpleExpression . SAFE_NAVIGATE ID LEFT_ROUND_BRACKET ExpressionList_e RIGHT_ROUND_BRACKET   (rule 16)
+    SimpleExpression  ->  SimpleExpression . LEFT_SQUARE_BRACKET SimpleExpression RIGHT_SQUARE_BRACKET   (rule 17)
+    SimpleExpression  ->  SimpleExpression . PLUS SimpleExpression   (rule 18)
+    SimpleExpression  ->  SimpleExpression . MINUS SimpleExpression   (rule 19)
+    SimpleExpression  ->  SimpleExpression . MUL SimpleExpression   (rule 20)
+    SimpleExpression  ->  SimpleExpression . DIV SimpleExpression   (rule 21)
+    SimpleExpression  ->  SimpleExpression . MOD SimpleExpression   (rule 22)
+    SimpleExpression  ->  SimpleExpression . MORE SimpleExpression   (rule 23)
+    SimpleExpression  ->  SimpleExpression . LESS SimpleExpression   (rule 24)
+    SimpleExpression  ->  SimpleExpression . MORE_OR_EQUAL SimpleExpression   (rule 25)
+    SimpleExpression  ->  SimpleExpression . LESS_OR_EQUAL SimpleExpression   (rule 26)
+    SimpleExpression  ->  SimpleExpression . EQUAL SimpleExpression   (rule 27)
+    SimpleExpression  ->  SimpleExpression . NOT_EQUAL SimpleExpression   (rule 28)
+    SimpleExpression  ->  SimpleExpression NOT_EQUAL SimpleExpression .   (rule 28)
+    SimpleExpression  ->  SimpleExpression . AND SimpleExpression   (rule 29)
+    SimpleExpression  ->  SimpleExpression . OR SimpleExpression   (rule 30)
+    SimpleExpression  ->  SimpleExpression . PLUS_ASSIGNMENT SimpleExpression   (rule 31)
+    SimpleExpression  ->  SimpleExpression . MINUS_ASSIGNMENT SimpleExpression   (rule 32)
+    SimpleExpression  ->  SimpleExpression . MUL_ASSIGNMENT SimpleExpression   (rule 33)
+    SimpleExpression  ->  SimpleExpression . DIV_ASSIGNMENT SimpleExpression   (rule 34)
+    SimpleExpression  ->  SimpleExpression . MOD_ASSIGNMENT SimpleExpression   (rule 35)
+    SimpleExpression  ->  SimpleExpression . OPT_PARAM SimpleExpression COLON SimpleExpression   (rule 36)
+    SimpleExpression  ->  SimpleExpression . INCREMENT   (rule 42)
+    SimpleExpression  ->  SimpleExpression . DECREMENT   (rule 43)
+
+    OPT_PARAM	shift, and go to state 23
+    MOD 	shift, and go to state 24
+    PLUS	shift, and go to state 26
+    INCREMENT	shift, and go to state 28
+    MINUS	shift, and go to state 29
+    DECREMENT	shift, and go to state 31
+    MUL 	shift, and go to state 32
+    MORE	shift, and go to state 36
+    MORE_OR_EQUAL	shift, and go to state 37
+    LESS	shift, and go to state 38
+    LESS_OR_EQUAL	shift, and go to state 39
+    DIV 	shift, and go to state 40
+    AND 	shift, and go to state 42
+    OR  	shift, and go to state 43
+    LEFT_SQUARE_BRACKET	shift, and go to state 44
+    SAFE_NAVIGATE	shift, and go to state 45
+    DOT 	shift, and go to state 46
+
+    $default	reduce using rule 28 (SimpleExpression)
+
+
+
+state 61
+
+    SimpleExpression  ->  SimpleExpression . DOT ID   (rule 13)
+    SimpleExpression  ->  SimpleExpression . SAFE_NAVIGATE ID   (rule 14)
+    SimpleExpression  ->  SimpleExpression . DOT ID LEFT_ROUND_BRACKET ExpressionList_e RIGHT_ROUND_BRACKET   (rule 15)
+    SimpleExpression  ->  SimpleExpression . SAFE_NAVIGATE ID LEFT_ROUND_BRACKET ExpressionList_e RIGHT_ROUND_BRACKET   (rule 16)
+    SimpleExpression  ->  SimpleExpression . LEFT_SQUARE_BRACKET SimpleExpression RIGHT_SQUARE_BRACKET   (rule 17)
+    SimpleExpression  ->  SimpleExpression . PLUS SimpleExpression   (rule 18)
+    SimpleExpression  ->  SimpleExpression . MINUS SimpleExpression   (rule 19)
+    SimpleExpression  ->  SimpleExpression . MUL SimpleExpression   (rule 20)
+    SimpleExpression  ->  SimpleExpression . DIV SimpleExpression   (rule 21)
+    SimpleExpression  ->  SimpleExpression . MOD SimpleExpression   (rule 22)
+    SimpleExpression  ->  SimpleExpression . MORE SimpleExpression   (rule 23)
+    SimpleExpression  ->  SimpleExpression MORE SimpleExpression .   (rule 23)
+    SimpleExpression  ->  SimpleExpression . LESS SimpleExpression   (rule 24)
+    SimpleExpression  ->  SimpleExpression . MORE_OR_EQUAL SimpleExpression   (rule 25)
+    SimpleExpression  ->  SimpleExpression . LESS_OR_EQUAL SimpleExpression   (rule 26)
+    SimpleExpression  ->  SimpleExpression . EQUAL SimpleExpression   (rule 27)
+    SimpleExpression  ->  SimpleExpression . NOT_EQUAL SimpleExpression   (rule 28)
+    SimpleExpression  ->  SimpleExpression . AND SimpleExpression   (rule 29)
+    SimpleExpression  ->  SimpleExpression . OR SimpleExpression   (rule 30)
+    SimpleExpression  ->  SimpleExpression . PLUS_ASSIGNMENT SimpleExpression   (rule 31)
+    SimpleExpression  ->  SimpleExpression . MINUS_ASSIGNMENT SimpleExpression   (rule 32)
+    SimpleExpression  ->  SimpleExpression . MUL_ASSIGNMENT SimpleExpression   (rule 33)
+    SimpleExpression  ->  SimpleExpression . DIV_ASSIGNMENT SimpleExpression   (rule 34)
+    SimpleExpression  ->  SimpleExpression . MOD_ASSIGNMENT SimpleExpression   (rule 35)
+    SimpleExpression  ->  SimpleExpression . OPT_PARAM SimpleExpression COLON SimpleExpression   (rule 36)
+    SimpleExpression  ->  SimpleExpression . INCREMENT   (rule 42)
+    SimpleExpression  ->  SimpleExpression . DECREMENT   (rule 43)
+
+    OPT_PARAM	shift, and go to state 23
+    MOD 	shift, and go to state 24
+    PLUS	shift, and go to state 26
+    INCREMENT	shift, and go to state 28
+    MINUS	shift, and go to state 29
+    DECREMENT	shift, and go to state 31
+    MUL 	shift, and go to state 32
+    DIV 	shift, and go to state 40
+    AND 	shift, and go to state 42
+    OR  	shift, and go to state 43
+    LEFT_SQUARE_BRACKET	shift, and go to state 44
+    SAFE_NAVIGATE	shift, and go to state 45
+    DOT 	shift, and go to state 46
+
+    $default	reduce using rule 23 (SimpleExpression)
+
+
+
+state 62
+
+    SimpleExpression  ->  SimpleExpression . DOT ID   (rule 13)
+    SimpleExpression  ->  SimpleExpression . SAFE_NAVIGATE ID   (rule 14)
+    SimpleExpression  ->  SimpleExpression . DOT ID LEFT_ROUND_BRACKET ExpressionList_e RIGHT_ROUND_BRACKET   (rule 15)
+    SimpleExpression  ->  SimpleExpression . SAFE_NAVIGATE ID LEFT_ROUND_BRACKET ExpressionList_e RIGHT_ROUND_BRACKET   (rule 16)
+    SimpleExpression  ->  SimpleExpression . LEFT_SQUARE_BRACKET SimpleExpression RIGHT_SQUARE_BRACKET   (rule 17)
+    SimpleExpression  ->  SimpleExpression . PLUS SimpleExpression   (rule 18)
+    SimpleExpression  ->  SimpleExpression . MINUS SimpleExpression   (rule 19)
+    SimpleExpression  ->  SimpleExpression . MUL SimpleExpression   (rule 20)
+    SimpleExpression  ->  SimpleExpression . DIV SimpleExpression   (rule 21)
+    SimpleExpression  ->  SimpleExpression . MOD SimpleExpression   (rule 22)
+    SimpleExpression  ->  SimpleExpression . MORE SimpleExpression   (rule 23)
+    SimpleExpression  ->  SimpleExpression . LESS SimpleExpression   (rule 24)
+    SimpleExpression  ->  SimpleExpression . MORE_OR_EQUAL SimpleExpression   (rule 25)
+    SimpleExpression  ->  SimpleExpression MORE_OR_EQUAL SimpleExpression .   (rule 25)
+    SimpleExpression  ->  SimpleExpression . LESS_OR_EQUAL SimpleExpression   (rule 26)
+    SimpleExpression  ->  SimpleExpression . EQUAL SimpleExpression   (rule 27)
+    SimpleExpression  ->  SimpleExpression . NOT_EQUAL SimpleExpression   (rule 28)
+    SimpleExpression  ->  SimpleExpression . AND SimpleExpression   (rule 29)
+    SimpleExpression  ->  SimpleExpression . OR SimpleExpression   (rule 30)
+    SimpleExpression  ->  SimpleExpression . PLUS_ASSIGNMENT SimpleExpression   (rule 31)
+    SimpleExpression  ->  SimpleExpression . MINUS_ASSIGNMENT SimpleExpression   (rule 32)
+    SimpleExpression  ->  SimpleExpression . MUL_ASSIGNMENT SimpleExpression   (rule 33)
+    SimpleExpression  ->  SimpleExpression . DIV_ASSIGNMENT SimpleExpression   (rule 34)
+    SimpleExpression  ->  SimpleExpression . MOD_ASSIGNMENT SimpleExpression   (rule 35)
+    SimpleExpression  ->  SimpleExpression . OPT_PARAM SimpleExpression COLON SimpleExpression   (rule 36)
+    SimpleExpression  ->  SimpleExpression . INCREMENT   (rule 42)
+    SimpleExpression  ->  SimpleExpression . DECREMENT   (rule 43)
+
+    OPT_PARAM	shift, and go to state 23
+    MOD 	shift, and go to state 24
+    PLUS	shift, and go to state 26
+    INCREMENT	shift, and go to state 28
+    MINUS	shift, and go to state 29
+    DECREMENT	shift, and go to state 31
+    MUL 	shift, and go to state 32
+    DIV 	shift, and go to state 40
+    AND 	shift, and go to state 42
+    OR  	shift, and go to state 43
+    LEFT_SQUARE_BRACKET	shift, and go to state 44
+    SAFE_NAVIGATE	shift, and go to state 45
+    DOT 	shift, and go to state 46
+
+    $default	reduce using rule 25 (SimpleExpression)
+
+
+
+state 63
+
+    SimpleExpression  ->  SimpleExpression . DOT ID   (rule 13)
+    SimpleExpression  ->  SimpleExpression . SAFE_NAVIGATE ID   (rule 14)
+    SimpleExpression  ->  SimpleExpression . DOT ID LEFT_ROUND_BRACKET ExpressionList_e RIGHT_ROUND_BRACKET   (rule 15)
+    SimpleExpression  ->  SimpleExpression . SAFE_NAVIGATE ID LEFT_ROUND_BRACKET ExpressionList_e RIGHT_ROUND_BRACKET   (rule 16)
+    SimpleExpression  ->  SimpleExpression . LEFT_SQUARE_BRACKET SimpleExpression RIGHT_SQUARE_BRACKET   (rule 17)
+    SimpleExpression  ->  SimpleExpression . PLUS SimpleExpression   (rule 18)
+    SimpleExpression  ->  SimpleExpression . MINUS SimpleExpression   (rule 19)
+    SimpleExpression  ->  SimpleExpression . MUL SimpleExpression   (rule 20)
+    SimpleExpression  ->  SimpleExpression . DIV SimpleExpression   (rule 21)
+    SimpleExpression  ->  SimpleExpression . MOD SimpleExpression   (rule 22)
+    SimpleExpression  ->  SimpleExpression . MORE SimpleExpression   (rule 23)
+    SimpleExpression  ->  SimpleExpression . LESS SimpleExpression   (rule 24)
+    SimpleExpression  ->  SimpleExpression LESS SimpleExpression .   (rule 24)
+    SimpleExpression  ->  SimpleExpression . MORE_OR_EQUAL SimpleExpression   (rule 25)
+    SimpleExpression  ->  SimpleExpression . LESS_OR_EQUAL SimpleExpression   (rule 26)
+    SimpleExpression  ->  SimpleExpression . EQUAL SimpleExpression   (rule 27)
+    SimpleExpression  ->  SimpleExpression . NOT_EQUAL SimpleExpression   (rule 28)
+    SimpleExpression  ->  SimpleExpression . AND SimpleExpression   (rule 29)
+    SimpleExpression  ->  SimpleExpression . OR SimpleExpression   (rule 30)
+    SimpleExpression  ->  SimpleExpression . PLUS_ASSIGNMENT SimpleExpression   (rule 31)
+    SimpleExpression  ->  SimpleExpression . MINUS_ASSIGNMENT SimpleExpression   (rule 32)
+    SimpleExpression  ->  SimpleExpression . MUL_ASSIGNMENT SimpleExpression   (rule 33)
+    SimpleExpression  ->  SimpleExpression . DIV_ASSIGNMENT SimpleExpression   (rule 34)
+    SimpleExpression  ->  SimpleExpression . MOD_ASSIGNMENT SimpleExpression   (rule 35)
+    SimpleExpression  ->  SimpleExpression . OPT_PARAM SimpleExpression COLON SimpleExpression   (rule 36)
+    SimpleExpression  ->  SimpleExpression . INCREMENT   (rule 42)
+    SimpleExpression  ->  SimpleExpression . DECREMENT   (rule 43)
+
+    OPT_PARAM	shift, and go to state 23
+    MOD 	shift, and go to state 24
+    PLUS	shift, and go to state 26
+    INCREMENT	shift, and go to state 28
+    MINUS	shift, and go to state 29
+    DECREMENT	shift, and go to state 31
+    MUL 	shift, and go to state 32
+    DIV 	shift, and go to state 40
+    AND 	shift, and go to state 42
+    OR  	shift, and go to state 43
+    LEFT_SQUARE_BRACKET	shift, and go to state 44
+    SAFE_NAVIGATE	shift, and go to state 45
+    DOT 	shift, and go to state 46
+
+    $default	reduce using rule 24 (SimpleExpression)
+
+
+
+state 64
+
+    SimpleExpression  ->  SimpleExpression . DOT ID   (rule 13)
+    SimpleExpression  ->  SimpleExpression . SAFE_NAVIGATE ID   (rule 14)
+    SimpleExpression  ->  SimpleExpression . DOT ID LEFT_ROUND_BRACKET ExpressionList_e RIGHT_ROUND_BRACKET   (rule 15)
+    SimpleExpression  ->  SimpleExpression . SAFE_NAVIGATE ID LEFT_ROUND_BRACKET ExpressionList_e RIGHT_ROUND_BRACKET   (rule 16)
+    SimpleExpression  ->  SimpleExpression . LEFT_SQUARE_BRACKET SimpleExpression RIGHT_SQUARE_BRACKET   (rule 17)
+    SimpleExpression  ->  SimpleExpression . PLUS SimpleExpression   (rule 18)
+    SimpleExpression  ->  SimpleExpression . MINUS SimpleExpression   (rule 19)
+    SimpleExpression  ->  SimpleExpression . MUL SimpleExpression   (rule 20)
+    SimpleExpression  ->  SimpleExpression . DIV SimpleExpression   (rule 21)
+    SimpleExpression  ->  SimpleExpression . MOD SimpleExpression   (rule 22)
+    SimpleExpression  ->  SimpleExpression . MORE SimpleExpression   (rule 23)
+    SimpleExpression  ->  SimpleExpression . LESS SimpleExpression   (rule 24)
+    SimpleExpression  ->  SimpleExpression . MORE_OR_EQUAL SimpleExpression   (rule 25)
+    SimpleExpression  ->  SimpleExpression . LESS_OR_EQUAL SimpleExpression   (rule 26)
+    SimpleExpression  ->  SimpleExpression LESS_OR_EQUAL SimpleExpression .   (rule 26)
+    SimpleExpression  ->  SimpleExpression . EQUAL SimpleExpression   (rule 27)
+    SimpleExpression  ->  SimpleExpression . NOT_EQUAL SimpleExpression   (rule 28)
+    SimpleExpression  ->  SimpleExpression . AND SimpleExpression   (rule 29)
+    SimpleExpression  ->  SimpleExpression . OR SimpleExpression   (rule 30)
+    SimpleExpression  ->  SimpleExpression . PLUS_ASSIGNMENT SimpleExpression   (rule 31)
+    SimpleExpression  ->  SimpleExpression . MINUS_ASSIGNMENT SimpleExpression   (rule 32)
+    SimpleExpression  ->  SimpleExpression . MUL_ASSIGNMENT SimpleExpression   (rule 33)
+    SimpleExpression  ->  SimpleExpression . DIV_ASSIGNMENT SimpleExpression   (rule 34)
+    SimpleExpression  ->  SimpleExpression . MOD_ASSIGNMENT SimpleExpression   (rule 35)
+    SimpleExpression  ->  SimpleExpression . OPT_PARAM SimpleExpression COLON SimpleExpression   (rule 36)
+    SimpleExpression  ->  SimpleExpression . INCREMENT   (rule 42)
+    SimpleExpression  ->  SimpleExpression . DECREMENT   (rule 43)
+
+    OPT_PARAM	shift, and go to state 23
+    MOD 	shift, and go to state 24
+    PLUS	shift, and go to state 26
+    INCREMENT	shift, and go to state 28
+    MINUS	shift, and go to state 29
+    DECREMENT	shift, and go to state 31
+    MUL 	shift, and go to state 32
+    DIV 	shift, and go to state 40
+    AND 	shift, and go to state 42
+    OR  	shift, and go to state 43
+    LEFT_SQUARE_BRACKET	shift, and go to state 44
+    SAFE_NAVIGATE	shift, and go to state 45
+    DOT 	shift, and go to state 46
+
+    $default	reduce using rule 26 (SimpleExpression)
+
+
+
+state 65
+
+    SimpleExpression  ->  SimpleExpression . DOT ID   (rule 13)
+    SimpleExpression  ->  SimpleExpression . SAFE_NAVIGATE ID   (rule 14)
+    SimpleExpression  ->  SimpleExpression . DOT ID LEFT_ROUND_BRACKET ExpressionList_e RIGHT_ROUND_BRACKET   (rule 15)
+    SimpleExpression  ->  SimpleExpression . SAFE_NAVIGATE ID LEFT_ROUND_BRACKET ExpressionList_e RIGHT_ROUND_BRACKET   (rule 16)
+    SimpleExpression  ->  SimpleExpression . LEFT_SQUARE_BRACKET SimpleExpression RIGHT_SQUARE_BRACKET   (rule 17)
+    SimpleExpression  ->  SimpleExpression . PLUS SimpleExpression   (rule 18)
+    SimpleExpression  ->  SimpleExpression . MINUS SimpleExpression   (rule 19)
+    SimpleExpression  ->  SimpleExpression . MUL SimpleExpression   (rule 20)
+    SimpleExpression  ->  SimpleExpression . DIV SimpleExpression   (rule 21)
+    SimpleExpression  ->  SimpleExpression DIV SimpleExpression .   (rule 21)
+    SimpleExpression  ->  SimpleExpression . MOD SimpleExpression   (rule 22)
+    SimpleExpression  ->  SimpleExpression . MORE SimpleExpression   (rule 23)
+    SimpleExpression  ->  SimpleExpression . LESS SimpleExpression   (rule 24)
+    SimpleExpression  ->  SimpleExpression . MORE_OR_EQUAL SimpleExpression   (rule 25)
+    SimpleExpression  ->  SimpleExpression . LESS_OR_EQUAL SimpleExpression   (rule 26)
+    SimpleExpression  ->  SimpleExpression . EQUAL SimpleExpression   (rule 27)
+    SimpleExpression  ->  SimpleExpression . NOT_EQUAL SimpleExpression   (rule 28)
+    SimpleExpression  ->  SimpleExpression . AND SimpleExpression   (rule 29)
+    SimpleExpression  ->  SimpleExpression . OR SimpleExpression   (rule 30)
+    SimpleExpression  ->  SimpleExpression . PLUS_ASSIGNMENT SimpleExpression   (rule 31)
+    SimpleExpression  ->  SimpleExpression . MINUS_ASSIGNMENT SimpleExpression   (rule 32)
+    SimpleExpression  ->  SimpleExpression . MUL_ASSIGNMENT SimpleExpression   (rule 33)
+    SimpleExpression  ->  SimpleExpression . DIV_ASSIGNMENT SimpleExpression   (rule 34)
+    SimpleExpression  ->  SimpleExpression . MOD_ASSIGNMENT SimpleExpression   (rule 35)
+    SimpleExpression  ->  SimpleExpression . OPT_PARAM SimpleExpression COLON SimpleExpression   (rule 36)
+    SimpleExpression  ->  SimpleExpression . INCREMENT   (rule 42)
+    SimpleExpression  ->  SimpleExpression . DECREMENT   (rule 43)
+
+    OPT_PARAM	shift, and go to state 23
+    INCREMENT	shift, and go to state 28
+    DECREMENT	shift, and go to state 31
+    LEFT_SQUARE_BRACKET	shift, and go to state 44
+    SAFE_NAVIGATE	shift, and go to state 45
+    DOT 	shift, and go to state 46
+
+    $default	reduce using rule 21 (SimpleExpression)
+
+
+
+state 66
+
+    SimpleExpression  ->  SimpleExpression . DOT ID   (rule 13)
+    SimpleExpression  ->  SimpleExpression . SAFE_NAVIGATE ID   (rule 14)
+    SimpleExpression  ->  SimpleExpression . DOT ID LEFT_ROUND_BRACKET ExpressionList_e RIGHT_ROUND_BRACKET   (rule 15)
+    SimpleExpression  ->  SimpleExpression . SAFE_NAVIGATE ID LEFT_ROUND_BRACKET ExpressionList_e RIGHT_ROUND_BRACKET   (rule 16)
+    SimpleExpression  ->  SimpleExpression . LEFT_SQUARE_BRACKET SimpleExpression RIGHT_SQUARE_BRACKET   (rule 17)
+    SimpleExpression  ->  SimpleExpression . PLUS SimpleExpression   (rule 18)
+    SimpleExpression  ->  SimpleExpression . MINUS SimpleExpression   (rule 19)
+    SimpleExpression  ->  SimpleExpression . MUL SimpleExpression   (rule 20)
+    SimpleExpression  ->  SimpleExpression . DIV SimpleExpression   (rule 21)
+    SimpleExpression  ->  SimpleExpression . MOD SimpleExpression   (rule 22)
+    SimpleExpression  ->  SimpleExpression . MORE SimpleExpression   (rule 23)
+    SimpleExpression  ->  SimpleExpression . LESS SimpleExpression   (rule 24)
+    SimpleExpression  ->  SimpleExpression . MORE_OR_EQUAL SimpleExpression   (rule 25)
+    SimpleExpression  ->  SimpleExpression . LESS_OR_EQUAL SimpleExpression   (rule 26)
+    SimpleExpression  ->  SimpleExpression . EQUAL SimpleExpression   (rule 27)
+    SimpleExpression  ->  SimpleExpression . NOT_EQUAL SimpleExpression   (rule 28)
+    SimpleExpression  ->  SimpleExpression . AND SimpleExpression   (rule 29)
+    SimpleExpression  ->  SimpleExpression . OR SimpleExpression   (rule 30)
+    SimpleExpression  ->  SimpleExpression . PLUS_ASSIGNMENT SimpleExpression   (rule 31)
+    SimpleExpression  ->  SimpleExpression . MINUS_ASSIGNMENT SimpleExpression   (rule 32)
+    SimpleExpression  ->  SimpleExpression . MUL_ASSIGNMENT SimpleExpression   (rule 33)
+    SimpleExpression  ->  SimpleExpression . DIV_ASSIGNMENT SimpleExpression   (rule 34)
+    SimpleExpression  ->  SimpleExpression DIV_ASSIGNMENT SimpleExpression .   (rule 34)
+    SimpleExpression  ->  SimpleExpression . MOD_ASSIGNMENT SimpleExpression   (rule 35)
+    SimpleExpression  ->  SimpleExpression . OPT_PARAM SimpleExpression COLON SimpleExpression   (rule 36)
+    SimpleExpression  ->  SimpleExpression . INCREMENT   (rule 42)
+    SimpleExpression  ->  SimpleExpression . DECREMENT   (rule 43)
+
+    OPT_PARAM	shift, and go to state 23
+    MOD 	shift, and go to state 24
+    MOD_ASSIGNMENT	shift, and go to state 25
+    PLUS	shift, and go to state 26
+    PLUS_ASSIGNMENT	shift, and go to state 27
+    INCREMENT	shift, and go to state 28
+    MINUS	shift, and go to state 29
+    MINUS_ASSIGNMENT	shift, and go to state 30
+    DECREMENT	shift, and go to state 31
+    MUL 	shift, and go to state 32
+    MUL_ASSIGNMENT	shift, and go to state 33
+    EQUAL	shift, and go to state 34
+    NOT_EQUAL	shift, and go to state 35
+    MORE	shift, and go to state 36
+    MORE_OR_EQUAL	shift, and go to state 37
+    LESS	shift, and go to state 38
+    LESS_OR_EQUAL	shift, and go to state 39
+    DIV 	shift, and go to state 40
+    DIV_ASSIGNMENT	shift, and go to state 41
+    AND 	shift, and go to state 42
+    OR  	shift, and go to state 43
+    LEFT_SQUARE_BRACKET	shift, and go to state 44
+    SAFE_NAVIGATE	shift, and go to state 45
+    DOT 	shift, and go to state 46
+
+    $default	reduce using rule 34 (SimpleExpression)
+
+
+
+state 67
+
+    SimpleExpression  ->  SimpleExpression . DOT ID   (rule 13)
+    SimpleExpression  ->  SimpleExpression . SAFE_NAVIGATE ID   (rule 14)
+    SimpleExpression  ->  SimpleExpression . DOT ID LEFT_ROUND_BRACKET ExpressionList_e RIGHT_ROUND_BRACKET   (rule 15)
+    SimpleExpression  ->  SimpleExpression . SAFE_NAVIGATE ID LEFT_ROUND_BRACKET ExpressionList_e RIGHT_ROUND_BRACKET   (rule 16)
+    SimpleExpression  ->  SimpleExpression . LEFT_SQUARE_BRACKET SimpleExpression RIGHT_SQUARE_BRACKET   (rule 17)
+    SimpleExpression  ->  SimpleExpression . PLUS SimpleExpression   (rule 18)
+    SimpleExpression  ->  SimpleExpression . MINUS SimpleExpression   (rule 19)
+    SimpleExpression  ->  SimpleExpression . MUL SimpleExpression   (rule 20)
+    SimpleExpression  ->  SimpleExpression . DIV SimpleExpression   (rule 21)
+    SimpleExpression  ->  SimpleExpression . MOD SimpleExpression   (rule 22)
+    SimpleExpression  ->  SimpleExpression . MORE SimpleExpression   (rule 23)
+    SimpleExpression  ->  SimpleExpression . LESS SimpleExpression   (rule 24)
+    SimpleExpression  ->  SimpleExpression . MORE_OR_EQUAL SimpleExpression   (rule 25)
+    SimpleExpression  ->  SimpleExpression . LESS_OR_EQUAL SimpleExpression   (rule 26)
+    SimpleExpression  ->  SimpleExpression . EQUAL SimpleExpression   (rule 27)
+    SimpleExpression  ->  SimpleExpression . NOT_EQUAL SimpleExpression   (rule 28)
+    SimpleExpression  ->  SimpleExpression . AND SimpleExpression   (rule 29)
+    SimpleExpression  ->  SimpleExpression AND SimpleExpression .   (rule 29)
+    SimpleExpression  ->  SimpleExpression . OR SimpleExpression   (rule 30)
+    SimpleExpression  ->  SimpleExpression . PLUS_ASSIGNMENT SimpleExpression   (rule 31)
+    SimpleExpression  ->  SimpleExpression . MINUS_ASSIGNMENT SimpleExpression   (rule 32)
+    SimpleExpression  ->  SimpleExpression . MUL_ASSIGNMENT SimpleExpression   (rule 33)
+    SimpleExpression  ->  SimpleExpression . DIV_ASSIGNMENT SimpleExpression   (rule 34)
+    SimpleExpression  ->  SimpleExpression . MOD_ASSIGNMENT SimpleExpression   (rule 35)
+    SimpleExpression  ->  SimpleExpression . OPT_PARAM SimpleExpression COLON SimpleExpression   (rule 36)
+    SimpleExpression  ->  SimpleExpression . INCREMENT   (rule 42)
+    SimpleExpression  ->  SimpleExpression . DECREMENT   (rule 43)
+
+    OPT_PARAM	shift, and go to state 23
+    MOD 	shift, and go to state 24
+    PLUS	shift, and go to state 26
+    INCREMENT	shift, and go to state 28
+    MINUS	shift, and go to state 29
+    DECREMENT	shift, and go to state 31
+    MUL 	shift, and go to state 32
+    DIV 	shift, and go to state 40
+    LEFT_SQUARE_BRACKET	shift, and go to state 44
+    SAFE_NAVIGATE	shift, and go to state 45
+    DOT 	shift, and go to state 46
+
+    $default	reduce using rule 29 (SimpleExpression)
+
+
+
+state 68
+
+    SimpleExpression  ->  SimpleExpression . DOT ID   (rule 13)
+    SimpleExpression  ->  SimpleExpression . SAFE_NAVIGATE ID   (rule 14)
+    SimpleExpression  ->  SimpleExpression . DOT ID LEFT_ROUND_BRACKET ExpressionList_e RIGHT_ROUND_BRACKET   (rule 15)
+    SimpleExpression  ->  SimpleExpression . SAFE_NAVIGATE ID LEFT_ROUND_BRACKET ExpressionList_e RIGHT_ROUND_BRACKET   (rule 16)
+    SimpleExpression  ->  SimpleExpression . LEFT_SQUARE_BRACKET SimpleExpression RIGHT_SQUARE_BRACKET   (rule 17)
+    SimpleExpression  ->  SimpleExpression . PLUS SimpleExpression   (rule 18)
+    SimpleExpression  ->  SimpleExpression . MINUS SimpleExpression   (rule 19)
+    SimpleExpression  ->  SimpleExpression . MUL SimpleExpression   (rule 20)
+    SimpleExpression  ->  SimpleExpression . DIV SimpleExpression   (rule 21)
+    SimpleExpression  ->  SimpleExpression . MOD SimpleExpression   (rule 22)
+    SimpleExpression  ->  SimpleExpression . MORE SimpleExpression   (rule 23)
+    SimpleExpression  ->  SimpleExpression . LESS SimpleExpression   (rule 24)
+    SimpleExpression  ->  SimpleExpression . MORE_OR_EQUAL SimpleExpression   (rule 25)
+    SimpleExpression  ->  SimpleExpression . LESS_OR_EQUAL SimpleExpression   (rule 26)
+    SimpleExpression  ->  SimpleExpression . EQUAL SimpleExpression   (rule 27)
+    SimpleExpression  ->  SimpleExpression . NOT_EQUAL SimpleExpression   (rule 28)
+    SimpleExpression  ->  SimpleExpression . AND SimpleExpression   (rule 29)
+    SimpleExpression  ->  SimpleExpression . OR SimpleExpression   (rule 30)
+    SimpleExpression  ->  SimpleExpression OR SimpleExpression .   (rule 30)
+    SimpleExpression  ->  SimpleExpression . PLUS_ASSIGNMENT SimpleExpression   (rule 31)
+    SimpleExpression  ->  SimpleExpression . MINUS_ASSIGNMENT SimpleExpression   (rule 32)
+    SimpleExpression  ->  SimpleExpression . MUL_ASSIGNMENT SimpleExpression   (rule 33)
+    SimpleExpression  ->  SimpleExpression . DIV_ASSIGNMENT SimpleExpression   (rule 34)
+    SimpleExpression  ->  SimpleExpression . MOD_ASSIGNMENT SimpleExpression   (rule 35)
+    SimpleExpression  ->  SimpleExpression . OPT_PARAM SimpleExpression COLON SimpleExpression   (rule 36)
+    SimpleExpression  ->  SimpleExpression . INCREMENT   (rule 42)
+    SimpleExpression  ->  SimpleExpression . DECREMENT   (rule 43)
+
+    OPT_PARAM	shift, and go to state 23
+    MOD 	shift, and go to state 24
+    PLUS	shift, and go to state 26
+    INCREMENT	shift, and go to state 28
+    MINUS	shift, and go to state 29
+    DECREMENT	shift, and go to state 31
+    MUL 	shift, and go to state 32
+    DIV 	shift, and go to state 40
+    LEFT_SQUARE_BRACKET	shift, and go to state 44
+    SAFE_NAVIGATE	shift, and go to state 45
+    DOT 	shift, and go to state 46
+
+    $default	reduce using rule 30 (SimpleExpression)
+
+
+
+state 69
+
+    SimpleExpression  ->  SimpleExpression . DOT ID   (rule 13)
+    SimpleExpression  ->  SimpleExpression . SAFE_NAVIGATE ID   (rule 14)
+    SimpleExpression  ->  SimpleExpression . DOT ID LEFT_ROUND_BRACKET ExpressionList_e RIGHT_ROUND_BRACKET   (rule 15)
+    SimpleExpression  ->  SimpleExpression . SAFE_NAVIGATE ID LEFT_ROUND_BRACKET ExpressionList_e RIGHT_ROUND_BRACKET   (rule 16)
+    SimpleExpression  ->  SimpleExpression . LEFT_SQUARE_BRACKET SimpleExpression RIGHT_SQUARE_BRACKET   (rule 17)
+    SimpleExpression  ->  SimpleExpression LEFT_SQUARE_BRACKET SimpleExpression . RIGHT_SQUARE_BRACKET   (rule 17)
+    SimpleExpression  ->  SimpleExpression . PLUS SimpleExpression   (rule 18)
+    SimpleExpression  ->  SimpleExpression . MINUS SimpleExpression   (rule 19)
+    SimpleExpression  ->  SimpleExpression . MUL SimpleExpression   (rule 20)
+    SimpleExpression  ->  SimpleExpression . DIV SimpleExpression   (rule 21)
+    SimpleExpression  ->  SimpleExpression . MOD SimpleExpression   (rule 22)
+    SimpleExpression  ->  SimpleExpression . MORE SimpleExpression   (rule 23)
+    SimpleExpression  ->  SimpleExpression . LESS SimpleExpression   (rule 24)
+    SimpleExpression  ->  SimpleExpression . MORE_OR_EQUAL SimpleExpression   (rule 25)
+    SimpleExpression  ->  SimpleExpression . LESS_OR_EQUAL SimpleExpression   (rule 26)
+    SimpleExpression  ->  SimpleExpression . EQUAL SimpleExpression   (rule 27)
+    SimpleExpression  ->  SimpleExpression . NOT_EQUAL SimpleExpression   (rule 28)
+    SimpleExpression  ->  SimpleExpression . AND SimpleExpression   (rule 29)
+    SimpleExpression  ->  SimpleExpression . OR SimpleExpression   (rule 30)
+    SimpleExpression  ->  SimpleExpression . PLUS_ASSIGNMENT SimpleExpression   (rule 31)
+    SimpleExpression  ->  SimpleExpression . MINUS_ASSIGNMENT SimpleExpression   (rule 32)
+    SimpleExpression  ->  SimpleExpression . MUL_ASSIGNMENT SimpleExpression   (rule 33)
+    SimpleExpression  ->  SimpleExpression . DIV_ASSIGNMENT SimpleExpression   (rule 34)
+    SimpleExpression  ->  SimpleExpression . MOD_ASSIGNMENT SimpleExpression   (rule 35)
+    SimpleExpression  ->  SimpleExpression . OPT_PARAM SimpleExpression COLON SimpleExpression   (rule 36)
+    SimpleExpression  ->  SimpleExpression . INCREMENT   (rule 42)
+    SimpleExpression  ->  SimpleExpression . DECREMENT   (rule 43)
+
+    OPT_PARAM	shift, and go to state 23
+    MOD 	shift, and go to state 24
+    MOD_ASSIGNMENT	shift, and go to state 25
+    PLUS	shift, and go to state 26
+    PLUS_ASSIGNMENT	shift, and go to state 27
+    INCREMENT	shift, and go to state 28
+    MINUS	shift, and go to state 29
+    MINUS_ASSIGNMENT	shift, and go to state 30
+    DECREMENT	shift, and go to state 31
+    MUL 	shift, and go to state 32
+    MUL_ASSIGNMENT	shift, and go to state 33
+    EQUAL	shift, and go to state 34
+    NOT_EQUAL	shift, and go to state 35
+    MORE	shift, and go to state 36
+    MORE_OR_EQUAL	shift, and go to state 37
+    LESS	shift, and go to state 38
+    LESS_OR_EQUAL	shift, and go to state 39
+    DIV 	shift, and go to state 40
+    DIV_ASSIGNMENT	shift, and go to state 41
+    AND 	shift, and go to state 42
+    OR  	shift, and go to state 43
+    LEFT_SQUARE_BRACKET	shift, and go to state 44
+    RIGHT_SQUARE_BRACKET	shift, and go to state 74
+    SAFE_NAVIGATE	shift, and go to state 45
+    DOT 	shift, and go to state 46
+
+
+
+state 70
+
+    SimpleExpression  ->  SimpleExpression SAFE_NAVIGATE ID .   (rule 14)
+    SimpleExpression  ->  SimpleExpression SAFE_NAVIGATE ID . LEFT_ROUND_BRACKET ExpressionList_e RIGHT_ROUND_BRACKET   (rule 16)
+
+    LEFT_ROUND_BRACKET	shift, and go to state 75
+
+    $default	reduce using rule 14 (SimpleExpression)
+
+
+
+state 71
+
+    SimpleExpression  ->  SimpleExpression DOT ID .   (rule 13)
+    SimpleExpression  ->  SimpleExpression DOT ID . LEFT_ROUND_BRACKET ExpressionList_e RIGHT_ROUND_BRACKET   (rule 15)
+
+    LEFT_ROUND_BRACKET	shift, and go to state 76
+
+    $default	reduce using rule 13 (SimpleExpression)
+
+
+
+state 72
+
+    SimpleExpression  ->  ID LEFT_ROUND_BRACKET ExpressionList_e RIGHT_ROUND_BRACKET .   (rule 11)
+
+    $default	reduce using rule 11 (SimpleExpression)
+
+
+
+state 73
+
+    SimpleExpression  ->  SimpleExpression OPT_PARAM SimpleExpression COLON . SimpleExpression   (rule 36)
+
+    INT_LITERAL	shift, and go to state 1
+    DOUBLE_LITERAL	shift, and go to state 2
+    STRING_LITERAL	shift, and go to state 3
+    BOOL_LITERAL	shift, and go to state 4
+    NULL_LITERAL	shift, and go to state 5
+    ID  	shift, and go to state 6
+    PLUS	shift, and go to state 7
+    INCREMENT	shift, and go to state 8
+    MINUS	shift, and go to state 9
+    DECREMENT	shift, and go to state 10
+    BIT_NOT	shift, and go to state 11
+    LEFT_ROUND_BRACKET	shift, and go to state 12
+
+    SimpleExpression	go to state 77
+
+
+
+state 74
+
+    SimpleExpression  ->  SimpleExpression LEFT_SQUARE_BRACKET SimpleExpression RIGHT_SQUARE_BRACKET .   (rule 17)
+
+    $default	reduce using rule 17 (SimpleExpression)
+
+
+
+state 75
+
+    SimpleExpression  ->  SimpleExpression SAFE_NAVIGATE ID LEFT_ROUND_BRACKET . ExpressionList_e RIGHT_ROUND_BRACKET   (rule 16)
+
+    INT_LITERAL	shift, and go to state 1
+    DOUBLE_LITERAL	shift, and go to state 2
+    STRING_LITERAL	shift, and go to state 3
+    BOOL_LITERAL	shift, and go to state 4
+    NULL_LITERAL	shift, and go to state 5
+    ID  	shift, and go to state 6
+    PLUS	shift, and go to state 7
+    INCREMENT	shift, and go to state 8
+    MINUS	shift, and go to state 9
+    DECREMENT	shift, and go to state 10
+    BIT_NOT	shift, and go to state 11
+    LEFT_ROUND_BRACKET	shift, and go to state 12
+
+    $default	reduce using rule 1 (ExpressionList_e)
+
+    ExpressionList_e	go to state 78
+    ExpressionList	go to state 13
+    SimpleExpression	go to state 14
+
+
+
+state 76
+
+    SimpleExpression  ->  SimpleExpression DOT ID LEFT_ROUND_BRACKET . ExpressionList_e RIGHT_ROUND_BRACKET   (rule 15)
+
+    INT_LITERAL	shift, and go to state 1
+    DOUBLE_LITERAL	shift, and go to state 2
+    STRING_LITERAL	shift, and go to state 3
+    BOOL_LITERAL	shift, and go to state 4
+    NULL_LITERAL	shift, and go to state 5
+    ID  	shift, and go to state 6
+    PLUS	shift, and go to state 7
+    INCREMENT	shift, and go to state 8
+    MINUS	shift, and go to state 9
+    DECREMENT	shift, and go to state 10
+    BIT_NOT	shift, and go to state 11
+    LEFT_ROUND_BRACKET	shift, and go to state 12
+
+    $default	reduce using rule 1 (ExpressionList_e)
+
+    ExpressionList_e	go to state 79
+    ExpressionList	go to state 13
+    SimpleExpression	go to state 14
+
+
+
+state 77
+
+    SimpleExpression  ->  SimpleExpression . DOT ID   (rule 13)
+    SimpleExpression  ->  SimpleExpression . SAFE_NAVIGATE ID   (rule 14)
+    SimpleExpression  ->  SimpleExpression . DOT ID LEFT_ROUND_BRACKET ExpressionList_e RIGHT_ROUND_BRACKET   (rule 15)
+    SimpleExpression  ->  SimpleExpression . SAFE_NAVIGATE ID LEFT_ROUND_BRACKET ExpressionList_e RIGHT_ROUND_BRACKET   (rule 16)
+    SimpleExpression  ->  SimpleExpression . LEFT_SQUARE_BRACKET SimpleExpression RIGHT_SQUARE_BRACKET   (rule 17)
+    SimpleExpression  ->  SimpleExpression . PLUS SimpleExpression   (rule 18)
+    SimpleExpression  ->  SimpleExpression . MINUS SimpleExpression   (rule 19)
+    SimpleExpression  ->  SimpleExpression . MUL SimpleExpression   (rule 20)
+    SimpleExpression  ->  SimpleExpression . DIV SimpleExpression   (rule 21)
+    SimpleExpression  ->  SimpleExpression . MOD SimpleExpression   (rule 22)
+    SimpleExpression  ->  SimpleExpression . MORE SimpleExpression   (rule 23)
+    SimpleExpression  ->  SimpleExpression . LESS SimpleExpression   (rule 24)
+    SimpleExpression  ->  SimpleExpression . MORE_OR_EQUAL SimpleExpression   (rule 25)
+    SimpleExpression  ->  SimpleExpression . LESS_OR_EQUAL SimpleExpression   (rule 26)
+    SimpleExpression  ->  SimpleExpression . EQUAL SimpleExpression   (rule 27)
+    SimpleExpression  ->  SimpleExpression . NOT_EQUAL SimpleExpression   (rule 28)
+    SimpleExpression  ->  SimpleExpression . AND SimpleExpression   (rule 29)
+    SimpleExpression  ->  SimpleExpression . OR SimpleExpression   (rule 30)
+    SimpleExpression  ->  SimpleExpression . PLUS_ASSIGNMENT SimpleExpression   (rule 31)
+    SimpleExpression  ->  SimpleExpression . MINUS_ASSIGNMENT SimpleExpression   (rule 32)
+    SimpleExpression  ->  SimpleExpression . MUL_ASSIGNMENT SimpleExpression   (rule 33)
+    SimpleExpression  ->  SimpleExpression . DIV_ASSIGNMENT SimpleExpression   (rule 34)
+    SimpleExpression  ->  SimpleExpression . MOD_ASSIGNMENT SimpleExpression   (rule 35)
+    SimpleExpression  ->  SimpleExpression . OPT_PARAM SimpleExpression COLON SimpleExpression   (rule 36)
+    SimpleExpression  ->  SimpleExpression OPT_PARAM SimpleExpression COLON SimpleExpression .   (rule 36)
+    SimpleExpression  ->  SimpleExpression . INCREMENT   (rule 42)
+    SimpleExpression  ->  SimpleExpression . DECREMENT   (rule 43)
+
+
+    OPT_PARAM	error (nonassociative)
+
+    $default	reduce using rule 36 (SimpleExpression)
+
+
+
+state 78
+
+    SimpleExpression  ->  SimpleExpression SAFE_NAVIGATE ID LEFT_ROUND_BRACKET ExpressionList_e . RIGHT_ROUND_BRACKET   (rule 16)
+
+    RIGHT_ROUND_BRACKET	shift, and go to state 80
+
+
+
+state 79
+
+    SimpleExpression  ->  SimpleExpression DOT ID LEFT_ROUND_BRACKET ExpressionList_e . RIGHT_ROUND_BRACKET   (rule 15)
+
+    RIGHT_ROUND_BRACKET	shift, and go to state 81
+
+
+
+state 80
+
+    SimpleExpression  ->  SimpleExpression SAFE_NAVIGATE ID LEFT_ROUND_BRACKET ExpressionList_e RIGHT_ROUND_BRACKET .   (rule 16)
+
+    $default	reduce using rule 16 (SimpleExpression)
+
+
+
+state 81
+
+    SimpleExpression  ->  SimpleExpression DOT ID LEFT_ROUND_BRACKET ExpressionList_e RIGHT_ROUND_BRACKET .   (rule 15)
+
+    $default	reduce using rule 15 (SimpleExpression)
+
+
+
+state 82
+
+    $   	go to state 83
+
+
+
+state 83
+
+    $   	go to state 84
+
+
+
+state 84
+
+    $default	accept
